@@ -1,0 +1,20 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../config/ehcache.xsd">
+
+	<!--硬盘中的临时存放目录 -->
+    <diskStore path="F:/EHCache"/>
+    
+    <!-- maxElementsInMemory：内存中最多的记录数 -->
+    <!-- overflowToDisk		：超出是否写入硬盘 -->
+    <defaultCache
+		maxElementsInMemory="100"
+		eternal="false"
+		timeToIdleSeconds="120"
+		timeToLiveSeconds="120"
+		overflowToDisk="true"
+		maxElementsOnDisk="10000000"
+		diskPersistent="false"
+		diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU"
+ 	/>
+</ehcache>

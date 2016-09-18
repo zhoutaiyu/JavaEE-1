@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>cloneNode.html</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#clonebutton").click(function() {
+			//克隆节点...	返回p标签的一个副本..
+			//	克隆匹配的 DOM 元素, 返回值为克隆后的副本. 但此时复制的新节点不具有任何行为.
+			//复制元素的同时复制元素里面的事件...
+			var p = $("p").clone(true);
+			$("div").append(p);
+		})
+	})
+</script>
+
+</head>
+
+<body>
+	<p>大连到烟台拟建百公里海底高铁 投资超2000亿</p>
+	<div></div>
+
+	<input type="button" id="clonebutton" value="克隆节点">
+</body>
+</html>

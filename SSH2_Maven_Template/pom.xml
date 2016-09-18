@@ -1,0 +1,265 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>cn.edu.oucqdc</groupId>
+	<artifactId>Spring_Maven_Template</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<name>Spring_Maven_Template</name>
+	<url>http://www.oucqdc.edu.cn/</url>
+
+	<properties>
+		<servlet.version>3.1.0</servlet.version>
+		<jsp-api.version>2.0</jsp-api.version>
+		<log4j-core.version>2.6.2</log4j-core.version>
+		<log4j.version>1.2.17</log4j.version>
+		<junit.version>4.12</junit.version>
+
+
+		<!-- 【Struts2】 -->
+		<!-- Struts2核心包 -->
+		<struts2-core.version>2.5.2</struts2-core.version>
+		<!-- 整合Spring框架 -->
+		<struts2-spring-plugin.version>2.5.2</struts2-spring-plugin.version>
+		<!-- 整合AJAX -->
+		<struts2-json-plugin.version>2.5.2</struts2-json-plugin.version>
+		<!-- Struts2注解 -->
+		<struts2-convention-plugin.version>2.5.2</struts2-convention-plugin.version>
+
+
+		<!-- 【Spring】 -->
+		<!-- Spring核心包 -->
+		<spring-core.version>4.3.2.RELEASE</spring-core.version>
+		<spring-context.version>4.3.2.RELEASE</spring-context.version>
+		<spring-beans.version>4.3.2.RELEASE</spring-beans.version>
+		<spring-expression.version>4.3.2.RELEASE</spring-expression.version>
+
+		<!-- Spring的AOP -->
+		<spring-aop.version>4.3.2.RELEASE</spring-aop.version>
+		<aopalliance.version>1.0</aopalliance.version>
+		<aspectjrt.version>1.8.9</aspectjrt.version>
+		<aspectjweaver.version>1.8.9</aspectjweaver.version>
+
+		<!-- Spring的JdbcTemplate -->
+		<spring-jdbc.version>4.3.2.RELEASE</spring-jdbc.version>
+		<!-- DBCP连接池 -->
+		<!-- <commons-dbcp.version>1.4</commons-dbcp.version> -->
+		<!-- c3p0连接池 -->
+		<!-- <c3p0.version>0.9.5.2</c3p0.version> -->
+
+		<!-- Spring整合其他ORM框架 -->
+		<spring-orm.version>4.3.2.RELEASE</spring-orm.version>
+
+		<!-- Spring在web中使用 -->
+		<spring-web.version>4.3.2.RELEASE</spring-web.version>
+
+		<!-- Spring整合Junit测试 -->
+		<spring-test.version>4.3.2.RELEASE</spring-test.version>
+
+
+		<!-- Hibernate -->
+		<!-- Hibernate核心包 -->
+		<hibernate-core.version>5.2.2.Final</hibernate-core.version>
+		<!--jpa -->
+		<hibernate-jpamodelgen.version>5.2.2.Final</hibernate-jpamodelgen.version>
+		<!-- hibernate整合log4j -->
+		<slf4j-api.version>1.7.21</slf4j-api.version>
+		<slf4j-nop.version>1.7.21</slf4j-nop.version>
+		<!-- c3p0 -->
+		<hibernate-c3p0.version>5.2.2.Final</hibernate-c3p0.version>
+		<!-- MySQL -->
+		<mysql.version>6.0.3</mysql.version>
+		<!-- 二级缓存 -->
+		<hibernate-ehcache>5.2.2.Final</hibernate-ehcache>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>${jsp-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j-core.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<!-- 【Struts2】 -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>${struts2-core.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-spring-plugin</artifactId>
+			<version>${struts2-spring-plugin.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-json-plugin</artifactId>
+			<version>${struts2-json-plugin.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-convention-plugin</artifactId>
+			<version>${struts2-convention-plugin.version}</version>
+		</dependency>
+
+
+		<!-- 【Spring】 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring-core.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring-context.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring-beans.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${spring-expression.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring-aop.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>aopalliance</groupId>
+			<artifactId>aopalliance</artifactId>
+			<version>${aopalliance.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${aspectjrt.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectjweaver.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring-jdbc.version}</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>commons-dbcp</groupId> <artifactId>commons-dbcp</artifactId> 
+			<version>${commons-dbcp.version}</version> </dependency> -->
+
+
+		<!-- <dependency> <groupId>com.mchange</groupId> <artifactId>c3p0</artifactId> 
+			<version>${c3p0.version}</version> </dependency> -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring-orm.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring-web.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring-test.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate-core.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-jpamodelgen</artifactId>
+			<version>${hibernate-jpamodelgen.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j-api.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-nop</artifactId>
+			<version>${slf4j-nop.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-c3p0</artifactId>
+			<version>${hibernate-c3p0.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<version>${hibernate-ehcache}</version>
+		</dependency>
+	</dependencies>
+
+</project>

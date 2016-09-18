@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>jQuery 特效</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		$("#showbutton").click(function() {
+			// 显示
+			// $("#message").show(3000);
+			
+			// 淡入
+			// $("#message").fadeIn(3000);
+			
+			// 滑动
+			$("#message").slideDown(3000);
+		});
+		
+		$("#hidebutton").click(function() {
+			// 隐藏 
+			//$("#message").hide(3000);
+			
+			// 淡出
+			// $("#message").fadeOut(3000);
+			
+			// 滑动
+			$("#message").slideUp(3000);
+		});
+		
+		//{"":""}  json 格式在javascript  里面它就是一个对象..
+		//执行动画的动作...	 ,"opacity":"hide"  2:执行动画的时间..
+		$("#animatebutton").click(function() {
+			$("#message").animate({"margin-left":300}, 3000);
+			
+			$("#message").animate({"padding":30}, 1000);
+		});
+	});
+</script>
+
+<style type="text/css">
+	.message {
+		background: red;
+		border: 3px solid #abcdef;
+		height: 40px;
+		width: 40px;
+	}
+</style>
+
+</head>
+
+
+
+<body>
+	<div class="message" id="message"></div>
+	<input type="button" value="显示" id="showbutton">
+	<input type="button" value="隐藏" id="hidebutton">
+
+	<input type="button" value="执行动画" id="animatebutton">
+</body>
+</html>

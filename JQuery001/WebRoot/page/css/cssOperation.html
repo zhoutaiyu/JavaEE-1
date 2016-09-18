@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>样式操作...</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
+
+
+
+<script type="text/javascript">
+	$(function() {
+		$("#cssoperation").click(function() {
+			//addClass 往当前元素上面追加一个样式.. 
+			//操作样式的第一种方式.. 优先去第一种...
+			//$("div").addClass("cssbaidu");
+
+			//操作样式的第二种方式..
+			//$("div").attr("class","cssbaidu")
+
+			//第三种方式：
+			//	$("div").css("font-size","28");
+
+			//一个元素的class 属性可以对应有多个值...
+
+			//如果不加参数，删除当前元素上面的所有的class 值
+			//$("div").removeClass();
+			//如果加参数，根据参数名称删除指定 class
+			//$("div").removeClass("csshaosou");
+
+			//判断当前元素是否具备某个样式...
+
+			//var flag=$("div").hasClass("cssbaidu");
+
+			//alert(flag);
+
+			//切换样式：控制样式上的重复切换.如果类名存在则删除它, 如果类名不存在则添加它。
+			//$("div").toggleClass("cssbaidu");
+
+			//							toggle  切换...
+			/**
+			 * 调用toggle 首先会先判断当前元素  是否是隐藏状态..
+			 * 
+			 * 如果是隐藏状态，则调用jQuery 的show 方法  显示...
+			 * 
+			 * 如果是显示状态，则调用jQuery 的hide 方法隐藏...
+			 * 
+			 */
+			$("div").toggle(3000);
+
+		})
+	})
+</script>
+
+<style type="text/css">
+.cssbaidu {
+	background: red;
+	height: 200px;
+	width: 200px;
+}
+
+.csshaosou {
+	font-size: 28px;
+}
+</style>
+
+</head>
+
+<body>
+	<input type="button" value="样式操作" id="cssoperation">
+	<div class="cssbaidu">2015年1月20日上午9点30分，姚贝娜遗体告别会在深圳市殡仪馆大礼堂举行</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>02_创建节点.html</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../js/jquery-1.4.2.js"></script>
+	</head>
+	<body>
+		 <ul id="city">
+		 	 <li id="bj" name="beijing">北京</li>
+			 
+		 </ul>
+	</body>
+	<script type="text/javascript">
+//			/通过jquery dom 创建<li id="tj" name="tianjin">天津</li>		
+//			创建元素节点
+			var $li=$("<li></li>");
+			
+//			/设置属性节点
+			$li.attr("id","tj");
+			$li.attr("id","tj");
+			//设置文本节点
+			$li.text("天津");
+			alert('a');
+			//获取节点
+			var $city=$("#city");
+			
+//			/往节点里面追加创建好的节点..
+			
+			$city.append($li);
+	</script>
+   
+</html>
+
+
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="default" location="706,49" size="280,385">
+    <action name="user_*" location="84,147" size="150,167">
+      <result name="login_success">
+        <resourceEdge source="login_success" routing="0" target="home.jsp" />
+      </result>
+      <result name="login_input">
+        <resourceEdge source="login_input" routing="0" target="login.jsp" />
+      </result>
+      <result name="list_success">
+        <resourceEdge source="list_success" routing="0" target="list.jsp" />
+      </result>
+      <result name="listSelect_success">
+        <resourceEdge source="listSelect_success" routing="0" target="list.jsp" />
+      </result>
+      <result name="add_success" />
+      <result name="add_input">
+        <resourceEdge source="add_input" routing="0" target="add.jsp" />
+      </result>
+      <result name="delete_success" />
+    </action>
+  </package>
+  <webResource name="home.jsp" path="/login/home.jsp" location="535,105" size="150,55" />
+  <webResource name="login.jsp" path="/login/login.jsp" location="344,108" size="150,55" />
+  <webResource name="list.jsp" path="/user/list.jsp" location="171,104" size="150,55" />
+  <webResource name="add.jsp" path="/user/add.jsp" location="10,104" size="150,55" />
+</Struts2Diagram>
+

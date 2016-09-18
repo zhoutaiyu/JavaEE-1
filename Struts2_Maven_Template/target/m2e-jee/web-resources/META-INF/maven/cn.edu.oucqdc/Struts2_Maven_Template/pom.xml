@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>cn.edu.oucqdc</groupId>
+	<artifactId>${system.name}</artifactId>
+	<packaging>war</packaging>
+	<version>${system.version}</version>
+
+	<name>${system.name}</name>
+	<url>http://www.oucqdc.edu.cn/</url>
+
+	<properties>
+		<system.name>Struts2_Maven_Template</system.name>
+		<system.version>0.0.1-SNAPSHOT</system.version>
+
+		<servlet.version>3.1.0</servlet.version>
+
+		<!-- Struts2 -->
+		<!-- Struts2核心包 -->
+		<struts2-core.version>2.5.2</struts2-core.version>
+		<!-- 整合Spring框架 -->
+		<!-- <struts2-spring-plugin.version>2.5.2</struts2-spring-plugin.version> -->
+		<!-- 整合AJAX -->
+		<struts2-json-plugin.version>2.5.2</struts2-json-plugin.version>
+		<!-- Struts2注解 -->
+		<struts2-convention-plugin.version>2.5.2</struts2-convention-plugin.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet.version}</version>
+		</dependency>
+
+
+		<!-- Struts2 -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>${struts2-core.version}</version>
+		</dependency>
+
+		<!-- <dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-spring-plugin</artifactId>
+			<version>${struts2-spring-plugin.version}</version>
+		</dependency> -->
+
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-json-plugin</artifactId>
+			<version>${struts2-json-plugin.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-convention-plugin</artifactId>
+			<version>${struts2-convention-plugin.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${system.name}</finalName>
+	</build>
+</project>

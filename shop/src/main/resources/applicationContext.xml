@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- 配置c3p0连接池 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<!-- 数据库连接的四个基本参数 -->
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+	<!-- 配置Hibernate的其他属属性 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<!-- 注入连接池 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 配置Hibernate的属性 -->
+		<property name="hibernateProperties">
+			<props>
+				<!-- Hibernate的方言 -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<!-- 显示SQL -->
+				<prop key="hibernate.show_sql">true</prop>
+				<!-- 格式化SQL -->
+				<prop key="hibernate.format_sql">true</prop>
+				<!-- 是否自动提交 -->
+				<prop key="hibernate.connection.autocommit">false</prop>
+				<!-- hbm:映射 to DDL: create drop alter -->
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+
+		<!-- 加载映射文件 -->
+		<property name="mappingDirectoryLocations">
+			<list>
+				<value>classpath:cn/qdgxy/shop/user/vo/</value>
+				<value>classpath:cn/qdgxy/shop/category/vo/</value>
+				<value>classpath:cn/qdgxy/shop/categorysecond/vo/</value>
+				<value>classpath:cn/qdgxy/shop/product/vo/</value>
+				<value>classpath:cn/qdgxy/shop/order/vo/</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- 声明事务管理 -->
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<!-- 注入sessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 注解开启事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+
+	<!-- 使用注解 -->
+	<context:annotation-config />
+
+
+	<!-- 【Action】 -->
+	<!-- 首页Action -->
+	<bean id="indexAction" class="cn.qdgxy.shop.index.action.IndexAction"
+		scope="prototype" />
+
+	<!-- 验证码Action -->
+	<bean id="verifyCodeAction" class="cn.qdgxy.shop.user.action.VerifyCodeAction"
+		scope="prototype" />
+
+	<!-- 用户Action -->
+	<bean id="userAction" class="cn.qdgxy.shop.user.action.UserAction"
+		scope="prototype" />
+
+	<!-- 一级分类Action -->
+	<bean id="categoryAction" class="cn.qdgxy.shop.category.action.CategoryAction"
+		scope="prototype" />
+
+	<!-- 二级分类Action -->
+	<bean id="categorySecondAction"
+		class="cn.qdgxy.shop.categorysecond.action.CategorySecondAction"
+		scope="prototype" />
+
+	<!-- 商品Action -->
+	<bean id="productAction" class="cn.qdgxy.shop.product.action.ProductAction"
+		scope="prototype" />
+
+	<!-- 购物车Action -->
+	<bean id="cartAction" class="cn.qdgxy.shop.cart.action.CartAction"
+		scope="prototype" />
+
+	<!-- 订单Action -->
+	<bean id="orderAction" class="cn.qdgxy.shop.order.action.OrderAction"
+		scope="prototype" />
+
+
+	<!-- 【Service】 -->
+	<!-- 用户Service -->
+	<bean id="userService" class="cn.qdgxy.shop.user.service.UserService" />
+
+	<!-- 一级分类Service -->
+	<bean id="categoryService" class="cn.qdgxy.shop.category.service.CategoryService" />
+
+	<!-- 二级分类Service -->
+	<bean id="categorySecondService"
+		class="cn.qdgxy.shop.categorysecond.service.CategorySecondService" />
+
+	<!-- 商品Service -->
+	<bean id="productService" class="cn.qdgxy.shop.product.service.ProductService" />
+
+	<!-- 订单Service -->
+	<bean id="orderService" class="cn.qdgxy.shop.order.service.OrderService" />
+
+
+	<!-- 【Dao】 -->
+	<!-- 用户Dao -->
+	<bean id="userDao" class="cn.qdgxy.shop.user.dao.UserDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 一级分类Dao -->
+	<bean id="categoryDao" class="cn.qdgxy.shop.category.dao.CategoryDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 二级分类Dao -->
+	<bean id="categorySecondDao" class="cn.qdgxy.shop.categorysecond.dao.CategorySecondDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 商品分类Dao -->
+	<bean id="productDao" class="cn.qdgxy.shop.product.dao.ProductDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 订单Dao -->
+	<bean id="orderDao" class="cn.qdgxy.shop.order.dao.OrderDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+</beans>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="default" extends="struts-default" namespace="">
+		<action name="customer_*" class="cn.itcast.action.CustomerAction"
+			method="{1}">
+			<result name="findAll_success">/listCustomer.jsp</result>
+
+			<result name="delete_success" type="redirectAction">customer_findAll</result>
+		</action>
+
+		<action name="order_*" class="cn.itcast.action.OrderAction"
+			method="{1}">
+			
+		</action>
+	</package>
+
+</struts>

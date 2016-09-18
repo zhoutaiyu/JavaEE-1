@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>动态绑定事件，动态解绑事件</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#bindbutton").click(function() {
+
+			$("div").bind("mouseover", function() {
+
+				// $(this).css("background","blue");
+				alert("a");
+			})
+
+		})
+
+		$("#unbindbutton").click(function() {
+			//解绑所有的时间..
+			//				 $("div").unbind();
+
+			$("div").unbind("mouseover");
+
+		})
+
+	})
+</script>
+
+
+<style type="text/css">
+.redclass {
+	height: 300px;
+	width: 300px;
+	background: red;
+}
+</style>
+</head>
+
+<body>
+	<div class="redclass">asdfasdfasd</div>
+
+	<input type="button" value="绑定事件" id="bindbutton">
+
+	<input type="button" value="解绑事件" id="unbindbutton">
+</body>
+</html>

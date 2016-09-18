@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>表单</title>
+
+<!--easyui的各种主题文件-->
+<link rel="stylesheet" type="text/css" href="../easyui/themes/bootstrap/easyui.css">
+<!--easyui的各种图标-->
+<link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
+ 
+<!--引入Jquery主文件-->
+<script type="text/javascript" src="../easyui/jquery.min.js"></script>
+<!--引入JqueryEasyUI主文件-->
+<script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+
+<script type="text/javascript">
+	function mysub() {
+		/* alert("2");
+		$("#ff").submit(); */
+		
+		$('#ff').form({    
+		    url: "../Demo1Servlet",    
+		    onSubmit: function(){    
+		        // do some check    
+		        // return false to prevent submit;  
+		        
+
+		    },
+		    success:function(data){   
+		    	var data = eval('(' + data + ')');  
+		    	 
+		        alert(data.name)    
+		    }    
+		});    
+		// submit the form    
+		$('#ff').submit();  
+	}
+</script>
+</head>
+<body>
+	<form id="ff" method="post">   
+	    <div>   
+	        <label for="name">Name:</label>   
+	        <input class="easyui-validatebox" type="text" name="name" data-options="required:true" />   
+	    </div>   
+	    <div>   
+	        <label for="email">Email:</label>   
+	        <input class="easyui-validatebox" type="text" name="email" data-options="validType:'email'" />   
+	    </div>   
+	    <input type="button" value="提交" onclick="mysub();">
+	</form>  
+</body>
+</html>

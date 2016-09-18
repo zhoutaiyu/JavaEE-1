@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<!-- 版本：4.0.0 -->
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- 群组ID：单位域名反写 -->
+	<!-- <groupId>cn.itcast</groupId> 可以基于父工程 -->
+	<!-- 项目ID：一个单位只有一个域名，但是一个单位可以做多个项目 -->
+	<artifactId>Maven_one</artifactId>
+	<!-- 版本号：用于描述开发过程的阶段性标识 -->
+	<version>1.0.15-RELEASE</version> <!-- 可以基于父工程 -->
+	<!-- 打包类型：项目打包的类型 -->
+	<packaging>jar</packaging>
+
+	<name>Maven_one</name>
+	<url>http://maven.apache.org</url>
+
+	<!-- 继承 -->
+	<parent>
+		<groupId>cn.itcast</groupId>
+		<artifactId>DParent</artifactId>
+		<version>0.0.2-SNAPSHOT</version>
+		<relativePath>../Maven_DParent</relativePath>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<!-- 依赖管理 -->
+	<dependencies>
+		<!-- 具体的依赖 -->
+		<!-- <dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.9</version>
+			<scope>test</scope>
+		</dependency> -->
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+	</dependencies>
+</project>

@@ -1,0 +1,4 @@
+cn\qdgxy\book\dao\BookDao.class
+cn\qdgxy\book\service\BookService.class
+cn\qdgxy\book\vo\Book.class
+cn\qdgxy\book\web\action\BookAction.class

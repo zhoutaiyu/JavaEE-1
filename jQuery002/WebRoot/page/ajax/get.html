@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>get方法的调用</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	jQuery(function() {
+		$("#getbutton").bind("click", function() {
+			$.get("../../getServlet", {}, function(data) {
+				// alert(data);
+
+				//	{total:118,rows:[{id:1,title:'左娜'},{id:2,title:'梅斌'},{id:3,title:'酸梅汤'}]}
+				//传统的解析方法，用substring
+
+				//json 的字符串它是符合一个javascript 的对象...
+
+				//						在js 里面可以面向对象编程
+
+				//						var itcast={
+				//							 name:"张三",
+				//							 writeName:function(){
+				//							 	alert(this.name)
+				//							 }
+				//						}
+				//itcast.writeName()  对象方法的调用..
+
+				var obj = eval("(" + data + ")");
+
+				// alert(obj);
+
+				//alert(obj.total);
+
+				var rows = obj.rows;
+				for (var i = 0; i < rows.length; i++) {
+					alert(rows[i].id + "：" + rows[i].title);
+				}
+			})
+		})
+	})
+</script>
+</head>
+
+<body>
+	<div></div>
+	<input type="button" id="getbutton" value="get 方法的调用">
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+  <head>
+    <title>eachNode.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
+	<script type="text/javascript">
+		
+			$(function(){
+				//获取当前节点下面的子节点..
+				
+				//next();  prev();  获取当前节点的下一个（上一个节点）
+					//alert($("ul").children().length);
+				
+				//alert($("#xiaoli").next().next().text());
+				
+				
+				//alert($("#xiaoli").prev().text());
+				
+				alert($("#xiaoli").siblings("li").size());
+			})
+		
+		
+	</script>
+  </head>
+  
+  <body>
+    	<ul>
+    		<li>左娜</li>
+			<li id="xiaoli">李田雨</li>
+			<li>张兵兵</li>
+			<li>吴俊林</li>
+    	</ul>
+  </body>
+</html>

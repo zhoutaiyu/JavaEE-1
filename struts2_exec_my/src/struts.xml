@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 修改主题为simple，使用struts标签不会产生多余HTML代码 -->
+	<constant name="struts.ui.theme" value="simple" />
+
+	<package name="default" namespace="/" extends="struts-default">
+		<!-- 登录拦截器 -->
+		<interceptors>
+			<interceptor name="loginInterceptor"
+				class="cn.itcast.user.web.interceptor.LoginInterceptor">
+				<param name="excludeMethods">login</param>
+			</interceptor>
+
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="loginInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<global-results>
+			<result name="login">/login/login.jsp</result>
+			<result name="error">/user/error.jsp</result>
+		</global-results>
+
+		<!-- 异常处理 -->
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</global-exception-mappings>
+
+		<!-- user -->
+		<action name="user_*" class="cn.itcast.user.web.action.UserAction"
+			method="{1}">
+			<!-- 登录 -->
+			<result name="login_success">/login/home.jsp</result>
+			<result name="login_input">/login/login.jsp</result>
+
+			<!-- 添加用户 -->
+			<result name="add_success" type="redirectAction">user_findAll</result>
+			<result name="add_input">/user/add.jsp</result>
+
+			<!-- 删除用户 -->
+			<result name="delete_success" type="redirectAction">user_findAll</result>
+
+			<!-- 修改用户 -->
+			<result name="preEdit_success">/user/edit.jsp</result>
+			<result name="edit_success" type="redirectAction">user_findAll</result>
+			<result name="edit_input">/user/edit.jsp</result>
+
+			<!-- 查找用户 -->
+			<result name="findAll_success">/user/list.jsp</result>
+			<result name="findById_success">/user/view.jsp</result>
+			<result name="listSelect_success">/user/list.jsp</result>
+
+			<!-- 下载简历 -->
+			<result name="download_success" type="stream">
+				<param name="contentType">${contextType}</param>
+				<param name="contentDisposition">attachment;filename=${downloadFilname}</param>
+				<param name="inputStream">${inputStream}</param>
+			</result>
+
+			<interceptor-ref name="myStack" />
+		</action>
+	</package>
+
+</struts>

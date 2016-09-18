@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="upload" class="cn.itcast.action.UploadAction">
+			<interceptor-ref name="defaultStack">
+				<param name="fileUpload.maximumSize"></param>
+				<param name="fileUpload.allowedTypes"></param>
+				<param name="fileUpload.allowedExtensions">text, mp3, avi</param>
+			</interceptor-ref>
+			<result name="input">upload.jsp</result>
+		</action>
+
+		<action name="download" class="cn.itcast.action.Download">
+			<result type="stream">
+				<param name="contentType">${contextType}</param>	<!-- 调用当前Action中的getContextType方法 -->
+				<param name="contentDisposition">attachment;filename=${downloadFilname}</param>
+				<param name="inputStream">${inputStream}</param>	<!-- 会调用当前action中的getInputStream方法 -->
+			</result>
+		</action>
+		
+		<action name="ognlDemo6" class="cn.itcast.action.OgnlDemo6Action">
+			<result>/ognl6.jsp</result>
+		</action>
+	</package>
+
+</struts>

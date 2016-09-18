@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>jQuery 异步 提交表单</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		$("#formbutton").click(function() {
+			//将表单里面的选项序列化成一个字符串...	 
+
+			//第一种方式...
+			//var data=$("#form1").serialize();
+
+			//第二种方式 序列化成一个数组...
+			var data = $("#form1").serializeArray();
+
+			//在做调试代码的时候我们一般使用alert
+			//但是alert 它只能打印字符串，或int 类型的数据，不能打印对象里面比较详细的信息...
+			//alert(data);
+
+			//浏览器给我们提供了一个对象叫console.info 可以打印对象里面更加详细的信息..
+			console.info(data);
+
+			for (var i = 0; i < data.length; i++) {
+				alert(data[i].name);
+				alert(data[i].value);
+			} 
+			
+			//发送异步的ajax 请求...
+			$.ajax({
+				url : "../../formServlet",
+
+				// 原始办法
+				//	 data:{
+				//			username:$("#username").val(),
+				//			password:$("#password").val(),
+				//			email:$("#email").val(),
+				//	 },
+
+				//通过ajax 方法提交的时候有两种数据格式，一种字符串
+				// data:data,
+
+				//一个是json
+				data : data,
+				type : "POST",
+				success : function(data) {
+
+				}
+			})
+		})
+	})
+</script>
+
+</head>
+
+<body>
+	<form id="form1">
+		用户名：<input type="text" name="username" id="username"><br><br> 
+		密&nbsp;码：<input type="password" name="password" id="password"><br><br> 
+		邮&nbsp;箱：<input type="text" name="email" id="email"><br><br> 
+		<input type="button" value="异步提交表单" id="formbutton" />
+	</form>
+</body>
+</html>

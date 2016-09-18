@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE validators PUBLIC
+ 		"-//Apache Struts//XWork Validator 1.0.3//EN"
+ 		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+	<field name="username">
+		<field-validator type="requiredstring">
+			<message>用户名不能为空！</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">6</param>
+			<param name="maxLength">10</param>
+			<message>用户名长度必须在${minLength}-${maxLength}之间</message>
+		</field-validator>
+	</field>
+
+	<field name="age">
+		<field-validator type="int">
+			<param name="min">10</param>
+			<param name="max">40</param>
+			<message>年龄必须在${min}-${max}之间</message>
+		</field-validator>
+	</field>
+
+	<field name="birthday">
+		<field-validator type="date">
+			<param name="min">1976-01-01</param>
+			<param name="max">2006-12-31</param>
+			<message>生日必须在${min}-${max}之间</message>
+		</field-validator>
+	</field>
+
+	<field name="email">
+		<field-validator type="email">
+			<message>邮箱格式不正确</message>
+		</field-validator>
+	</field>
+
+	<field name="url">
+		<field-validator type="url">
+			<message>URL格式错误</message>
+		</field-validator>
+	</field>
+
+	<field name="phone">
+		<field-validator type="regex">
+			<param name="regexExpression"><![CDATA[^135[0-9]{8}]]></param>
+			<message>手机号必须是135XXXXXXXX</message>
+		</field-validator>
+	</field>
+
+	<field name="repassword">
+		<field-validator type="fieldexpression">
+			<param name="expression"><![CDATA[(password==repassword)]]></param>
+			<message>两次密码输入不一致</message>
+		</field-validator>
+	</field>
+</validators>

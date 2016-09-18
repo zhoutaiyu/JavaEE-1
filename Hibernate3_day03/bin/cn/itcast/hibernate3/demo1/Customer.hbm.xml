@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.itcast.hibernate3.demo1.Customer" table="customer"
+		lazy="true">
+		<!-- <cache usage="read-write"/> -->
+		<!-- 配置唯一标识 -->
+		<id name="cid" column="cid">
+			<generator class="native" />
+		</id>
+		<version name="ver" column="version" />
+
+		<!-- 配置普通属性 -->
+		<property name="cname" column="cname" length="20" />
+		<property name="age" column="age" />
+		<!-- 建立映射 -->
+		<!-- 配置一个集合 <set>的name Customer对象中的关联对象的属性名称. -->
+		<set name="orders">
+			<!-- <key>标签中column:用来描述一对多多的一方的外键的名称. -->
+			<key column="cno"></key>
+			<!-- 配置一个<one-to-many>标签中class属性:订单的类的全路径 -->
+			<one-to-many class="cn.itcast.hibernate3.demo1.Order" />
+		</set>
+	</class>
+
+	<query name="findAllCustomer">
+		from Customer
+	</query>
+
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JQuery对象与DOM对象的区别与联系</title>
+<meta name="keywords" content="keyword1,keyword2,keyword3">
+<meta name="description" content="this is my page">
+<meta name="content-type" content="text/html; charset=UTF-8">
+<script  type="text/javascript"  src="../../js/jquery-1.4.2.js"></script>
+</head>
+<script type="text/javascript">
+	//页面加载完毕执行
+	$(function() {
+		$("#dombutton").click(function() {
+			alert("a");
+		});
+	});
+</script>
+<body>
+	<input type="text"  id="username" >
+	<input type="button" id="dombutton" value="dom vs jQuery对象">
+</body>
+</html>

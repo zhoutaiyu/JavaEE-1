@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>demo2 Panel</title>
+	
+	<!--easyui的各种主题文件-->
+	<link rel="stylesheet" type="text/css" href="../easyui/themes/metro/easyui.css">
+	<!--easyui的各种图标-->
+	<link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
+  
+	<!--引入Jquery主文件-->
+	<script type="text/javascript" src="../easyui/jquery.min.js"></script>
+	<!--引入JqueryEasyUI主文件-->
+	<script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+
+	<script type="text/javascript">
+		function show(){
+			/* $('#win').window({   
+				width:600,    
+   				height:400,  
+			    modal:true,
+			    closed:false
+			});  */
+			
+			/* /* /* /* /* $("#win").window("open").window({
+				width:600,    
+   				height:400
+			}); */
+		}
+	</script>
+</head>
+<body>
+	<!-- html实现窗口 -->
+	<!-- <div id="win" class="easyui-window" title="My Window"
+		style="width:600px;height:400px"
+		data-options="iconCls:'icon-add', modal:true, closable:false">
+		Window Content
+	</div> -->
+	
+	<!-- HTML实现 -->
+	<button onclick="show()">登录</button>
+	
+	<!-- <div id="win" style="display:none;">
+		账号：<br>
+		密码：
+	</div> -->
+
+	
+	<!-- 创建复合布局窗口 -->
+	<!-- <div id="win" class="easyui-window" title="My Window"
+		style="width:600px;height:400px"
+		data-options="iconCls:'icon-save',modal:true">
+		<div class="easyui-layout" data-options="fit:true">
+			<div data-options="region:'north',split:true" style="height:100px"></div>
+			<div data-options="region:'center'">The Content.</div>
+		</div>
+	</div> -->
+
+	<div id="win" class="easyui-window" data-options="closed:true">
+		账号：<br>
+		密码：
+	</div>
+
+</body>
+</html>

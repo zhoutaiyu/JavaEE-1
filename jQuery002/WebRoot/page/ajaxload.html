@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>ajax 异步加载(天猫效果)...</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<!--当用户第一次访问界面的时候我们不需要加载页面上面所有的资源,当用户想看的时候去加载...-->
+<script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
+
+<script type="text/javascript">
+	//js   window.onscroll
+	//			window.onscroll=function(){
+	//				
+	//				
+	//			}
+
+	//jQuery
+
+	$(window).scroll(function() {
+		var t = document.documentElement.scrollTop || document.body.scrollTop;
+
+		if (t > 0 && t < 800) {
+			loadImage("1");
+		} else if (t > 800 && t < 1600) {
+			loadImage("2");
+		} else if (t > 1600 && t < 2400) {
+			loadImage("3");
+		} else if (t > 2400 && t < 3200) {
+			loadImage("4");
+		} else if (t > 3200 && t < 4000) {
+			loadImage("5");
+		} else if (t > 4000 && t < 4800) {
+			loadImage("6");
+		}
+
+		function loadImage(imageType) {
+			$.ajax({
+				url : "../../imageServlet",
+				type : "POST",
+				data : {
+					imageType : imageType
+				},
+				dataType : "text",
+				success : function(data){
+					var area = "#area_" + imageType;
+					var image = "<img src='../../"+data+"'>";
+					$(area).html(image);
+				}
+			})
+		}
+	})
+</script>
+
+<style type="text/css">
+#message {
+	height: 4800px;
+}
+
+#message div {
+	height: 800px;
+	border: 30px solid red;
+}
+</style>
+
+</head>
+
+<body>
+	<div id="message">
+		<div id="area_1"></div>
+		<div id="area_2"></div>
+		<div id="area_3"></div>
+		<div id="area_4"></div>
+		<div id="area_5"></div>
+		<div id="area_6"></div>
+	</div>
+</body>
+</html>

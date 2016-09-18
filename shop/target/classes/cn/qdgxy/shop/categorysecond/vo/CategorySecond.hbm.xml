@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.qdgxy.shop.categorysecond.vo.CategorySecond"
+		table="categorysecond">
+		<id name="csid" column="csid">
+			<generator class="native" />
+		</id>
+
+		<property name="csname" column="csname" length="20" />
+		<property name="cstime" column="cstime" />
+		<property name="is_del" column="is_del" />
+
+		<!-- 配置与一级分类关联 -->
+		<many-to-one name="category" column="cid"
+			class="cn.qdgxy.shop.category.vo.Category" />
+
+		<!-- 配置与商品关联 -->
+		<set name="products" order-by="ptime">
+			<key column="csid" />
+			<one-to-many class="cn.qdgxy.shop.product.vo.Product" />
+		</set>
+	</class>
+</hibernate-mapping>

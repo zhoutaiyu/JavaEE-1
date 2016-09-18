@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.itcast.vo.Order" table="orders">
+		<id name="oid" column="oid">
+			<generator class="native" />
+		</id>
+
+		<property name="address" column="address" length="70" />
+
+		<many-to-one name="customer" column="cno"
+			class="cn.itcast.vo.Customer" />
+	</class>
+</hibernate-mapping>

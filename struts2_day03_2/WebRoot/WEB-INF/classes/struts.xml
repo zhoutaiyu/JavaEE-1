@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="default" namespace="/" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="my" class="cn.itcast.interceotor.MyInterceptor"></interceptor>
+
+			<interceptor name="bookInterceptor" class="cn.itcast.interceotor.BookInterceptor">
+				<param name="includeMethods">add, update, delete</param>
+				<param name="excludeMethods">search</param>
+			</interceptor>
+			
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="my" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+
+			<!-- Book拦截器栈 -->
+			<interceptor-stack name="BookStack">
+				<interceptor-ref name="bookInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- 全局result -->
+		<global-results>
+			<result name="login">/login.jsp</result>
+		</global-results>
+
+		<action name="demo1" class="cn.itcast.action.Demo1Action">
+			<result name="login">/login.jsp</result>
+			<interceptor-ref name="myStack"></interceptor-ref>
+		</action>
+
+		<!-- 拦截器案例 -->
+		<action name="login" class="cn.itcast.action.LoginAction">
+			<result name="success">/book.jsp</result>
+		</action>
+
+		<action name="book_*" class="cn.itcast.action.BookAction"
+			method="{1}">
+			<interceptor-ref name="BookStack" />
+		</action>
+	</package>
+
+</struts>

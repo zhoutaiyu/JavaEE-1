@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 声明一个全局的国际化文件 -->
+	<constant name="struts.custom.i18n.resources" value="cn.itcast.i18n.resource.message" />
+
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="i18ndemo1" class="cn.itcast.action.I18nDemo1Action"></action>
+		<action name="i18ndemo2" class="cn.itcast.action.I18nDemo2Action">
+			<result name="input">/input.jsp</result>
+		</action>
+	</package>
+
+</struts>

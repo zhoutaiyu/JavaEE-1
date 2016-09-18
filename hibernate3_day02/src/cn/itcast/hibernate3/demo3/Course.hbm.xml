@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.itcast.hibernate3.demo3.Course" table="course">
+		<id name="cid" column="cid">
+			<generator class="native" />
+		</id>
+
+		<property name="cname" column="cname" length="20" />
+
+		<set name="students" table="stu_cour" inverse="true">
+			<key column="cno" />
+			<many-to-many class="cn.itcast.hibernate3.demo3.Student"
+				column="sno" />
+		</set>
+	</class>
+</hibernate-mapping>

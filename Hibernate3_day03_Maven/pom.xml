@@ -1,0 +1,117 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>cn.edu.oucqdc</groupId>
+	<artifactId>${system.name}</artifactId>
+	<packaging>war</packaging>
+	<version>${system.version}</version>
+
+	<name>${system.name}</name>
+	<url>http://www.oucqdc.edu.cn/</url>
+
+	<properties>
+		<system.name>Hibernate_Maven_Template</system.name>
+		<system.version>0.0.1-SNAPSHOT</system.version>
+
+		<servlet.version>3.1.0</servlet.version>
+		<junit.version>4.12</junit.version>
+		<log4j.version>1.2.17</log4j.version>
+
+		<!-- Hibernate -->
+		<!-- Hibernate核心包 -->
+		<hibernate-core.version>5.2.1.Final</hibernate-core.version>
+		<!--jpa -->
+		<hibernate-jpa-2.0-api.version>1.0.1.Final</hibernate-jpa-2.0-api.version>
+		<!-- hibernate整合log4j -->
+		<slf4j-api.version>1.7.21</slf4j-api.version>
+		<slf4j-nop.version>1.7.21</slf4j-nop.version>
+		<!-- c3p0 -->
+		<hibernate-c3p0.version>5.2.2.Final</hibernate-c3p0.version>
+		<!-- MySQL -->
+		<mysql.version>6.0.2</mysql.version>
+		<!-- 二级缓存 -->
+		<hibernate-ehcache>5.2.2.Final</hibernate-ehcache>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate-core.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>${hibernate-jpa-2.0-api.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j-api.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-nop</artifactId>
+			<version>${slf4j-nop.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-c3p0</artifactId>
+			<version>${hibernate-c3p0.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<version>${hibernate-ehcache}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${system.name}</finalName>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>pageInit.html</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+
+		test2();
+
+	})
+
+	function test1() {
+		alert("onload");
+	}
+
+	function test2() {
+		alert("$()");
+	}
+</script>
+
+</head>
+
+<body onload="test1()">
+	This is my HTML page.
+	<br>
+</body>
+</html>

@@ -10,8 +10,19 @@
 		<servlet-class>cn.qdgxy.form.web.servlet.Demo1Servlet</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>ProductServlet</servlet-name>
+		<servlet-class>cn.qdgxy.form.web.servlet.ProductServlet</servlet-class>
+	</servlet>
+
+
 	<servlet-mapping>
 		<servlet-name>Demo1Servlet</servlet-name>
 		<url-pattern>/Demo1Servlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ProductServlet</servlet-name>
+		<url-pattern>/ProductServlet</url-pattern>
 	</servlet-mapping>
 </web-app>

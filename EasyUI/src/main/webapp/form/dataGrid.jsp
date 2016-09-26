@@ -30,7 +30,8 @@
 
 <script type="text/javascript">
 	function add() {
-		$("#dlg").window("open");
+		alert("add");
+	//	$("#dlg").window("open");
 	}
 		
 	function edit() {

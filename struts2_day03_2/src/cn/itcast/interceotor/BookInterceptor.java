@@ -16,8 +16,7 @@ public class BookInterceptor extends MethodFilterInterceptor {
 	@Override
 	protected String doIntercept(ActionInvocation invocation) throws Exception {
 		// 得到session中的user
-		User user = (User) ServletActionContext.getRequest().getSession()
-				.getAttribute("user");
+		User user = (User) ServletActionContext.getRequest().getSession().getAttribute("user");
 
 		if (user == null) {
 			BookAction action = (BookAction) invocation.getAction(); // 得到当前的action对象

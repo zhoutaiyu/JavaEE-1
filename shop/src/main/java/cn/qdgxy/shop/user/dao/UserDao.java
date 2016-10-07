@@ -1,10 +1,12 @@
 package cn.qdgxy.shop.user.dao;
 
+import cn.qdgxy.shop.user.vo.User;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
-import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
-import cn.qdgxy.shop.user.vo.User;
-
+@Repository
 public class UserDao extends HibernateDaoSupport {
 
 	/**

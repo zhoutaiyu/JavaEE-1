@@ -1,16 +1,17 @@
 package cn.qdgxy.shop.order.service;
 
-import javax.annotation.Resource;
-
-import org.springframework.transaction.annotation.Transactional;
-
 import cn.qdgxy.shop.order.dao.OrderDao;
 import cn.qdgxy.shop.order.vo.Order;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
 
 @Transactional
+@Service
 public class OrderService {
 
-	@Resource(name = "orderDao")
+	@Resource
 	private OrderDao orderDao;
 
 	/**

@@ -1,22 +1,22 @@
 package cn.qdgxy.shop.user.service;
 
-import java.util.Date;
-
-import javax.annotation.Resource;
-import javax.mail.MessagingException;
-
-import org.springframework.transaction.annotation.Transactional;
-
 import cn.qdgxy.shop.user.dao.UserDao;
 import cn.qdgxy.shop.user.vo.User;
 import cn.qdgxy.shop.user.vo.UserException;
 import cn.qdgxy.shop.utils.mail.MailUtils;
 import cn.qdgxy.shop.utils.uuid.UUIDUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
+import javax.mail.MessagingException;
+import java.util.Date;
 
 @Transactional
+@Service
 public class UserService {
 
-	@Resource(name = "userDao")
+	@Resource
 	private UserDao userDao;
 
 	/**

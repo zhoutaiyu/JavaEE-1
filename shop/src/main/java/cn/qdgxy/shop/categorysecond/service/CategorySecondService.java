@@ -1,15 +1,16 @@
 package cn.qdgxy.shop.categorysecond.service;
 
-import javax.annotation.Resource;
-
+import cn.qdgxy.shop.categorysecond.dao.CategorySecondDao;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import cn.qdgxy.shop.categorysecond.dao.CategorySecondDao;
+import javax.annotation.Resource;
 
 @Transactional
+@Service
 public class CategorySecondService {
 
-	@Resource(name = "categorySecondDao")
+	@Resource
 	private CategorySecondDao categorySecondDao;
 
 	public void setCategorySecondDao(CategorySecondDao categorySecondDao) {

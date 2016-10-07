@@ -17,7 +17,7 @@
 
 		<!-- 首页访问的Action -->
 		<action name="index" class="indexAction">
-			<result name="index_sussess">/WEB-INF/jsps/index.jsp</result>
+			<result name="index_success">/WEB-INF/jsps/index.jsp</result>
 		</action>
 
 		<!-- 验证码的Action -->
@@ -31,16 +31,16 @@
 
 			<!-- 登录 -->
 			<result name="loginPage">/WEB-INF/jsps/user/login.jsp</result>
-			<result name="login_sussess" type="redirectAction">index</result>
+			<result name="login_success" type="redirectAction">index</result>
 			<result name="loginInput">/WEB-INF/jsps/user/login.jsp</result>
-			<result name="exit_sussess" type="redirectAction">index</result>
+			<result name="exit_success" type="redirectAction">index</result>
 		</action>
 
 		<!-- 商品的Action -->
 		<action name="product_*" class="productAction" method="{1}">
-			<result name="findbyCategory_sussess">/WEB-INF/jsps/product/list.jsp</result>
-			<result name="findbyCategorySecond_sussess">/WEB-INF/jsps/product/list.jsp</result>
-			<result name="load_sussess">/WEB-INF/jsps/product/desc.jsp</result>
+			<result name="findbyCategory_success">/WEB-INF/jsps/product/list.jsp</result>
+			<result name="findbyCategorySecond_success">/WEB-INF/jsps/product/list.jsp</result>
+			<result name="load_success">/WEB-INF/jsps/product/desc.jsp</result>
 		</action>
 
 		<!-- 购物车的Action -->

@@ -8,6 +8,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!-- 配置注解需要扫描的包 -->
     <context:component-scan
             base-package="cn.qdgxy.book.web.action,cn.qdgxy.book.service,cn.qdgxy.book.dao"/>
 

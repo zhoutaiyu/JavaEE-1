@@ -1,169 +1,168 @@
 package cn.qdgxy.shop.user.action;
 
-import java.io.IOException;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.struts2.ServletActionContext;
-
 import cn.qdgxy.shop.user.service.UserService;
 import cn.qdgxy.shop.user.vo.User;
 import cn.qdgxy.shop.user.vo.UserException;
-
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.interceptor.annotations.InputConfig;
+import org.apache.struts2.ServletActionContext;
+import org.springframework.stereotype.Controller;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@Controller
 public class UserAction extends ActionSupport implements ModelDriven<User> {
 
-	private static final long serialVersionUID = 1L;
-	private User user = new User();
-	@Resource(name = "userService")
-	private UserService userService;
+    private static final long serialVersionUID = 1L;
+    private User user = new User();
+    @Resource
+    private UserService userService;
 
-	private String verifyCode; // 验证码
+    private String verifyCode; // 验证码
 
-	private String msg; // 提示信息
+    private String msg; // 提示信息
 
-	/**
-	 * 跳转至登录页面
-	 * 
-	 * @return
-	 */
-	@InputConfig(resultName = "loginInput")
-	public String loginPage() {
-		return "loginPage";
-	}
+    /**
+     * 跳转至登录页面
+     *
+     * @return
+     */
+    @InputConfig(resultName = "loginInput")
+    public String loginPage() {
+        return "loginPage";
+    }
 
-	/**
-	 * 跳转至注册页面
-	 * 
-	 * @return
-	 */
-	public String registPage() {
-		return "registPage";
-	}
+    /**
+     * 跳转至注册页面
+     *
+     * @return
+     */
+    public String registPage() {
+        return "registPage";
+    }
 
-	/**
-	 * 登录
-	 * 
-	 * @return
-	 */
-	@InputConfig(resultName = "loginInput")
-	public String login() {
-		// 校验验证码
-		String _verifyCode = (String) ActionContext.getContext().getSession().get("verifyCode");
-		if (!_verifyCode.equalsIgnoreCase(verifyCode)) {
-			msg = "验证码错误！";
-			return "loginInput";
-		}
+    /**
+     * 登录
+     *
+     * @return
+     */
+    @InputConfig(resultName = "loginInput")
+    public String login() {
+        // 校验验证码
+        String _verifyCode = (String) ActionContext.getContext().getSession().get("verifyCode");
+        if (!_verifyCode.equalsIgnoreCase(verifyCode)) {
+            msg = "验证码错误！";
+            return "loginInput";
+        }
 
-		try {
-			User _user = userService.login(user);
+        try {
+            User _user = userService.login(user);
 
-			// 登陆成功
-			ActionContext.getContext().getSession().put("user", _user);
-			return "login_sussess";
-		} catch (UserException e) {
-			// 登录失败
-			msg = e.getMessage();
-			return "loginInput";
-		}
-	}
+            // 登陆成功
+            ActionContext.getContext().getSession().put("user", _user);
+            return "login_success";
+        } catch (UserException e) {
+            // 登录失败
+            msg = e.getMessage();
+            return "loginInput";
+        }
+    }
 
-	/**
-	 * 退出
-	 * 
-	 * @return
-	 */
-	public String exit() {
-		ServletActionContext.getRequest().getSession().invalidate();
-		return "exit_sussess";
-	}
+    /**
+     * 退出
+     *
+     * @return
+     */
+    public String exit() {
+        ServletActionContext.getRequest().getSession().invalidate();
+        return "exit_success";
+    }
 
-	/**
-	 * 注册
-	 * 
-	 * @return
-	 */
-	@InputConfig(resultName = "registInput")
-	public String regist() {
-		// 校验验证码
-		String _verifyCode = (String) ActionContext.getContext().getSession().get("verifyCode");
-		if (!_verifyCode.equalsIgnoreCase(verifyCode)) {
-			msg = "验证码错误！";
-			return "registInput";
-		}
+    /**
+     * 注册
+     *
+     * @return
+     */
+    @InputConfig(resultName = "registInput")
+    public String regist() {
+        // 校验验证码
+        String _verifyCode = (String) ActionContext.getContext().getSession().get("verifyCode");
+        if (!_verifyCode.equalsIgnoreCase(verifyCode)) {
+            msg = "验证码错误！";
+            return "registInput";
+        }
 
-		try {
-			userService.regist(user);
+        try {
+            userService.regist(user);
 
-			// 注册成功
-			msg = "注册成功！请去邮箱激活账户！";
-			return "msgPage";
-		} catch (UserException e) {
-			// 注册失败
-			msg = e.getMessage();
-			return "registInput";
-		}
-	}
+            // 注册成功
+            msg = "注册成功！请去邮箱激活账户！";
+            return "msgPage";
+        } catch (UserException e) {
+            // 注册失败
+            msg = e.getMessage();
+            return "registInput";
+        }
+    }
 
-	/**
-	 * 激活
-	 * 
-	 * @return
-	 */
-	public String active() {
-		try {
-			userService.active(user.getCode());
-			msg = "激活成功！";
-		} catch (UserException e) {
-			msg = e.getMessage();
-		}
+    /**
+     * 激活
+     *
+     * @return
+     */
+    public String active() {
+        try {
+            userService.active(user.getCode());
+            msg = "激活成功！";
+        } catch (UserException e) {
+            msg = e.getMessage();
+        }
 
-		return "msgPage";
-	}
+        return "msgPage";
+    }
 
-	/**
-	 * Ajax：检验用户名是否存在
-	 * 
-	 * @return
-	 * @throws IOException
-	 */
-	public String checkUsername() throws IOException {
-		User _user = userService.findByUsername(user.getUsername());
+    /**
+     * Ajax：检验用户名是否存在
+     *
+     * @return
+     * @throws IOException
+     */
+    public String checkUsername() throws IOException {
+        User _user = userService.findByUsername(user.getUsername());
 
-		HttpServletResponse response = ServletActionContext.getResponse();
-		response.setContentType("text/html; charset=UTF-8");
+        HttpServletResponse response = ServletActionContext.getResponse();
+        response.setContentType("text/html; charset=UTF-8");
 
-		if (_user != null) {
-			// 用户存在
-			response.getWriter().print("exist");
-		} else {
-			// 用户不存在
-			response.getWriter().print("notexist");
-		}
+        if (_user != null) {
+            // 用户存在
+            response.getWriter().print("exist");
+        } else {
+            // 用户不存在
+            response.getWriter().print("notexist");
+        }
 
-		return NONE;
-	}
+        return NONE;
+    }
 
-	@Override
-	public User getModel() {
-		return user;
-	}
+    @Override
+    public User getModel() {
+        return user;
+    }
 
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
-	public void setVerifyCode(String verifyCode) {
-		this.verifyCode = verifyCode;
-	}
+    public void setVerifyCode(String verifyCode) {
+        this.verifyCode = verifyCode;
+    }
 
-	public String getMsg() {
-		return msg;
-	}
+    public String getMsg() {
+        return msg;
+    }
 
 }

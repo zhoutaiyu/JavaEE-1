@@ -1,12 +1,13 @@
 package cn.qdgxy.shop.product.dao;
 
-import java.util.List;
-
-import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
-
 import cn.qdgxy.shop.product.vo.Product;
 import cn.qdgxy.shop.utils.page.dao.PageHibernateCallback;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
+@Repository
 public class ProductDao extends HibernateDaoSupport {
 
 	/**

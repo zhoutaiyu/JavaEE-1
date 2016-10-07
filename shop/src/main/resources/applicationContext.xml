@@ -8,6 +8,10 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <!-- 配置注解需要扫描的包 -->
+    <context:component-scan
+            base-package="cn.qdgxy.shop.*"/>
+
     <!-- 配置c3p0连接池 -->
     <context:property-placeholder location="classpath:jdbc.properties"/>
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -103,47 +107,29 @@
           scope="prototype"/>
 
 
-    <!-- 【Service】 -->
-    <!-- 用户Service -->
-    <bean id="userService" class="cn.qdgxy.shop.user.service.UserService"/>
-
-    <!-- 一级分类Service -->
-    <bean id="categoryService" class="cn.qdgxy.shop.category.service.CategoryService"/>
-
-    <!-- 二级分类Service -->
-    <bean id="categorySecondService"
-          class="cn.qdgxy.shop.categorysecond.service.CategorySecondService"/>
-
-    <!-- 商品Service -->
-    <bean id="productService" class="cn.qdgxy.shop.product.service.ProductService"/>
-
-    <!-- 订单Service -->
-    <bean id="orderService" class="cn.qdgxy.shop.order.service.OrderService"/>
-
-
     <!-- 【Dao】 -->
     <!-- 用户Dao -->
-    <bean id="userDao" class="cn.qdgxy.shop.user.dao.UserDao">
+    <!--<bean id="userDao" class="cn.qdgxy.shop.user.dao.UserDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <!-- 一级分类Dao -->
+    &lt;!&ndash; 一级分类Dao &ndash;&gt;
     <bean id="categoryDao" class="cn.qdgxy.shop.category.dao.CategoryDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <!-- 二级分类Dao -->
+    &lt;!&ndash; 二级分类Dao &ndash;&gt;
     <bean id="categorySecondDao" class="cn.qdgxy.shop.categorysecond.dao.CategorySecondDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <!-- 商品分类Dao -->
+    &lt;!&ndash; 商品分类Dao &ndash;&gt;
     <bean id="productDao" class="cn.qdgxy.shop.product.dao.ProductDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <!-- 订单Dao -->
+    &lt;!&ndash; 订单Dao &ndash;&gt;
     <bean id="orderDao" class="cn.qdgxy.shop.order.dao.OrderDao">
         <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
+    </bean>-->
 </beans>

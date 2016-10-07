@@ -1,16 +1,15 @@
 package cn.qdgxy.shop.index.action;
 
-import java.util.List;
-
-import javax.annotation.Resource;
-
 import cn.qdgxy.shop.category.service.CategoryService;
 import cn.qdgxy.shop.category.vo.Category;
 import cn.qdgxy.shop.product.service.ProductService;
 import cn.qdgxy.shop.product.vo.Product;
-
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import org.springframework.stereotype.Controller;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 首页访问
@@ -18,12 +17,13 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author 李欣
  *
  */
+@Controller
 public class IndexAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
-	@Resource(name = "categoryService")
+	@Resource
 	private CategoryService categoryService; // 一级分类
-	@Resource(name = "productService")
+	@Resource
 	private ProductService productService; // 商品
 
 	private List<Product> hotList; // 热门商品
@@ -43,7 +43,7 @@ public class IndexAction extends ActionSupport {
 		// 查询最新商品
 		newList = productService.findNew();
 
-		return "index_sussess";
+		return "index_success";
 	}
 
 	public void setCategoryService(CategoryService categoryService) {

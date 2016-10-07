@@ -1,18 +1,18 @@
 package cn.qdgxy.shop.category.service;
 
-import java.util.List;
-
-import javax.annotation.Resource;
-
-import org.springframework.transaction.annotation.Transactional;
-
 import cn.qdgxy.shop.category.dao.CategoryDao;
 import cn.qdgxy.shop.category.vo.Category;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 @Transactional
+@Service
 public class CategoryService {
 
-	@Resource(name = "categoryDao")
+    @Resource
 	private CategoryDao categoryDao;
 
 	/**

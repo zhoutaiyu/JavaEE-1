@@ -42,11 +42,11 @@
 		<!-- 加载映射文件 -->
 		<property name="mappingDirectoryLocations">
 			<list>
-				<value>classpath:cn/qdgxy/shop/user/vo/</value>
-				<value>classpath:cn/qdgxy/shop/category/vo/</value>
-				<value>classpath:cn/qdgxy/shop/categorysecond/vo/</value>
-				<value>classpath:cn/qdgxy/shop/product/vo/</value>
-				<value>classpath:cn/qdgxy/shop/order/vo/</value>
+				<value>classpath:cn/qdgxy/shop/user/vo</value>
+				<value>classpath:cn/qdgxy/shop/category/vo</value>
+				<value>classpath:cn/qdgxy/shop/categorysecond/vo</value>
+				<value>classpath:cn/qdgxy/shop/product/vo</value>
+				<value>classpath:cn/qdgxy/shop/order/vo</value>
 			</list>
 		</property>
 	</bean>

@@ -56,7 +56,6 @@
     </bean>
 
 
-    <!-- 声明事务管理 -->
     <!-- 配置事务管理器 -->
     <bean id="transactionManager"
           class="org.springframework.orm.hibernate5.HibernateTransactionManager">
@@ -64,12 +63,12 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <!-- 注解开启事务 -->
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- 开启注解的事务管理 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
-
-
-    <!-- 使用注解 -->
-    <context:annotation-config/>
 
 
     <!-- 【Action】 -->
@@ -106,30 +105,4 @@
     <bean id="orderAction" class="cn.qdgxy.shop.order.action.OrderAction"
           scope="prototype"/>
 
-
-    <!-- 【Dao】 -->
-    <!-- 用户Dao -->
-    <!--<bean id="userDao" class="cn.qdgxy.shop.user.dao.UserDao">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-
-    &lt;!&ndash; 一级分类Dao &ndash;&gt;
-    <bean id="categoryDao" class="cn.qdgxy.shop.category.dao.CategoryDao">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-
-    &lt;!&ndash; 二级分类Dao &ndash;&gt;
-    <bean id="categorySecondDao" class="cn.qdgxy.shop.categorysecond.dao.CategorySecondDao">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-
-    &lt;!&ndash; 商品分类Dao &ndash;&gt;
-    <bean id="productDao" class="cn.qdgxy.shop.product.dao.ProductDao">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-
-    &lt;!&ndash; 订单Dao &ndash;&gt;
-    <bean id="orderDao" class="cn.qdgxy.shop.order.dao.OrderDao">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>-->
 </beans>

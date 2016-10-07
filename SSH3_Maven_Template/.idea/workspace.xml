@@ -2,32 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f4a5e7d-8da2-4a05-95a8-10ea83d15c4c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/.idea/dictionaries/.xml" afterPath="$PROJECT_DIR$/../shop/.idea/dictionaries/.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/.idea/misc.xml" afterPath="$PROJECT_DIR$/../shop/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../shop/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/shop.iml" afterPath="$PROJECT_DIR$/../shop/shop.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/cart/action/CartAction.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/cart/action/CartAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/category/action/CategoryAction.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/category/action/CategoryAction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/category/dao/CategoryDao.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/category/dao/CategoryDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/category/service/CategoryService.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/category/service/CategoryService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/category/vo/Category.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/category/vo/Category.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/categorysecond/action/CategorySecondAction.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/categorysecond/action/CategorySecondAction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/categorysecond/dao/CategorySecondDao.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/categorysecond/dao/CategorySecondDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/categorysecond/service/CategorySecondService.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/categorysecond/service/CategorySecondService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/index/action/IndexAction.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/index/action/IndexAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/order/action/OrderAction.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/order/action/OrderAction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/order/dao/OrderDao.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/order/dao/OrderDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/order/service/OrderService.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/order/service/OrderService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/product/action/ProductAction.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/product/action/ProductAction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/product/dao/ProductDao.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/product/dao/ProductDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/product/service/ProductService.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/product/service/ProductService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/user/action/UserAction.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/user/action/UserAction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/user/dao/UserDao.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/user/dao/UserDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/user/service/UserService.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/user/service/UserService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/resources/applicationContext.xml" afterPath="$PROJECT_DIR$/../shop/src/main/resources/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/resources/struts.xml" afterPath="$PROJECT_DIR$/../shop/src/main/resources/struts.xml" />
     </list>
     <ignored path="Spring_Maven_Template.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,8 +34,8 @@
       <file leaf-file-name="applicationContext.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/applicationContext.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
+            <state relative-caret-position="843">
+              <caret line="66" column="17" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -304,7 +286,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -411,7 +393,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1475842887801</updated>
-      <workItem from="1475842889323" duration="1442000" />
+      <workItem from="1475842889323" duration="2798000" />
     </task>
     <task id="LOCAL-00001" summary="调整applicationContext.xml">
       <created>1475844288328</created>
@@ -420,11 +402,18 @@
       <option name="project" value="LOCAL" />
       <updated>1475844288328</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="调整applicationContext.xml">
+      <created>1475844355750</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1475844355750</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1442000" />
+    <option name="totallyTimeSpent" value="2798000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -545,8 +534,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
+        <state relative-caret-position="843">
+          <caret line="66" column="17" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
           <folding />
         </state>
       </provider>

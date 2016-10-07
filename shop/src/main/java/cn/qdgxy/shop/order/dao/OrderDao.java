@@ -1,30 +1,35 @@
 package cn.qdgxy.shop.order.dao;
 
 import cn.qdgxy.shop.order.vo.Order;
-import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.Resource;
+
 @Repository
-public class OrderDao extends HibernateDaoSupport {
+public class OrderDao {
+
+    @Resource
+    private HibernateTemplate hibernateTemplate;
 
     /**
      * 保存订单
      *
-     * @param order
-     * @return
+     * @param order 订单
+     * @return 订单ID
      */
     public Integer add(Order order) {
-        return (Integer) this.getHibernateTemplate().save(order);
+        return (Integer) hibernateTemplate.save(order);
     }
 
     /**
      * 按ID查找订单
      *
-     * @param oid
-     * @return
+     * @param oid 订单ID
+     * @return 订单
      */
     public Order findById(Integer oid) {
-        return this.getHibernateTemplate().get(Order.class, oid);
+        return hibernateTemplate.get(Order.class, oid);
     }
 
 }

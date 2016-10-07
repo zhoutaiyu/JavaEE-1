@@ -5,12 +5,14 @@ import cn.qdgxy.shop.cart.vo.CartItem;
 import cn.qdgxy.shop.product.service.ProductService;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-@Controller
+@Controller("cartAction")
+@Scope("prototype")
 public class CartAction extends ActionSupport {
 
     private static final long serialVersionUID = 1L;
@@ -23,7 +25,7 @@ public class CartAction extends ActionSupport {
     /**
      * 跳转至购物车页面
      *
-     * @return
+     * @return String
      */
     public String cartPage() {
         return "cartPage";
@@ -32,7 +34,7 @@ public class CartAction extends ActionSupport {
     /**
      * 添加商品至购物车
      *
-     * @return
+     * @return String
      */
     public String add() {
         // 创建商品条目
@@ -50,7 +52,7 @@ public class CartAction extends ActionSupport {
     /**
      * 清空购物车
      *
-     * @return
+     * @return String
      */
     public String clear() {
         Cart cart = getCart(ServletActionContext.getRequest());
@@ -61,7 +63,7 @@ public class CartAction extends ActionSupport {
     /**
      * 删除商品
      *
-     * @return
+     * @return String
      */
     public String delete() {
         Cart cart = getCart(ServletActionContext.getRequest());
@@ -72,8 +74,8 @@ public class CartAction extends ActionSupport {
     /**
      * 获得购物车
      *
-     * @param request
-     * @return
+     * @param request HttpServletRequest
+     * @return String
      */
     private Cart getCart(HttpServletRequest request) {
         Cart cart = (Cart) request.getSession().getAttribute("cart");

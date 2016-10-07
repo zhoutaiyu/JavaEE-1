@@ -16,7 +16,7 @@ public class UserDao {
     /**
      * 保存用户
      *
-     * @param user
+     * @param user 用户
      */
     public void save(User user) {
         hibernateTemplate.save(user);
@@ -25,7 +25,7 @@ public class UserDao {
     /**
      * 修改用户信息
      *
-     * @param user
+     * @param user 用户
      */
     public void update(User user) {
         hibernateTemplate.update(user);
@@ -34,8 +34,8 @@ public class UserDao {
     /**
      * 按用户名查找用户
      *
-     * @param username
-     * @return
+     * @param username 用户名
+     * @return 用户
      */
     @SuppressWarnings("unchecked")
     public User findByUsername(String username) {
@@ -51,8 +51,8 @@ public class UserDao {
     /**
      * 按Email查找用户
      *
-     * @param email
-     * @return
+     * @param email 用户email
+     * @return 用户
      */
     @SuppressWarnings("unchecked")
     public User findByEmail(String email) {
@@ -68,8 +68,8 @@ public class UserDao {
     /**
      * 按照激活码查询用户
      *
-     * @param code
-     * @return
+     * @param code 激活码
+     * @return 用户
      */
     @SuppressWarnings("unchecked")
     public User findByCode(String code) {

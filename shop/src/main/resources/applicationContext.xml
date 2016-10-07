@@ -67,42 +67,7 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+
     <!-- 开启注解的事务管理 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
-
-
-    <!-- 【Action】 -->
-    <!-- 首页Action -->
-    <bean id="indexAction" class="cn.qdgxy.shop.index.action.IndexAction"
-          scope="prototype"/>
-
-    <!-- 验证码Action -->
-    <bean id="verifyCodeAction" class="cn.qdgxy.shop.user.action.VerifyCodeAction"
-          scope="prototype"/>
-
-    <!-- 用户Action -->
-    <bean id="userAction" class="cn.qdgxy.shop.user.action.UserAction"
-          scope="prototype"/>
-
-    <!-- 一级分类Action -->
-    <bean id="categoryAction" class="cn.qdgxy.shop.category.action.CategoryAction"
-          scope="prototype"/>
-
-    <!-- 二级分类Action -->
-    <bean id="categorySecondAction"
-          class="cn.qdgxy.shop.categorysecond.action.CategorySecondAction"
-          scope="prototype"/>
-
-    <!-- 商品Action -->
-    <bean id="productAction" class="cn.qdgxy.shop.product.action.ProductAction"
-          scope="prototype"/>
-
-    <!-- 购物车Action -->
-    <bean id="cartAction" class="cn.qdgxy.shop.cart.action.CartAction"
-          scope="prototype"/>
-
-    <!-- 订单Action -->
-    <bean id="orderAction" class="cn.qdgxy.shop.order.action.OrderAction"
-          scope="prototype"/>
-
 </beans>

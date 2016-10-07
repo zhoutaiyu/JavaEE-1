@@ -8,12 +8,14 @@ import cn.qdgxy.shop.order.vo.OrderItem;
 import cn.qdgxy.shop.user.vo.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
 import java.util.Date;
 
-@Controller
+@Controller("orderAction")
+@Scope("prototype")
 public class OrderAction extends ActionSupport {
 
     private static final long serialVersionUID = 1L;

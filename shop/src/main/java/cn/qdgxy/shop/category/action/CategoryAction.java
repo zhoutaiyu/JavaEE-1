@@ -4,11 +4,13 @@ import cn.qdgxy.shop.category.service.CategoryService;
 import cn.qdgxy.shop.category.vo.Category;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
 
-@Controller
+@Controller("categoryAction")
+@Scope("prototype")
 public class CategoryAction extends ActionSupport implements
         ModelDriven<Category> {
 

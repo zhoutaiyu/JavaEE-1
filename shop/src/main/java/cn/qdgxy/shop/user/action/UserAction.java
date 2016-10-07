@@ -8,13 +8,15 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.interceptor.annotations.InputConfig;
 import org.apache.struts2.ServletActionContext;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@Controller
+@Controller("userAction")
+@Scope("prototype")
 public class UserAction extends ActionSupport implements ModelDriven<User> {
 
     private static final long serialVersionUID = 1L;
@@ -28,8 +30,6 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 
     /**
      * 跳转至登录页面
-     *
-     * @return
      */
     @InputConfig(resultName = "loginInput")
     public String loginPage() {
@@ -39,7 +39,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
     /**
      * 跳转至注册页面
      *
-     * @return
+     * @return String
      */
     public String registPage() {
         return "registPage";
@@ -48,7 +48,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
     /**
      * 登录
      *
-     * @return
+     * @return String
      */
     @InputConfig(resultName = "loginInput")
     public String login() {
@@ -75,7 +75,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
     /**
      * 退出
      *
-     * @return
+     * @return String
      */
     public String exit() {
         ServletActionContext.getRequest().getSession().invalidate();
@@ -85,7 +85,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
     /**
      * 注册
      *
-     * @return
+     * @return String
      */
     @InputConfig(resultName = "registInput")
     public String regist() {
@@ -112,7 +112,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
     /**
      * 激活
      *
-     * @return
+     * @return String
      */
     public String active() {
         try {
@@ -128,8 +128,8 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
     /**
      * Ajax：检验用户名是否存在
      *
-     * @return
-     * @throws IOException
+     * @return String
+     * @throws IOException IO异常
      */
     public String checkUsername() throws IOException {
         User _user = userService.findByUsername(user.getUsername());

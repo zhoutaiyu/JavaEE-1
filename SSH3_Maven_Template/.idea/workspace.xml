@@ -4,24 +4,6 @@
     <list default="true" id="1f4a5e7d-8da2-4a05-95a8-10ea83d15c4c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../shop/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/cart/action/CartAction.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/cart/action/CartAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/category/action/CategoryAction.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/category/action/CategoryAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/categorysecond/action/CategorySecondAction.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/categorysecond/action/CategorySecondAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/index/action/IndexAction.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/index/action/IndexAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/order/action/OrderAction.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/order/action/OrderAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/product/action/ProductAction.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/product/action/ProductAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/user/action/UserAction.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/user/action/UserAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/user/action/VerifyCodeAction.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/user/action/VerifyCodeAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/user/dao/UserDao.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/user/dao/UserDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/utils/mail/MailUtils.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/utils/mail/MailUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/utils/page/PagingUtils.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/utils/page/PagingUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/utils/page/dao/PageHibernateCallback.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/utils/page/dao/PageHibernateCallback.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/utils/page/vo/PageBean.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/utils/page/vo/PageBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/utils/time/TimeUtils.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/utils/time/TimeUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/utils/uuid/UUIDUtils.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/utils/uuid/UUIDUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/utils/verifycode/VerifyCodeUtils.java" afterPath="$PROJECT_DIR$/../shop/src/main/java/cn/qdgxy/shop/utils/verifycode/VerifyCodeUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/resources/applicationContext.xml" afterPath="$PROJECT_DIR$/../shop/src/main/resources/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shop/src/main/resources/jdbc.properties" afterPath="$PROJECT_DIR$/../shop/src/main/resources/jdbc.properties" />
     </list>
     <ignored path="Spring_Maven_Template.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -405,7 +387,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1475842887801</updated>
-      <workItem from="1475842889323" duration="3744000" />
+      <workItem from="1475842889323" duration="3875000" />
     </task>
     <task id="LOCAL-00001" summary="调整applicationContext.xml">
       <created>1475844288328</created>
@@ -425,7 +407,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3744000" />
+    <option name="totallyTimeSpent" value="3875000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />

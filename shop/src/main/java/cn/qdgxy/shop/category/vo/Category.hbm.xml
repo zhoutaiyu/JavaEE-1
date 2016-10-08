@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC 
-    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="cn.qdgxy.shop.category.vo.Category" table="category">
-		<id name="cid" column="cid">
-			<generator class="native" />
-		</id>
+    <class name="cn.qdgxy.shop.category.vo.Category" table="category">
+        <id name="cid" column="cid">
+            <generator class="native"/>
+        </id>
 
-		<property name="cname" column="cname" length="20" />
-		<property name="ctime" column="ctime" />
-		<property name="is_del" column="is_del" />
+        <property name="cname" column="cname" length="20"/>
+        <property name="ctime" column="ctime"/>
+        <property name="is_del" column="is_del"/>
 
-		<!-- 配置二级分类关联 -->
-		<set name="categorySeconds" lazy="false" order-by="csid">
-			<key column="cid" />
-			<one-to-many class="cn.qdgxy.shop.categorysecond.vo.CategorySecond" />
-		</set>
-	</class>
+        <!-- 配置二级分类关联 -->
+        <set name="categorySeconds" lazy="false" order-by="csid">
+            <key column="cid"/>
+            <one-to-many class="cn.qdgxy.shop.categorysecond.vo.CategorySecond"/>
+        </set>
+    </class>
 </hibernate-mapping>

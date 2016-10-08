@@ -8,52 +8,16 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <!-- 配置注解需要扫描的包 -->
-    <context:component-scan
-            base-package="cn.qdgxy.shop.*"/>
 
-    <!-- 配置c3p0连接池 -->
-    <context:property-placeholder location="classpath:jdbc.properties"/>
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <!-- 数据库连接的四个基本参数 -->
-        <property name="driverClass" value="${jdbc.driver}"/>
-        <property name="jdbcUrl" value="${jdbc.url}"/>
-        <property name="user" value="${jdbc.user}"/>
-        <property name="password" value="${jdbc.password}"/>
-    </bean>
-
-    <!-- 配置Hibernate的其他属属性 -->
+    <!-- 零障碍整合 在spring配置文件中引入hibernate的配置文件 -->
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-        <!-- 注入连接池 -->
-        <property name="dataSource" ref="dataSource"/>
-        <!-- 配置Hibernate的属性 -->
-        <property name="hibernateProperties">
-            <props>
-                <!-- Hibernate的方言 -->
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-                <!-- 显示SQL -->
-                <prop key="hibernate.show_sql">true</prop>
-                <!-- 格式化SQL -->
-                <prop key="hibernate.format_sql">true</prop>
-                <!-- 是否自动提交 -->
-                <prop key="hibernate.connection.autocommit">false</prop>
-                <!-- hbm:映射 to DDL: create drop alter -->
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
-            </props>
-        </property>
-
-        <!-- 加载映射文件 -->
-        <property name="mappingDirectoryLocations">
-            <list>
-                <value>classpath:cn/qdgxy/shop/user/vo</value>
-                <value>classpath:cn/qdgxy/shop/category/vo</value>
-                <value>classpath:cn/qdgxy/shop/categorysecond/vo</value>
-                <value>classpath:cn/qdgxy/shop/product/vo</value>
-                <value>classpath:cn/qdgxy/shop/order/vo</value>
-            </list>
-        </property>
+        <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
     </bean>
+
+
+    <!-- 配置注解需要扫描的包 -->
+    <context:component-scan base-package="cn.qdgxy.shop.*"/>
 
 
     <!-- 配置事务管理器 -->

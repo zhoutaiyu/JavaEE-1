@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class Cart {
 
-    private Map<Integer, CartItem> map = new LinkedHashMap<Integer, CartItem>(); // 商品ID，商品条目
+    private Map<Integer, CartItem> map = new LinkedHashMap<>(); // 商品ID，商品条目
 
     /**
      * 添加图书条目

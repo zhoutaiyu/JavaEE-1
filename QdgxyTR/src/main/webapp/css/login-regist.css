@@ -1,0 +1,161 @@
+/*reset*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, input, textarea, p, blockquote, th, td {margin:0;padding:0;}
+table {border-collapse:collapse;border-spacing:0;}
+img {border:0;background:#f2f2f2;}
+address, caption, cite, code, dfn, em, th, var {font-style:normal;font-weight:normal;}
+input, textarea, select {font-family:inherit;font-size:inherit;	font-weight:inherit;}
+h1, h2, h3, h4, h5, h6 {font-size:100%;font-weight:normal;}
+li{list-style:none;}
+/*basic*/
+body{font-size:12px;font-family:"Microsoft YaHei",arial,sans-serif;background:#fff;}
+a{color:#333;text-decoration:none;}
+a:hover{color:#0095fe;}
+
+/*通用布局样式*/
+.fl{float:left;}
+.fr{float:right;}
+.clear{width:100%;height:0;line-height:0;font-size:0;overflow:hidden;clear:both;}
+.content{width:1200px;margin:0 auto;*zoom:1}
+.content:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+
+/*通用结构样式*/
+.fz12{font-size:12px;}
+.fz14{font-size:14px;}
+.fz16{font-size:16px;}
+.inlinetxt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.triangle{display:inline-block;width:0;height:0;line-height:0;font-size:0;overflow:hidden;border-style:solid;border-width:5px;}
+.triangle-up{border-color: transparent  transparent #fff;}
+.triangle-down{border-color:#fff transparent  transparent;}
+.centertxt{text-align:center;}
+.centertxt a{color:#6a6a6a;}
+.centertxt a:hover{color:#0095fe;}
+.indent2{text-indent:2em;}
+
+/*header*/
+#header{height:60px;line-height:60px;border-bottom:1px solid #d4d4d4;}
+.logoarea .slogan{font-size:16px;color:#6a6a6a;height:24px;line-height:24px;border-left:1px solid #d4d4d4;padding-left:13px;margin-top:21px;}
+.logo{padding-top:6px;margin-right:11px;}
+.entrance{color:#999;line-height:34px;font-size:15px;margin-top:26px;}
+.entrance a{margin:0 10px;}
+
+/*页面底部*/
+#footer{background:#f2f2f2;color:#6a6a6a;padding-top:20px;padding-bottom:30px;line-height:32px;text-align:center;}
+#footer a{color:#6a6a6a;margin:0 3px;}
+#footer a:hover{color:#1a1a1a;text-decoration:underline;}
+
+/*注册首页*/
+.main{padding-top:40px;padding-left:150px;background:url(../images/login.jpg) no-repeat;margin-bottom:150px;}
+.registBox{width:430px;height:360px;border:1px solid #d4d4d4;padding:20px 30px;}
+.h1{height:36px;line-height:36px;border-bottom:1px solid #d4d4d4;font-size:16px;width:100%;overflow:hidden;color:#6a6a6a;}
+.h1 a,.fill-hint a,.login-infor-fill .column a{color:#0095fe;}
+.h1 a:hover,.fill-hint a:hover,.login-infor-fill .column a:hover{text-decoration:underline;}
+.regist-way{padding-top:80px;text-align:center;}
+.column .hint-right,.column .hint-wrong,.regist-way a{background-image:url(../images/sprit.png);background-repeat:no-repeat;}
+.regist-way a{width:152px;padding-left:88px;height:38px;line-height:38px;background-color:#1fbaff;color:#fff;font-size:16px;text-align:left;margin-bottom:41px;display:inline-block;}
+.regist-way a.phone{background-position:57px 8px;}
+.regist-way a.mail{background-position:57px -28px;}
+.regist-way a:hover{background-color:#60ceff;}
+/*邮箱/手机注册*/
+.regist-infor-fill,.login-infor-fill{padding-top:24px;}
+.column{width:100%;height:24px;line-height:24px;padding-bottom:24px;}
+.regist-infor-fill .column-name{width:72px;text-align:right;color:#3a3a3a;display:inline-block;float:left;}
+.login-infor-fill .column-name{width:66px;text-align:right;color:#3a3a3a;display:inline-block;float:left;}
+.regist-infor-fill .fillin-inpt{height:22px;line-height:22px;border:1px solid #d4d4d4;width:235px;padding:0 5px;margin-right:10px;font-family: "Microsoft YaHei",arial,sans-serif;display:inline-block;float:left;}
+.login-infor-fill .fillin-inpt{height:22px;line-height:22px;border:1px solid #d4d4d4;width:180px;padding:0 5px;margin-right:10px;font-family: "Microsoft YaHei",arial,sans-serif;display:inline-block;float:left;}
+.regist-infor-fill .column-hint{color:#666;display:inline-block;float:left;}
+.fill-hint{line-height:16px;color:#6a6a6a;}
+.submit-regist{width:240px;height:38px;line-height:38px;font-size:16px;color:#fff;border:none;background:#4b9bec;margin-right:10px;}
+.registbtns{height:38px;line-height:38px;margin-top:15px;}
+.qqLoginBtn img{float:left;margin-top:9px;}
+.getCode{height:24px;border:1px solid #d4d4d4;background:#f0f0f0;width:95px;}
+.column .hint-right{padding-left:20px;background-position:0px -76px;color:#3db037;}
+.column .hint-wrong{padding-left:20px;background-position:0px -155px;color:#f53403;}
+/*邮箱验证*/
+.mail-verify{text-align:center;line-height:1em;padding-top:45px;}
+.fz24{font-size:24px;line-height:24px;}
+.mbottom30{margin-bottom:30px;}
+.to-verify{display:inline-block;width:200px;height:38px;line-height:38px;text-align:center;font-size:16px;color:#fff;margin:40px 0;background:#1fbaff;}
+.to-verify:hover{background-color:#60ceff;color:#fff;}
+.bluemark{color:#00b0ff;}
+a.bluemark:hover{text-decoration:underline;}
+/*登录*/
+.loginBox{width:300px;height:280px;border:1px solid #d4d4d4;padding:20px 50px;}
+.login-infor-fill .quest{height:22px;line-height:22px;padding:0 5px;width:180px;position:relative;border:1px solid #d4d4d4;display:inline-block;float:left;}
+.login-infor-fill .quest .select-quest{display:block;width:16px;height:16px;overflow:hidden;background-color:#959595;border-radius:3px;position:absolute;right:3px;top:3px;background-image:url(../images/arr.png);background-repeat:no-repeat;background-position:3px 5px;}
+.quest ul{width:100%;border:1px solid #d4d4d4;position:absolute;left:-1px;top:22px;background:#fff;display:none;}
+.quest ul li{line-height:24px;padding:0 5px;}
+.auto-login{display:inline-block;float:left;}
+.auto-login input{vertical-align:-2px;*vertical-align:-1px;margin-right:4px;}
+.loginBtn{width:320px;height:38px;background:#4b9bec;color:#fff;font-size:16px;border:none;margin-top:-10px;margin-bottom:10px;font-family:"Microsoft YaHei";}
+
+/*找回密码*/
+.login-infor-fill p{color: #333;font-size: 16px;}
+.login-infor-fill .columname{width:66px;color:#3a3a3a;display:inline-block;float:left;}
+.login-infor-fill .subBtn{margin-top: 25px;width:320px;height:38px;background:#4b9bec;color:#fff;font-size:16px;border:none;margin-bottom:10px;font-family:"Microsoft YaHei";}
+.login-infor-fill .pb{font-size: 12px;color: #3a3a3a;}
+
+
+/***********弹出提示的样式 SuGaoSheng 新加*********/
+#ajaxwaitid {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    padding: 0 5px;
+    background: #D00;
+    color: #FFF;
+}
+.p_pop, .p_pof, .sllt {
+    padding: 4px;
+    border: 1px solid;
+    min-width: 60px;
+    border-color: #DDD;
+    background: #FEFEFE;
+    box-shadow: 1px 2px 2px rgba(0,0,0,0.3);
+}
+.popuptext .pc_l, .popuptext .pc_c, .popuptext .pc_inner, .popuptext .pc_r {
+    background: url(file:///E|/static/image/common/popuptext_bg.gif) no-repeat 0 0;
+}
+
+.pc_l,.pc_c,.pc_inner,.pc_r {
+    width: 29px;
+    height: 56px;
+    line-height: 56px;
+    background:url(file:///E|/static/image/common/popupcredit_bg.gif) no- repeat 0 0;
+}
+
+.popuptext .pc_c {
+    width: 200px;
+    background-position: 0 -56px;
+    background-repeat: repeat-x;
+}
+
+.popuptext .pc_inner {
+    white-space: nowrap;
+    text-align: center;
+    width: auto;
+    background-position: 50% -112px;
+}
+.pc_inner i {
+    margin-right: 10px;
+    font-size: 12px;
+    font-style: normal;
+    color: #fff;
+    font-weight: 400;
+}
+.popuptext .pc_r {
+    background-position: -30px 0;
+}
+
+.p_pop a:hover, .p_pop a.a, #sctype_menu .sca {
+    background-color: #E5EDF2;
+    color: #369;
+    text-decoration: none;
+}
+.p_pop a {
+    display: block;
+    padding: 3px 5px;
+    border-bottom: 1px solid #E5EDF2;
+    white-space: nowrap;
+}

@@ -21,15 +21,15 @@
             <h1><b>初中试题</b></h1>
             <div class="test_container">
                 <p>
-                    <a href="tiku.php@mod=list&channel=2&xd=2">语文</a>
-                    <a href="tiku.php@mod=list&channel=3&xd=2">数学</a>
-                    <a href="tiku.php@mod=list&channel=4&xd=2">英语</a>
-                    <a href="tiku.php@mod=list&channel=6&xd=2">物理</a>
-                    <a href="tiku.php@mod=list&channel=7&xd=2">化学</a>
-                    <a href="tiku.php@mod=list&channel=8&xd=2">历史</a>
-                    <a href="tiku.php@mod=list&channel=9&xd=2">政治思品</a>
-                    <a href="tiku.php@mod=list&channel=10&xd=2">地理</a>
-                    <a href="tiku.php@mod=list&channel=11&xd=2">生物</a>
+                    <a href="#">语文</a>
+                    <a href="#">数学</a>
+                    <a href="#">英语</a>
+                    <a href="#">物理</a>
+                    <a href="#">化学</a>
+                    <a href="#">历史</a>
+                    <a href="#">政治思品</a>
+                    <a href="#">地理</a>
+                    <a href="#">生物</a>
                 </p>
             </div>
         </div>
@@ -37,15 +37,15 @@
             <h1><b>高中试题</b></h1>
             <div class="test_container">
                 <p>
-                    <a href="tiku.php@mod=list&channel=2&xd=3">语文</a>
-                    <a href="tiku.php@mod=list&channel=3&xd=3">数学</a>
-                    <a href="tiku.php@mod=list&channel=4&xd=3">英语</a>
-                    <a href="tiku.php@mod=list&channel=6&xd=3">物理</a>
-                    <a href="tiku.php@mod=list&channel=7&xd=3">化学</a>
-                    <a href="tiku.php@mod=list&channel=8&xd=3">历史</a>
-                    <a href="tiku.php@mod=list&channel=9&xd=3">政治思品</a>
-                    <a href="tiku.php@mod=list&channel=10&xd=3">地理</a>
-                    <a href="tiku.php@mod=list&channel=11&xd=3">生物</a>
+                    <a href="#">语文</a>
+                    <a href="#">数学</a>
+                    <a href="#">英语</a>
+                    <a href="#">物理</a>
+                    <a href="#">化学</a>
+                    <a href="#">历史</a>
+                    <a href="#">政治思品</a>
+                    <a href="#">地理</a>
+                    <a href="#">生物</a>
                 </p>
             </div>
         </div>

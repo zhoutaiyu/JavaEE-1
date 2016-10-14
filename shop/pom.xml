@@ -57,7 +57,11 @@
         <!--jpa -->
         <hibernate-jpamodelgen.version>5.2.2.Final</hibernate-jpamodelgen.version>
         <!-- 整合log4j -->
-        <slf4j-log4j12.version>1.7.21</slf4j-log4j12.version>
+        <slf4j-api.version>1.7.21</slf4j-api.version>
+        <!--<slf4j-log4j12.version>1.7.21</slf4j-log4j12.version>-->
+        <log4j.version>1.2.17</log4j.version>
+        <!--<log4j-core.version>2.7</log4j-core.version>
+        <log4j-api.version>2.7</log4j-api.version>-->
         <!-- c3p0 -->
         <hibernate-c3p0.version>5.2.2.Final</hibernate-c3p0.version>
         <!-- MySQL -->
@@ -194,11 +198,37 @@
             <version>${hibernate-jpamodelgen.version}</version>
         </dependency>
 
+
         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api.version}</version>
+        </dependency>
+
+        <!--<dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>${slf4j-log4j12.version}</version>
+        </dependency>-->
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
         </dependency>
+
+        <!--<dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j-api.version}</version>
+        </dependency>-->
+
 
         <dependency>
             <groupId>org.hibernate</groupId>

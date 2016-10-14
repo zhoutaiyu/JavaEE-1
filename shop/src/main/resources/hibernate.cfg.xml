@@ -18,7 +18,7 @@
 
         <!-- 可选的属性 -->
         <!-- 显示SQL -->
-        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.show_sql">false</property>
         <!-- 格式化SQL -->
         <property name="hibernate.format_sql">true</property>
 

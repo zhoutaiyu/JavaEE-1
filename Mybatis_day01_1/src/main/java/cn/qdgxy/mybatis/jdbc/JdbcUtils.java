@@ -30,7 +30,7 @@ public class JdbcUtils {
 
         // 加载驱动类
         try {
-            Class.forName(props.getProperty("driverClassName"));
+            Class.forName(props.getProperty("jdbc.driver"));
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -46,8 +46,8 @@ public class JdbcUtils {
         // 1. 加载配置文件
         // 2. 加载驱动类
         // 3. 调用DriverManger.getConnection()
-        return DriverManager.getConnection(props.getProperty("url"),
-                props.getProperty("username"), props.getProperty("password"));
+        return DriverManager.getConnection(props.getProperty("jdbc.url"),
+                props.getProperty("jdbc.username"), props.getProperty("jdbc.password"));
     }
 
     /**

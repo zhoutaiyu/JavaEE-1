@@ -40,19 +40,15 @@ public class MybatisFirst {
      */
     @Test
     public void testFindById() {
-        // 通过sqlSessionFactory创建sqlSession
-        SqlSession sqlSession = sqlSessionFactory.openSession();
-
         // 通过sqlSession操作数据库
         // 第一个参数：statement的位置，等于namespace+statement的id
         // 第二个参数：传入的参数
         User user = null;
-        try {
+        // 通过sqlSessionFactory创建sqlSession
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             user = sqlSession.selectOne("test.findUserById", 1);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            sqlSession.close();
         }
         System.out.println(user);
     }
@@ -62,23 +58,22 @@ public class MybatisFirst {
      */
     @Test
     public void testFindByUsername() {
-        // 通过sqlSessionFactory创建sqlSession
-        SqlSession sqlSession = sqlSessionFactory.openSession();
-
         // 通过sqlSession操作数据库
         // 第一个参数：statement的位置，等于namespace+statement的id
         // 第二个参数：传入的参数
         List<User> users = null;
-        try {
+
+        // 通过sqlSessionFactory创建sqlSession
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             users = sqlSession.selectList("test.findUserByName", "小明");
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            sqlSession.close();
         }
 
-        for (User user : users) {
-            System.out.println(user);
+        if (users != null) {
+            for (User user : users) {
+                System.out.println(user);
+            }
         }
     }
 
@@ -86,10 +81,7 @@ public class MybatisFirst {
      * 插入用户
      */
     @Test
-    public void testInsertUser() {
-        // 通过sqlSessionFactory创建sqlSession
-        SqlSession sqlSession = sqlSessionFactory.openSession();
-
+    public void testInsertUser() throws Exception {
         // 通过sqlSession操作数据库
         // 插入用户
         User user = new User();
@@ -98,19 +90,54 @@ public class MybatisFirst {
         user.setBirthday(new Date());
         user.setSex("1");
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             sqlSession.insert("test.insertUser", user);
+
+            // 需要提交事务
+            sqlSession.commit();
+        }
+
+        // 打印ID
+        System.out.println(user);
+    }
+
+    /**
+     * 删除用户
+     */
+    @Test
+    public void testdeleteUser() {
+        // 通过sqlSessionFactory创建sqlSession
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+            sqlSession.delete("test.deleteUser", 28);
 
             // 需要提交事务
             sqlSession.commit();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            sqlSession.close();
         }
+    }
 
-        // 打印ID
-        System.out.println(user);
+    /**
+     * 更新用户
+     */
+    @Test
+    public void updateUser() {
+        User user = new User();
+        user.setId(26);
+        user.setUsername("王五");
+        user.setAddress("上海");
+        user.setBirthday(new Date());
+        user.setSex("1");
+
+        // 通过sqlSessionFactory创建sqlSession
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+            sqlSession.update("test.updateUser", user);
+
+            // 需要提交事务
+            sqlSession.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

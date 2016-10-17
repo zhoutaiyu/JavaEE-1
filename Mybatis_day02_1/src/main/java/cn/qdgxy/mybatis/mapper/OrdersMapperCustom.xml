@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace命名空间，为了对sql语句进行隔离，方便管理 ，mapper开发dao方式，使用namespace有特殊作用
+    mapper代理开发时将namespace指定为mapper接口的全限定名
+ -->
+<mapper namespace="cn.qdgxy.mybatis.mapper.OrdersMapperCustom">
+    <!-- 一对一查询resultMap -->
+
+    <!--<resultMap type="orders" id="ordersUserResultMap">
+        &lt;!&ndash; 完成了订单信息的映射配置 &ndash;&gt;
+        &lt;!&ndash; id：订单关联用户查询的唯 一 标识  &ndash;&gt;
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="number" property="number"/>
+        <result column="createTime" property="createTime"/>
+        <result column="note" property="note"/>
+
+        &lt;!&ndash; 下边完成关联信息的映射
+        association：用于对关联信息映射到单个pojo
+        property：要将关联信息映射到orders的哪个属性中
+        javaType：关联信息映射到orders的属性的类型，是user的类型
+         &ndash;&gt;
+        <association property="user" javaType="user">
+            &lt;!&ndash; id：关联信息的唯 一标识  &ndash;&gt;
+            &lt;!&ndash; property： 要映射到user的哪个属性中&ndash;&gt;
+            <id column="user_id" property="id"/>
+            &lt;!&ndash; result就是普通列的映射 &ndash;&gt;
+            <result column="username" property="username"/>
+            <result column="sex" property="sex"/>
+
+        </association>
+
+    </resultMap>-->
+
+    <!-- 一对一查询延迟加载 的配置 -->
+    <!--<resultMap type="orders" id="orderCustomLazyLoading">
+        &lt;!&ndash; 完成了订单信息的映射配置 &ndash;&gt;
+        &lt;!&ndash; id：订单关联用户查询的唯 一 标识 &ndash;&gt;
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="number" property="number"/>
+        <result column="createTime" property="createTime"/>
+        <result column="note" property="note"/>
+        &lt;!&ndash; 配置用户信息的延迟加载 select：延迟加载执行的sql所在的statement的id，如果不在同一个namespace需要加namespace
+            sql：根据用户id查询用户信息 column：关联查询的列 property:将关联查询的用户信息设置到Orders的哪个属性 &ndash;&gt;
+        <association property="user"
+                     select="cn.itcast.mybatis.mapper.UserMapper.findUserById" column="user_id"></association>
+
+
+    </resultMap>-->
+
+    <!-- 一对多，查询订单及订单明细 -->
+    <!--<resultMap type="orders" id="orderAndOrderDetails" extends="ordersUserResultMap">
+        &lt;!&ndash; 映射订单信息，和用户信息，这里使用继承ordersUserResultMap &ndash;&gt;
+
+        &lt;!&ndash; 映射订单明细信息
+        property：要将关联信息映射到orders的哪个属性中
+        ofType：集合中pojo的类型
+        &ndash;&gt;
+        <collection property="orderdetails" ofType="cn.itcast.mybatis.po.Orderdetail">
+            &lt;!&ndash; id：关联信息订单明细的唯 一标识
+            property：Orderdetail的属性名
+              &ndash;&gt;
+            <id column="orderdetail_id" property="id"/>
+            <result column="items_num" property="itemsNum"/>
+            <result column="items_id" property="itemsId"/>
+        </collection>
+
+    </resultMap>-->
+
+    <!-- 一对多查询，查询用户及订单明细和商品信息 -->
+    <!--<resultMap type="user" id="userOrderDetailResultMap">
+        &lt;!&ndash; 用户信息映射 &ndash;&gt;
+        <id column="user_id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="sex" property="sex"/>
+        &lt;!&ndash; 订单信息 &ndash;&gt;
+        <collection property="orderlist" ofType="cn.itcast.mybatis.po.Orders">
+            <id column="id" property="id"/>
+            <result column="user_id" property="userId"/>
+            <result column="number" property="number"/>
+            <result column="createTime" property="createTime"/>
+            <result column="note" property="note"/>
+            &lt;!&ndash; 订单明细映射 &ndash;&gt;
+            <collection property="orderdetails" ofType="cn.itcast.mybatis.po.Orderdetail">
+                &lt;!&ndash; id：关联信息订单明细的唯 一标识
+                property：Orderdetail的属性名
+                  &ndash;&gt;
+                <id column="orderdetail_id" property="id"/>
+                <result column="items_num" property="itemsNum"/>
+                <result column="items_id" property="itemsId"/>
+                &lt;!&ndash; 商品信息 &ndash;&gt;
+                <association property="items" javaType="cn.itcast.mybatis.po.Items">
+                    <id column="item_id" property="id"/>
+                    <result column="items_name" property="name"/>
+                    <result column="items_detail" property="detail"/>
+                </association>
+            </collection>
+        </collection>
+
+
+    </resultMap>-->
+
+    <!-- 一对一查询使用reusltType完成
+    查询订单关联查询用户信息
+     -->
+    <!--<select id="findOrderUserList" resultType="orderCustom">
+        SELECT
+        orders.*,
+        user.username,
+        user.sex
+        FROM
+        orders,
+        USER
+        WHERE orders.user_id = user.id
+    </select>-->
+
+    <!-- 一对一查询使用reusltMap完成
+    查询订单关联查询用户信息
+     -->
+    <!--<select id="findOrderUserListResultMap" resultMap="ordersUserResultMap">
+        SELECT
+        orders.*,
+        user.username,
+        user.sex
+        FROM
+        orders,
+        USER
+        WHERE orders.user_id = user.id
+    </select>-->
+
+    <!-- 一对多查询使用reusltMap完成
+   查询订单关联查询订单明细
+    -->
+    <!--<select id="findOrderAndOrderDetails" resultMap="orderAndOrderDetails">
+        SELECT
+        orders.*,
+        user.username,
+        user.sex ,
+        orderdetail.id orderdetail_id,
+        orderdetail.items_num,
+        orderdetail.items_id
+        FROM
+        orders,
+        USER,
+        orderdetail
+        WHERE orders.user_id = user.id  AND orders.id = orderdetail.orders_id
+    </select>
+-->
+    <!-- 一对多查询使用reusltMap完成
+  查询用户及订单和订单明细，关联商品，的信息
+   -->
+    <!--<select id="findUserOrderDetail" resultMap="userOrderDetailResultMap">
+        SELECT
+        orders.*,
+        user.username,
+        user.sex ,
+        orderdetail.id orderdetail_id,
+        orderdetail.items_num,
+        orderdetail.items_id,
+        items.name items_name,
+        items.detail items_detail
+        FROM
+        orders,
+        USER,
+        orderdetail,
+        items
+        WHERE orders.user_id = user.id  AND orders.id = orderdetail.orders_id AND items.id = orderdetail.items_id
+    </select>-->
+
+    <!-- 一对一查询延迟加载
+    开始只查询订单，对用户信息进行延迟加载 
+     -->
+    <!--<select id="findOrderUserListLazyLoading" resultMap="orderCustomLazyLoading">
+        SELECT
+        orders.*
+        FROM
+        orders
+    </select>-->
+
+</mapper>
+

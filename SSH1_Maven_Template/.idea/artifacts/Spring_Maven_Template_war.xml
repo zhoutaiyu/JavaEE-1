@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="Spring_Maven_Template:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="Spring_Maven_Template.war">
-      <element id="artifact" artifact-name="Spring_Maven_Template:war exploded" />
-    </root>
-  </artifact>
-</component>

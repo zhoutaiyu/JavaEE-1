@@ -1,6 +1,7 @@
 package cn.qdgxy.mybatis.mapper;
 
 import cn.qdgxy.mybatis.po.User;
+import cn.qdgxy.mybatis.po.UserQueryVo;
 
 import java.util.List;
 
@@ -18,6 +19,15 @@ public interface UserMapper {
 
     //根据用户名称模糊查询用户列表
     List<User> findUserByName(String username) throws Exception;
+
+    //自定义查询条件查询用户信息
+    List<User> findUserList(UserQueryVo userQueryVo) throws Exception;
+
+    //自定义查询条件查询用户数量
+    int findUserCount(UserQueryVo userQueryVo) throws Exception;
+
+    // 查询用户 使用resultMap
+    List<User> findUserListResultMap(UserQueryVo userQueryVo) throws Exception;
 
     // 插入用户
     int insertUser(User user) throws Exception;

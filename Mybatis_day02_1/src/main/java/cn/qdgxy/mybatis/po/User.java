@@ -1,6 +1,8 @@
 package cn.qdgxy.mybatis.po;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 用户
@@ -8,13 +10,16 @@ import java.util.Date;
  * @author 李欣
  * @version 2016-10-13 21:39
  */
-public class User {
+public class User implements Serializable {
 
     private int id;
     private String username;
     private String sex;
     private Date birthday;
     private String address;
+
+    // 多个订单
+    private List<Orders> orderList;
 
     public User() {
     }
@@ -59,6 +64,14 @@ public class User {
         this.address = address;
     }
 
+    public List<Orders> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Orders> orderList) {
+        this.orderList = orderList;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -67,6 +80,7 @@ public class User {
                 ", sex='" + sex + '\'' +
                 ", birthday=" + birthday +
                 ", address='" + address + '\'' +
+                ", orderList=" + orderList +
                 '}';
     }
 

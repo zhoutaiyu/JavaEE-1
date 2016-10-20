@@ -1,14 +1,22 @@
 package cn.qdgxy.mybatis.po;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-public class Orders {
+public class Orders implements Serializable {
 
     private Integer id;
     private Integer userId;
     private String number;
     private Date createTime;
     private String note;
+
+    // 关联用户信息
+    private User user;
+
+    // 订单明细
+    private List<OrderDetail> orderDetails;
 
     public Orders() {
     }
@@ -53,6 +61,22 @@ public class Orders {
         this.note = note;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<OrderDetail> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
     @Override
     public String toString() {
         return "Orders{" +
@@ -61,6 +85,7 @@ public class Orders {
                 ", number='" + number + '\'' +
                 ", createTime=" + createTime +
                 ", note='" + note + '\'' +
+                ", orderDetails=" + orderDetails +
                 '}';
     }
 

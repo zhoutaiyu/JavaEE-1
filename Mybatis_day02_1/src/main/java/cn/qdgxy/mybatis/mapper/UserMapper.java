@@ -1,7 +1,7 @@
 package cn.qdgxy.mybatis.mapper;
 
 import cn.qdgxy.mybatis.po.User;
-import cn.qdgxy.mybatis.po.UserQueryVo;
+import cn.qdgxy.mybatis.po_extend.UserQueryVo;
 
 import java.util.List;
 

@@ -8,6 +8,19 @@
  -->
 <mapper namespace="cn.qdgxy.mybatis.mapper.UserMapper">
 
+    <!-- 【开启二级缓存】 -->
+    <!-- 单位：毫秒 -->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <!-- 覆盖ehcacche.xml中的配置 -->
+        <property name="timeToIdleSeconds" value="12000"/>
+        <property name="timeToLiveSeconds" value="3600"/>
+        <!-- 同ehcache参数maxElementsInMemory -->
+        <property name="maxEntriesLocalHeap" value="1000"/>
+        <!-- 同ehcache参数maxElementsOnDisk -->
+        <property name="maxEntriesLocalDisk" value="10000000"/>
+        <property name="memoryStoreEvictionPolicy" value="LRU"/>
+    </cache>
+
     <!-- 【定义resultMap，列名和属性名映射配置】
         id：mapper.xml中的唯一标识
         type：最终要映射的pojo类型
@@ -57,10 +70,10 @@
 
             <!-- 最终拼接的效果：
             SELECT id ,username ,birthday FROM USER WHERE username LIKE '%小明%' AND (id = 16 OR id = 22 OR id = 25) -->
-           <!--<foreach collection="ids" open=" AND ( " close=")" item="id" separator="OR">
-               id = #{id}
-           </foreach>-->
-           <!-- 还有很的查询条件 -->
+            <!--<foreach collection="ids" open=" AND ( " close=")" item="id" separator="OR">
+                id = #{id}
+            </foreach>-->
+            <!-- 还有很的查询条件 -->
         </if>
     </sql>
 

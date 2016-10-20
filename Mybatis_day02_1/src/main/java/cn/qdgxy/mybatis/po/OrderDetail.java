@@ -1,11 +1,16 @@
 package cn.qdgxy.mybatis.po;
 
-public class OrderDetail {
+import java.io.Serializable;
+
+public class OrderDetail implements Serializable {
 
     private Integer id;
     private Integer ordersId;
-    private Integer itemsId;
-    private Integer itemsNum;
+    private Integer productId;
+    private Integer productNum;
+
+    // 商品信息
+    private Product product;
 
     public OrderDetail() {
     }
@@ -26,20 +31,28 @@ public class OrderDetail {
         this.ordersId = ordersId;
     }
 
-    public Integer getItemsId() {
-        return itemsId;
+    public Integer getProductId() {
+        return productId;
     }
 
-    public void setItemsId(Integer itemsId) {
-        this.itemsId = itemsId;
+    public void setProductId(Integer productId) {
+        this.productId = productId;
     }
 
-    public Integer getItemsNum() {
-        return itemsNum;
+    public Integer getProductNum() {
+        return productNum;
     }
 
-    public void setItemsNum(Integer itemsNum) {
-        this.itemsNum = itemsNum;
+    public void setProductNum(Integer productNum) {
+        this.productNum = productNum;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     @Override
@@ -47,8 +60,10 @@ public class OrderDetail {
         return "OrderDetail{" +
                 "id=" + id +
                 ", ordersId=" + ordersId +
-                ", itemsId=" + itemsId +
-                ", itemsNum=" + itemsNum +
+                ", productId=" + productId +
+                ", productNum=" + productNum +
+                ", product=" + product +
                 '}';
     }
+
 }

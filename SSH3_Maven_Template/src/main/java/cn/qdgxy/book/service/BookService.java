@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
-@Service()
+@Service
 @Transactional
 public class BookService {
 
@@ -37,7 +37,7 @@ public class BookService {
      * @param book
      */
     /*
-	 * public void update(Book book) { bookDao.update(book); }
+     * public void update(Book book) { bookDao.update(book); }
 	 *//**
      * 按ID查找图书
      *

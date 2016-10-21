@@ -9,8 +9,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- 配置注解需要扫描的包 -->
-    <context:component-scan
-            base-package="cn.qdgxy.book.web.action,cn.qdgxy.book.service,cn.qdgxy.book.dao"/>
+    <context:component-scan base-package="cn.qdgxy.book"/>
 
     <!-- 配置c3p0连接池 -->
     <context:property-placeholder location="classpath:jdbc.properties"/>
@@ -22,8 +21,7 @@
     </bean>
 
     <!-- 配置Hibernate的其他属属性 -->
-    <bean id="sessionFactory"
-          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <!-- 管理连接池 -->
         <property name="dataSource" ref="dataSource"/>
 
@@ -70,8 +68,7 @@
 
 
     <!-- 管理事务 -->
-    <bean id="transactionManager"
-          class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 

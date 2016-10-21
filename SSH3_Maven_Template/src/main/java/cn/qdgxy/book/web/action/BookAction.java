@@ -16,33 +16,33 @@ import com.opensymphony.xwork2.ModelDriven;
 
 @ParentPackage("struts-default")
 @Namespace("/")
-@Controller("bookAction")
+@Controller
 @Scope("prototype")
 public class BookAction extends ActionSupport implements ModelDriven<Book> {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Autowired
-	@Qualifier("bookService")
-	private BookService bookService;
+    @Autowired
+    @Qualifier("bookService")
+    private BookService bookService;
 
-	private Book book = new Book();
+    private Book book = new Book();
 
-	/**
-	 * 图书添加
-	 * 
-	 * @return
-	 */
-	@Action("book_add")
-	public String add() {
-		System.out.println("图书添加。。。。。。。。。。。");
-		bookService.add(book);
-		return NONE;
-	}
+    /**
+     * 图书添加
+     *
+     * @return
+     */
+    @Action("book_add")
+    public String add() {
+        System.out.println("图书添加。。。。。。。。。。。");
+        bookService.add(book);
+        return NONE;
+    }
 
-	@Override
-	public Book getModel() {
-		return book;
-	}
+    @Override
+    public Book getModel() {
+        return book;
+    }
 
 }

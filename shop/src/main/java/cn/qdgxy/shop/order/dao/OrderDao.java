@@ -1,16 +1,11 @@
 package cn.qdgxy.shop.order.dao;
 
 import cn.qdgxy.shop.order.vo.Order;
-import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.Resource;
-
 @Repository
-public class OrderDao {
-
-    @Resource
-    private HibernateTemplate hibernateTemplate;
+public class OrderDao extends HibernateDaoSupport {
 
     /**
      * 保存订单
@@ -19,7 +14,7 @@ public class OrderDao {
      * @return 订单ID
      */
     public Integer add(Order order) {
-        return (Integer) hibernateTemplate.save(order);
+        return (Integer) this.getHibernateTemplate().save(order);
     }
 
     /**
@@ -29,7 +24,7 @@ public class OrderDao {
      * @return 订单
      */
     public Order findById(Integer oid) {
-        return hibernateTemplate.get(Order.class, oid);
+        return this.getHibernateTemplate().get(Order.class, oid);
     }
 
 }

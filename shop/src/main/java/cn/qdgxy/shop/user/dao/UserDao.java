@@ -1,17 +1,13 @@
 package cn.qdgxy.shop.user.dao;
 
 import cn.qdgxy.shop.user.vo.User;
-import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @Repository
-public class UserDao {
-
-    @Resource
-    private HibernateTemplate hibernateTemplate;
+public class UserDao extends HibernateDaoSupport {
 
     /**
      * 保存用户
@@ -19,7 +15,7 @@ public class UserDao {
      * @param user 用户
      */
     public void save(User user) {
-        hibernateTemplate.save(user);
+        this.getHibernateTemplate().save(user);
     }
 
     /**
@@ -28,7 +24,7 @@ public class UserDao {
      * @param user 用户
      */
     public void update(User user) {
-        hibernateTemplate.update(user);
+        this.getHibernateTemplate().update(user);
     }
 
     /**
@@ -39,7 +35,7 @@ public class UserDao {
      */
     @SuppressWarnings("unchecked")
     public User findByUsername(String username) {
-        List<User> users = (List<User>) hibernateTemplate.find(
+        List<User> users = (List<User>) this.getHibernateTemplate().find(
                 "from User where username=?", username);
 
         if (!users.isEmpty()) {
@@ -56,7 +52,7 @@ public class UserDao {
      */
     @SuppressWarnings("unchecked")
     public User findByEmail(String email) {
-        List<User> users = (List<User>) hibernateTemplate.find(
+        List<User> users = (List<User>) this.getHibernateTemplate().find(
                 "from User where email=?", email);
 
         if (!users.isEmpty()) {
@@ -73,7 +69,7 @@ public class UserDao {
      */
     @SuppressWarnings("unchecked")
     public User findByCode(String code) {
-        List<User> users = (List<User>) hibernateTemplate.find(
+        List<User> users = (List<User>) this.getHibernateTemplate().find(
                 "from User where code=?", code);
 
         if (!users.isEmpty()) {

@@ -13,7 +13,9 @@
         resultType：输出结果 类型，不管返回是多条还是单条，指定单条记录映射的pojo类型
      -->
     <select id="findUserById" parameterType="int" resultType="user">
-        SELECT * FROM USER WHERE id= #{id}
+        SELECT *
+        FROM USER
+        WHERE id = #{id}
     </select>
 
 

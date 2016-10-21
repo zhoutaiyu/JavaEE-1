@@ -1,5 +1,6 @@
 package cn.qdgxy.mybatis.po;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Date;
  * @author 李欣
  * @version 2016-10-13 21:39
  */
-public class User {
+public class User implements Serializable {
 
     private int id;
     private String username;

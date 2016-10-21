@@ -2,6 +2,7 @@ package cn.qdgxy.shop.cart.vo;
 
 import cn.qdgxy.shop.product.vo.Product;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -9,7 +10,7 @@ import java.math.BigDecimal;
  *
  * @author 李欣
  */
-public class CartItem {
+public class CartItem implements Serializable {
 
     private Product product; // 商品
     private int count; // 数量

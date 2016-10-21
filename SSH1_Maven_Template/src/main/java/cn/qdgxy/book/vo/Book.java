@@ -1,42 +1,44 @@
 package cn.qdgxy.book.vo;
 
-public class Book {
+import java.io.Serializable;
 
-	private Integer bid;
-	private String name;
-	private Double price;
+public class Book implements Serializable {
 
-	public Book() {
-		super();
-	}
+    private Integer bid;
+    private String name;
+    private Double price;
 
-	public Integer getBid() {
-		return bid;
-	}
+    public Book() {
+        super();
+    }
 
-	public void setBid(Integer bid) {
-		this.bid = bid;
-	}
+    public Integer getBid() {
+        return bid;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setBid(Integer bid) {
+        this.bid = bid;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public Double getPrice() {
-		return price;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setPrice(Double price) {
-		this.price = price;
-	}
+    public Double getPrice() {
+        return price;
+    }
 
-	@Override
-	public String toString() {
-		return "Book [bid=" + bid + ", name=" + name + ", price=" + price + "]";
-	}
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Book [bid=" + bid + ", name=" + name + ", price=" + price + "]";
+    }
 
 }

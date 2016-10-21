@@ -1,5 +1,6 @@
 package cn.qdgxy.shop.cart.vo;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.LinkedHashMap;
@@ -10,7 +11,7 @@ import java.util.Map;
  *
  * @author 李欣
  */
-public class Cart {
+public class Cart implements Serializable {
 
     private Map<Integer, CartItem> map = new LinkedHashMap<>(); // 商品ID，商品条目
 

@@ -197,6 +197,7 @@
             <version>${hibernate.version}</version>
         </dependency>
 
+        <!-- 二级缓存 -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-ehcache</artifactId>

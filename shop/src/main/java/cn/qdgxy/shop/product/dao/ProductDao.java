@@ -2,13 +2,17 @@ package cn.qdgxy.shop.product.dao;
 
 import cn.qdgxy.shop.product.vo.Product;
 import cn.qdgxy.shop.utils.page.dao.PageHibernateCallback;
-import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Repository
-public class ProductDao extends HibernateDaoSupport {
+public class ProductDao {
+
+    @Resource
+    private HibernateTemplate hibernateTemplate;
 
     /**
      * 查询热门商品
@@ -16,7 +20,7 @@ public class ProductDao extends HibernateDaoSupport {
      * @return 10个商品
      */
     public List<Product> findHot() {
-        return this.getHibernateTemplate().executeWithNativeSession(
+        return hibernateTemplate.executeWithNativeSession(
                 new PageHibernateCallback<Product>(
                         "from Product where is_hot=? and is_del=?",
                         new Object[]{1, 0}, 0, 10));
@@ -28,7 +32,7 @@ public class ProductDao extends HibernateDaoSupport {
      * @return 10个商品
      */
     public List<Product> findNew() {
-        return this.getHibernateTemplate().executeWithNativeSession(
+        return hibernateTemplate.executeWithNativeSession(
                 new PageHibernateCallback<Product>(
                         "from Product where is_del=? order by ptime desc",
                         new Object[]{0}, 0, 10));
@@ -43,7 +47,7 @@ public class ProductDao extends HibernateDaoSupport {
     @SuppressWarnings("unchecked")
     public Integer findCountByCategory(Integer cid) {
         String hql = "select count(*) from Product p join p.categorySecond cs join cs.category c where c.cid=? and p.is_del=?";
-        List<Long> list = (List<Long>) this.getHibernateTemplate().find(hql,
+        List<Long> list = (List<Long>) hibernateTemplate.find(hql,
                 cid, 0);
         return list.get(0).intValue();
     }
@@ -59,7 +63,7 @@ public class ProductDao extends HibernateDaoSupport {
     public List<Product> findByCategory(Integer cid, int pageNumber,
                                         int pageSize) {
         String hql = "select p from Product p join p.categorySecond cs join cs.category c where c.cid=? and p.is_del=?";
-        return this.getHibernateTemplate().executeWithNativeSession(
+        return hibernateTemplate.executeWithNativeSession(
                 new PageHibernateCallback<Product>(hql, new Object[]{
                         cid, 0}, (pageNumber - 1) * pageSize, pageSize));
     }
@@ -73,7 +77,7 @@ public class ProductDao extends HibernateDaoSupport {
     @SuppressWarnings("unchecked")
     public Integer findCountByCategorySecond(Integer csid) {
         String hql = "select count(*) from Product p join p.categorySecond cs where cs.csid=? and p.is_del=?";
-        List<Long> list = (List<Long>) this.getHibernateTemplate().find(hql,
+        List<Long> list = (List<Long>) hibernateTemplate.find(hql,
                 csid, 0);
         return list.get(0).intValue();
     }
@@ -89,7 +93,7 @@ public class ProductDao extends HibernateDaoSupport {
     public List<Product> findByCategorySecond(Integer csid, int pageNumber,
                                               int pageSize) {
         String hql = "select p from Product p join p.categorySecond cs where cs.csid=? and p.is_del=?";
-        return this.getHibernateTemplate()
+        return hibernateTemplate
                 .executeWithNativeSession(
                         new PageHibernateCallback<Product>(hql, new Object[]{
                                 csid, 0}, (pageNumber - 1) * pageSize,
@@ -103,7 +107,7 @@ public class ProductDao extends HibernateDaoSupport {
      * @return 商品
      */
     public Product findById(Integer pid) {
-        return this.getHibernateTemplate().get(Product.class, pid);
+        return hibernateTemplate.get(Product.class, pid);
     }
 
 }

@@ -1,13 +1,17 @@
 package cn.qdgxy.shop.user.dao;
 
 import cn.qdgxy.shop.user.vo.User;
-import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Repository
-public class UserDao extends HibernateDaoSupport {
+public class UserDao {
+
+    @Resource
+    private HibernateTemplate hibernateTemplate;
 
     /**
      * 保存用户
@@ -15,7 +19,7 @@ public class UserDao extends HibernateDaoSupport {
      * @param user 用户
      */
     public void save(User user) {
-        this.getHibernateTemplate().save(user);
+        hibernateTemplate.save(user);
     }
 
     /**
@@ -24,7 +28,7 @@ public class UserDao extends HibernateDaoSupport {
      * @param user 用户
      */
     public void update(User user) {
-        this.getHibernateTemplate().update(user);
+        hibernateTemplate.update(user);
     }
 
     /**
@@ -35,7 +39,7 @@ public class UserDao extends HibernateDaoSupport {
      */
     @SuppressWarnings("unchecked")
     public User findByUsername(String username) {
-        List<User> users = (List<User>) this.getHibernateTemplate().find(
+        List<User> users = (List<User>) hibernateTemplate.find(
                 "from User where username=?", username);
 
         if (!users.isEmpty()) {
@@ -52,7 +56,7 @@ public class UserDao extends HibernateDaoSupport {
      */
     @SuppressWarnings("unchecked")
     public User findByEmail(String email) {
-        List<User> users = (List<User>) this.getHibernateTemplate().find(
+        List<User> users = (List<User>) hibernateTemplate.find(
                 "from User where email=?", email);
 
         if (!users.isEmpty()) {
@@ -69,7 +73,7 @@ public class UserDao extends HibernateDaoSupport {
      */
     @SuppressWarnings("unchecked")
     public User findByCode(String code) {
-        List<User> users = (List<User>) this.getHibernateTemplate().find(
+        List<User> users = (List<User>) hibernateTemplate.find(
                 "from User where code=?", code);
 
         if (!users.isEmpty()) {

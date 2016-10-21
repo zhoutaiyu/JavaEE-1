@@ -1,10 +1,14 @@
 package cn.qdgxy.shop.categorysecond.dao;
 
-import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public class CategorySecondDao extends HibernateDaoSupport {
+import javax.annotation.Resource;
 
+@Repository
+public class CategorySecondDao {
+
+    @Resource
+    private HibernateTemplate hibernateTemplate;
 
 }

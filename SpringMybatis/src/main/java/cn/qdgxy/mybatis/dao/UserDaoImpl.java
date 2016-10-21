@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import javax.annotation.Resource;
 
 /**
- * 用户Dao实现
+ * 整合开发原始dao接口<br>
  * create:2016-10-16 17:46
  *
  * @author 李欣

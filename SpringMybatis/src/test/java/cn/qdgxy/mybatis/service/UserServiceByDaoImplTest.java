@@ -1,4 +1,4 @@
-package cn.qdgxy.mybatis.dao;
+package cn.qdgxy.mybatis.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,21 +9,21 @@ import javax.annotation.Resource;
 
 /**
  * ${DESCRIPTION}<br>
- * create:2016-10-21 9:39
+ * create:2016-10-21 13:30
  *
  * @author 李欣
  * @version ${VERSION}
  */
 @RunWith(SpringJUnit4ClassRunner.class)     //表示继承了SpringJUnit4ClassRunner类
 @ContextConfiguration(locations = {"classpath:Spring/applicationContext.xml"})
-public class UserDaoImplTest {
+public class UserServiceByDaoImplTest {
 
-    @Resource
-    private UserDao userDao;
+    @Resource(name = "userServiceByDaoImpl")
+    private UserService userService;
 
     @Test
     public void findUserById() throws Exception {
-        System.out.println(userDao.findUserById(1));
+        System.out.println(userService.findUserById(1));
     }
 
 }

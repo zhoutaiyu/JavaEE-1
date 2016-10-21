@@ -56,4 +56,23 @@
 
     <!-- 开启注解的事务管理 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
+
+
+    <!-- 配置mapper：麻烦 -->
+    <!--<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        &lt;!&ndash; MapperFactoryBean：用于生成mapper代理对象，指定接口类型 &ndash;&gt;
+        <property name="mapperInterface" value="cn.qdgxy.mybatis.mapper.UserMapper"/>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>-->
+
+    <!-- 扫描mapper：方便
+	    MapperScannerConfigurer：mapper的扫描器，将包下边的mapper接口自动创建代理对象，
+	    自动创建到spring容器中，bean的id是mapper的类名（首字母小写） -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 配置扫描包的路径
+             如果要扫描多个包，中间使用半角逗号分隔  -->
+        <property name="basePackage" value="cn.qdgxy.mybatis.mapper"/>
+        <!-- 使用sqlSessionFactoryBeanName -->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
 </beans>

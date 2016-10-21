@@ -3,7 +3,7 @@ package cn.qdgxy.mybatis.mapper;
 import cn.qdgxy.mybatis.po.User;
 
 /**
- * 用户Dao
+ * 整合开发mapper代理方法<br>
  * create:2016-10-16 17:43
  *
  * @author 李欣
@@ -12,6 +12,6 @@ import cn.qdgxy.mybatis.po.User;
 public interface UserMapper {
 
     //根据id查询用户信息
-    User findUserById(int id) throws Exception;
+    User findUserById(int id);
 
 }

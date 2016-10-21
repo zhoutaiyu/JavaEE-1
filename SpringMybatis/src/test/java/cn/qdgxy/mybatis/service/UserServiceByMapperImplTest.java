@@ -9,16 +9,16 @@ import javax.annotation.Resource;
 
 /**
  * ${DESCRIPTION}<br>
- * create:2016-10-21 13:30
+ * create:2016-10-21 19:50
  *
  * @author 李欣
  * @version ${VERSION}
  */
 @RunWith(SpringJUnit4ClassRunner.class)     //表示继承了SpringJUnit4ClassRunner类
 @ContextConfiguration(locations = {"classpath:Spring/applicationContext.xml"})
-public class UserServiceImplTest {
+public class UserServiceByMapperImplTest {
 
-    @Resource
+    @Resource(name = "userServiceByMapperImpl")
     private UserService userService;
 
     @Test

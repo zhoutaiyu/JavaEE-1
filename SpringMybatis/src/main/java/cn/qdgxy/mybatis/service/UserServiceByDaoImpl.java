@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 
 /**
- * 用户Service<br>
+ * 用户Service，原始dao接口实现<br>
  * create:2016-10-21 13:25
  *
  * @author 李欣
@@ -16,7 +16,7 @@ import javax.annotation.Resource;
  */
 @Transactional
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceByDaoImpl implements UserService {
 
     @Resource
     private UserDao userDao;

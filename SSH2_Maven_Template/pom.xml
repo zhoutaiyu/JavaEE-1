@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.edu.oucqdc</groupId>
-    <artifactId>Spring_Maven_Template</artifactId>
+    <artifactId>SSH2_Maven_Template</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>Spring_Maven_Template</name>
+    <name>SSH2_Maven_Template</name>
     <url>http://www.oucqdc.edu.cn/</url>
 
     <properties>

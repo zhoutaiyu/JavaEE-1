@@ -13,8 +13,7 @@
 
 
     <!-- 零障碍整合 在spring配置文件中引入hibernate的配置文件 -->
-    <bean id="sessionFactory"
-          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
     </bean>
 
@@ -25,8 +24,7 @@
 
 
     <!-- 配置事务管理器 -->
-    <bean id="transactionManager"
-          class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <!-- 注入sessionFactory -->
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>

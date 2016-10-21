@@ -4,53 +4,53 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-	<!-- 开发者模式 -->
-	<constant name="struts.devMode" value="true" />
+    <!-- 开发者模式 -->
+    <constant name="struts.devMode" value="true"/>
 
-	<package name="default" namespace="/" extends="struts-default"
-		strict-method-invocation="false">
-		<!-- 全局结果 -->
-		<global-results>
-			<!-- 消息 -->
-			<result name="msgPage">/WEB-INF/jsps/frame/msg.jsp</result>
-		</global-results>
+    <package name="default" namespace="/" extends="struts-default"
+             strict-method-invocation="false">
+        <!-- 全局结果 -->
+        <global-results>
+            <!-- 消息 -->
+            <result name="msgPage">/WEB-INF/jsps/frame/msg.jsp</result>
+        </global-results>
 
-		<!-- 首页访问的Action -->
-		<action name="index" class="indexAction">
-			<result name="index_success">/WEB-INF/jsps/index.jsp</result>
-		</action>
+        <!-- 首页访问的Action -->
+        <action name="index" class="indexAction">
+            <result name="index_success">/WEB-INF/jsps/index.jsp</result>
+        </action>
 
-		<!-- 验证码的Action -->
-		<action name="verifyCodeAction" class="verifyCodeAction" />
+        <!-- 验证码的Action -->
+        <action name="verifyCodeAction" class="verifyCodeAction"/>
 
-		<!-- 用户的Action -->
-		<action name="user_*" class="userAction" method="{1}">
-			<!-- 注册 -->
-			<result name="registPage">/WEB-INF/jsps/user/regist.jsp</result>
-			<result name="registInput">/WEB-INF/jsps/user/regist.jsp</result>
+        <!-- 用户的Action -->
+        <action name="user_*" class="userAction" method="{1}">
+            <!-- 注册 -->
+            <result name="registPage">/WEB-INF/jsps/user/regist.jsp</result>
+            <result name="registInput">/WEB-INF/jsps/user/regist.jsp</result>
 
-			<!-- 登录 -->
-			<result name="loginPage">/WEB-INF/jsps/user/login.jsp</result>
-			<result name="login_success" type="redirectAction">index</result>
-			<result name="loginInput">/WEB-INF/jsps/user/login.jsp</result>
-			<result name="exit_success" type="redirectAction">index</result>
-		</action>
+            <!-- 登录 -->
+            <result name="loginPage">/WEB-INF/jsps/user/login.jsp</result>
+            <result name="login_success" type="redirectAction">index</result>
+            <result name="loginInput">/WEB-INF/jsps/user/login.jsp</result>
+            <result name="exit_success" type="redirectAction">index</result>
+        </action>
 
-		<!-- 商品的Action -->
-		<action name="product_*" class="productAction" method="{1}">
-			<result name="findbyCategory_success">/WEB-INF/jsps/product/list.jsp</result>
-			<result name="findbyCategorySecond_success">/WEB-INF/jsps/product/list.jsp</result>
-			<result name="load_success">/WEB-INF/jsps/product/desc.jsp</result>
-		</action>
+        <!-- 商品的Action -->
+        <action name="product_*" class="productAction" method="{1}">
+            <result name="findbyCategory_success">/WEB-INF/jsps/product/list.jsp</result>
+            <result name="findbyCategorySecond_success">/WEB-INF/jsps/product/list.jsp</result>
+            <result name="load_success">/WEB-INF/jsps/product/desc.jsp</result>
+        </action>
 
-		<!-- 购物车的Action -->
-		<action name="cart_*" class="cartAction" method="{1}">
-			<result name="cartPage">/WEB-INF/jsps/cart/list.jsp</result>
-		</action>
+        <!-- 购物车的Action -->
+        <action name="cart_*" class="cartAction" method="{1}">
+            <result name="cartPage">/WEB-INF/jsps/cart/list.jsp</result>
+        </action>
 
-		<!-- Order的Action -->
-		<action name="order_*" class="orderAction" method="{1}">
-			<result name="add_success">/WEB-INF/jsps/order/desc.jsp</result>
-		</action>
-	</package>
+        <!-- Order的Action -->
+        <action name="order_*" class="orderAction" method="{1}">
+            <result name="add_success">/WEB-INF/jsps/order/desc.jsp</result>
+        </action>
+    </package>
 </struts>

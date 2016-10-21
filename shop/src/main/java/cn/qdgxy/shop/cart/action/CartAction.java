@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-@Controller("cartAction")
+@Controller
 @Scope("prototype")
 public class CartAction extends ActionSupport {
 

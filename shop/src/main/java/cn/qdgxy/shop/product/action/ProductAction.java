@@ -16,7 +16,7 @@ import org.springframework.stereotype.Controller;
 import javax.annotation.Resource;
 import java.util.List;
 
-@Controller("productAction")
+@Controller
 @Scope("prototype")
 public class ProductAction extends ActionSupport implements
         ModelDriven<Product> {

@@ -17,7 +17,7 @@ import java.util.List;
  *
  * @author 李欣
  */
-@Controller("indexAction")
+@Controller
 @Scope("prototype")
 public class IndexAction extends ActionSupport {
 

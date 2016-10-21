@@ -14,7 +14,7 @@ import org.springframework.stereotype.Controller;
 import javax.annotation.Resource;
 import java.util.Date;
 
-@Controller("orderAction")
+@Controller
 @Scope("prototype")
 public class OrderAction extends ActionSupport {
 

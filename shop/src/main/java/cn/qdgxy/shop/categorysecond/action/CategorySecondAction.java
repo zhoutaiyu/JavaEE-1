@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
 
-@Controller("categorySecondAction")
+@Controller
 @Scope("prototype")
 public class CategorySecondAction extends ActionSupport {
 

@@ -8,6 +8,10 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <!-- 配置注解需要扫描的包 -->
+    <context:component-scan base-package="cn.qdgxy.shop"/>
+
+
     <!-- 零障碍整合 在spring配置文件中引入hibernate的配置文件 -->
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
@@ -18,10 +22,6 @@
     <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-
-
-    <!-- 配置注解需要扫描的包 -->
-    <context:component-scan base-package="cn.qdgxy.shop.*"/>
 
 
     <!-- 配置事务管理器 -->

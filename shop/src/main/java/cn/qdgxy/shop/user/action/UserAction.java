@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@Controller("userAction")
+@Controller
 @Scope("prototype")
 public class UserAction extends ActionSupport implements ModelDriven<User> {
 

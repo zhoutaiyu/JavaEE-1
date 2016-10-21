@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
 
-@Controller("categoryAction")
+@Controller
 @Scope("prototype")
 public class CategoryAction extends ActionSupport implements
         ModelDriven<Category> {

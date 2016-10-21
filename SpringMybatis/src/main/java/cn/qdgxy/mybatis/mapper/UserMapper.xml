@@ -5,19 +5,11 @@
 
 <mapper namespace="cn.qdgxy.mybatis.mapper.UserMapper">
 
-    <!-- 【根据id查询用户信息 】-->
-    <!--
-        id：唯一标识 一个statement
-        #{}：表示 一个占位符，如果#{}中传入简单类型的参数，#{}中的名称随意
-        parameterType：输入 参数的类型，通过#{}接收parameterType输入 的参数
-        resultType：输出结果 类型，不管返回是多条还是单条，指定单条记录映射的pojo类型
-     -->
     <select id="findUserById" parameterType="int" resultType="user">
         SELECT *
         FROM USER
         WHERE id = #{id}
     </select>
-
 
 </mapper>
 

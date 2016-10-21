@@ -8,6 +8,10 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <!-- 配置注解需要扫描的包 -->
+    <context:component-scan base-package="cn.qdgxy.mybatis"/>
+
+
     <!-- 加载配置文件 -->
     <context:property-placeholder location="classpath:dbconfig.properties"/>
     <!-- 数据库连接池 -->
@@ -17,41 +21,38 @@
         <property name="url" value="${jdbc.url}"/>
         <property name="username" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
-        <property name="maxActive" value="10"/>
-        <property name="maxIdle" value="5"/>
+
+        <!-- 初始化连接:连接池启动时创建的初始化连接数量-->
+        <property name="initialSize" value="${dhcp.initialSize}"/>
+        <!-- 最大活动连接:连接池在同一时间能够分配的最大活动连接的数量-->
+        <property name="maxActive" value="${dhcp.maxActive}"/>
+        <!--最大空闲连接:连接池中容许保持空闲状态的最大连接数量,超过的空闲连接将被释放-->
+        <property name="maxIdle" value="${dhcp.maxIdle}"/>
+        <!-- 最小空闲连接数:低于这个数量会被创建新的连接 -->
+        <property name="minIdle" value="${dhcp.minIdle}"/>
+        <!--最大等待时间，当没有可用连接时，连接池等待连接释放的最大时间，超过该时间限制会抛出异常，如果设置-1表示无限等待（默认为无限，调整为60000ms，避免因线程池不够用，而导致请求被无限制挂起）-->
+        <property name="maxWait" value="${dhcp.maxWait}"/>
     </bean>
 
-
-    <!-- 零障碍整合 在spring配置文件中引入hibernate的配置文件 -->
-    <bean id="sessionFactory"
-          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-        <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
-    </bean>
-
-    <!-- SqlsessionFactory -->
+    <!-- sqlSessionFactory 整合Mybatis -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!-- 数据源 -->
         <property name="dataSource" ref="dataSource"/>
         <!-- mybatis配置文件 -->
-        <property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"/>
+        <property name="configLocation" value="classpath:Mybatis/SqlMapConfig.xml"/>
     </bean>
 
-
-    <!-- 配置注解需要扫描的包 -->
-    <context:component-scan base-package="cn.qdgxy.mybatis.*"/>
+    <!-- 配置DAO层的sqlSessionTemplate -->
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory"/>
+    </bean>
 
 
     <!-- 配置事务管理器 -->
-    <bean id="transactionManager"
-          class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <!-- 注入sessionFactory -->
-        <property name="sessionFactory" ref="sessionFactory"/>
+        <property name="dataSource" ref="dataSource"/>
     </bean>
-
-    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-
 
     <!-- 开启注解的事务管理 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>

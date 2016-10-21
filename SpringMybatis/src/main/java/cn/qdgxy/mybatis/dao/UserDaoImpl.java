@@ -1,10 +1,10 @@
 package cn.qdgxy.mybatis.dao;
 
 import cn.qdgxy.mybatis.po.User;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import javax.annotation.Resource;
 
 /**
  * 用户Dao实现
@@ -13,39 +13,18 @@ import java.util.List;
  * @author 李欣
  * @version 1.0
  */
+@Repository
 public class UserDaoImpl implements UserDao {
 
-    // 将sqlSessionFactory注入
-    private SqlSessionFactory sqlSessionFactory;
+    @Resource
+    private SqlSessionTemplate sqlSessionTemplate;
 
     public UserDaoImpl() {
     }
 
-    @Override
-    public User findUserById(int id) throws Exception {
-        //创建sqlSession
-        SqlSession sqlSession = sqlSessionFactory.openSession();
-        User user = sqlSession.selectOne("test.findUserById", id);
-        sqlSession.close();
-        return user;
+    public User findUserById(int id) {
+        return sqlSessionTemplate.selectOne("cn.qdgxy.mybatis.mapper.UserMapper.findUserById", id);
     }
 
-    @Override
-    public List<User> findUserByName(String username) throws Exception {
-        //创建sqlSession
-        SqlSession sqlSession = sqlSessionFactory.openSession();
-        List<User> users = sqlSession.selectList("test.findUserByName", "小明");
-        sqlSession.close();
-        return users;
-    }
-
-    @Override
-    public void insertUser(User user) throws Exception {
-        //创建sqlSession
-        SqlSession sqlSession = sqlSessionFactory.openSession();
-        sqlSession.insert("test.insertUser", user);
-        sqlSession.commit();
-        sqlSession.close();
-    }
 
 }

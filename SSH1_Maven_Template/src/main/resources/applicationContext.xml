@@ -33,6 +33,7 @@
         <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
     </bean>
 
+
     <!-- 管理事务 -->
     <bean id="transactionManager"
           class="org.springframework.orm.hibernate5.HibernateTransactionManager">

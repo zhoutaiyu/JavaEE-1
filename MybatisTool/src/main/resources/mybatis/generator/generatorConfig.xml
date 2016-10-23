@@ -4,17 +4,31 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <context id="testTables" targetRuntime="MyBatis3">
+    <!--mybatis生成工具的帮助文档可以看：-->
+    <!--英文：http://www.mybatis.org/generator/usage/mysql.html-->
+    <!--中文：http://www.mybatis.tk/-->
+    <!--中文：http://mbg.cndocs.tk/-->
+
+    <!--导入属性配置 -->
+    <properties resource="mybatis/generator/generator.properties"></properties>
+
+    <!--添加你本地的驱动jar-->
+    <classPathEntry location="${jdbc.driverLocation}"/>
+
+    <context id="default" targetRuntime="MyBatis3">
+        <!--设置编码格式-->
+        <property name="javaFileEncoding" value="UTF-8"/>
+
         <commentGenerator>
             <!-- 是否去除自动生成的注释    true:是; false:否 -->
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
 
         <!--1. 数据库连接的信息：驱动类、连接地址、用户名、密码 -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://10.10.39.123/mybatis?serverTimezone=UTC"
-                        userId="root"
-                        password="1234">
+        <jdbcConnection driverClass="${jdbc.driverClass}"
+                        connectionURL="${jdbc.connectionURL}"
+                        userId="${jdbc.userId}"
+                        password="${jdbc.password}">
         </jdbcConnection>
 
         <!--    Oracle
@@ -32,7 +46,9 @@
 
 
         <!-- 2. targetProject：生成PO类的位置 -->
-        <javaModelGenerator targetPackage="cn.qdgxy.mybatis.po" targetProject=".\src\main\java">
+        <javaModelGenerator targetPackage="cn.qdgxy.mybatis.po" targetProject="src\main\java">
+            <!-- 是否对model添加 构造函数 -->
+            <property name="constructorBased" value="true"/>
             <!-- enableSubPackages：是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false"/>
             <!-- 从数据库返回的值被清理前后的空格 -->
@@ -41,24 +57,29 @@
 
 
         <!-- 3.1 targetProject：mapper映射文件生成的位置 -->
-        <sqlMapGenerator targetPackage="cn.qdgxy.mybatis.mapper" targetProject=".\src\main\java">
+        <sqlMapGenerator targetPackage="cn.qdgxy.mybatis.mapper" targetProject="src\main\java">
             <!-- enableSubPackages：是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
         <!-- 3.2 targetPackage：mapper接口生成的位置 -->
+        <!-- 客户端代码，生成易于使用的针对Model对象和XML配置文件的代码
+                type="ANNOTATEDMAPPER", 生成Java Model 和 基于注解的Mapper对象
+                type="MIXEDMAPPER",     生成基于注解的Java Model 和 相应的Mapper对象
+                type="XMLMAPPER",       生成SQLMap XML文件 和 独立的Mapper接口
+        -->
         <javaClientGenerator type="XMLMAPPER"
                              targetPackage="cn.qdgxy.mybatis.mapper"
-                             targetProject=".\src\main\java">
+                             targetProject="src\main\java">
             <!-- enableSubPackages：是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
 
-        <!-- 4. 指定数据库表 -->
+        <!-- 4. 要根据哪张表生成，要在这里配置 -->
+        <table tableName="product"/>
         <table tableName="user"/>
         <table tableName="orderDetail"/>
-        <table tableName="product"/>
         <table tableName="orders"/>
 
         <!-- <table schema="" tableName="sys_user"/>

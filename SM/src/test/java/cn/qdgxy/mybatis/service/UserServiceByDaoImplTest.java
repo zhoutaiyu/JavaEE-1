@@ -15,7 +15,7 @@ import javax.annotation.Resource;
  * @version ${VERSION}
  */
 @RunWith(SpringJUnit4ClassRunner.class)     //表示继承了SpringJUnit4ClassRunner类
-@ContextConfiguration(locations = {"classpath:Spring/applicationContext.xml"})
+@ContextConfiguration(locations = {"classpath:spring/applicationContext.xml"})
 public class UserServiceByDaoImplTest {
 
     @Resource(name = "userServiceByDaoImpl")

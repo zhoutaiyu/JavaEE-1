@@ -10,7 +10,8 @@ import java.util.List;
 
 /**
  * Mybatis逆向工程<br>
- * 解决mapper.xml文件内容重复
+ * 数据库账户需要新建，只对应与项目数据库，不是能使用root，否则mapper.xml产生多余sql语句<br>
+ * 每次生成前需要将原先的文件删除掉
  * create:2016-10-23 19:57
  *
  * @author 李欣

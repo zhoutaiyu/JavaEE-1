@@ -1,9 +1,10 @@
 package cn.qdgxy.mybatis.po;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Product {
-    private Integer pid;
+public class Product implements Serializable {
+    private Integer odid;
 
     private String name;
 
@@ -15,8 +16,10 @@ public class Product {
 
     private String detail;
 
-    public Product(Integer pid, String name, Float price, String pic, Date createTime, String detail) {
-        this.pid = pid;
+    private static final long serialVersionUID = 1L;
+
+    public Product(Integer odid, String name, Float price, String pic, Date createTime, String detail) {
+        this.odid = odid;
         this.name = name;
         this.price = price;
         this.pic = pic;
@@ -28,12 +31,12 @@ public class Product {
         super();
     }
 
-    public Integer getPid() {
-        return pid;
+    public Integer getOdid() {
+        return odid;
     }
 
-    public void setPid(Integer pid) {
-        this.pid = pid;
+    public void setOdid(Integer odid) {
+        this.odid = odid;
     }
 
     public String getName() {

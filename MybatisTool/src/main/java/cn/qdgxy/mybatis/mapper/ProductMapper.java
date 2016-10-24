@@ -2,17 +2,15 @@ package cn.qdgxy.mybatis.mapper;
 
 import cn.qdgxy.mybatis.po.Product;
 import cn.qdgxy.mybatis.po.ProductExample;
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
-
 public interface ProductMapper {
-
     long countByExample(ProductExample example);
 
     int deleteByExample(ProductExample example);
 
-    int deleteByPrimaryKey(Integer pid);
+    int deleteByPrimaryKey(Integer odid);
 
     int insert(Product record);
 
@@ -22,7 +20,7 @@ public interface ProductMapper {
 
     List<Product> selectByExample(ProductExample example);
 
-    Product selectByPrimaryKey(Integer pid);
+    Product selectByPrimaryKey(Integer odid);
 
     int updateByExampleSelective(@Param("record") Product record, @Param("example") ProductExample example);
 

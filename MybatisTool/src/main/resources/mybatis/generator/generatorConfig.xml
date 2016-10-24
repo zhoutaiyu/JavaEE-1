@@ -19,6 +19,9 @@
         <!-- 生成的Java文件的编码 -->
         <property name="javaFileEncoding" value="UTF-8"/>
 
+        <!-- model对象实现Serializable接口插件 -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
         <commentGenerator>
             <!-- 是否去除自动生成的注释    true:是; false:否 -->
             <property name="suppressAllComments" value="true"/>
@@ -78,20 +81,31 @@
 
         <!-- 4. 要根据哪张表生成，要在这里配置 -->
         <table tableName="orderdetail" domainObjectName="OrderDetail">
+            <!-- 插入后返回ID -->
             <columnOverride column="id" property="odid"/>
         </table>
 
         <table tableName="orders" domainObjectName="Order">
+            <!-- 插入后返回ID -->
+            <columnOverride column="id" property="odid"/>
+
+            <!-- 配置字段与属性映射 -->
             <columnOverride column="id" property="oid"/>
             <columnOverride column="createtime" property="createTime"/>
         </table>
 
         <table tableName="product" domainObjectName="Product">
+            <!-- 插入后返回ID -->
+            <columnOverride column="id" property="odid"/>
+
             <columnOverride column="id" property="pid"/>
             <columnOverride column="createtime" property="createTime"/>
         </table>
 
         <table tableName="user" domainObjectName="User">
+            <!-- 插入后返回ID -->
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+
             <columnOverride column="id" property="uid"/>
         </table>
 

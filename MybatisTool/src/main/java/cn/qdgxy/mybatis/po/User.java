@@ -1,8 +1,10 @@
 package cn.qdgxy.mybatis.po;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+public class User implements Serializable {
+
     private Integer uid;
 
     private String username;
@@ -12,6 +14,8 @@ public class User {
     private String sex;
 
     private String address;
+
+    private static final long serialVersionUID = 1L;
 
     public User(Integer uid, String username, Date birthday, String sex, String address) {
         this.uid = uid;
@@ -63,5 +67,16 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address == null ? null : address.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "uid=" + uid +
+                ", username='" + username + '\'' +
+                ", birthday=" + birthday +
+                ", sex='" + sex + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 }

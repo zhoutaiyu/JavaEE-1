@@ -120,11 +120,11 @@
     ,
     <include refid="Blob_Column_List" />
     from product
-    where id = #{pid,jdbcType=INTEGER}
+    where id = #{odid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from product
-    where id = #{pid,jdbcType=INTEGER}
+    where id = #{odid,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="cn.qdgxy.mybatis.po.ProductExample">
     delete from product
@@ -136,14 +136,14 @@
     insert into product (id, name, price, 
       pic, createtime, detail
       )
-    values (#{pid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{price,jdbcType=REAL}, 
+    values (#{odid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{price,jdbcType=REAL}, 
       #{pic,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{detail,jdbcType=LONGVARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="cn.qdgxy.mybatis.po.Product">
     insert into product
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="pid != null">
+      <if test="odid != null">
         id,
       </if>
       <if test="name != null">
@@ -163,8 +163,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="pid != null">
-        #{pid,jdbcType=INTEGER},
+      <if test="odid != null">
+        #{odid,jdbcType=INTEGER},
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
@@ -192,8 +192,8 @@
   <update id="updateByExampleSelective" parameterType="map">
     update product
     <set>
-      <if test="record.pid != null">
-        id = #{record.pid,jdbcType=INTEGER},
+      <if test="record.odid != null">
+        id = #{record.odid,jdbcType=INTEGER},
       </if>
       <if test="record.name != null">
         name = #{record.name,jdbcType=VARCHAR},
@@ -217,7 +217,7 @@
   </update>
   <update id="updateByExampleWithBLOBs" parameterType="map">
     update product
-    set id = #{record.pid,jdbcType=INTEGER},
+    set id = #{record.odid,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
       price = #{record.price,jdbcType=REAL},
       pic = #{record.pic,jdbcType=VARCHAR},
@@ -229,7 +229,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update product
-    set id = #{record.pid,jdbcType=INTEGER},
+    set id = #{record.odid,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
       price = #{record.price,jdbcType=REAL},
       pic = #{record.pic,jdbcType=VARCHAR},
@@ -257,7 +257,7 @@
         detail = #{detail,jdbcType=LONGVARCHAR},
       </if>
     </set>
-    where id = #{pid,jdbcType=INTEGER}
+    where id = #{odid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.qdgxy.mybatis.po.Product">
     update product
@@ -266,7 +266,7 @@
       pic = #{pic,jdbcType=VARCHAR},
       createtime = #{createTime,jdbcType=TIMESTAMP},
       detail = #{detail,jdbcType=LONGVARCHAR}
-    where id = #{pid,jdbcType=INTEGER}
+    where id = #{odid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.qdgxy.mybatis.po.Product">
     update product
@@ -274,6 +274,6 @@
       price = #{price,jdbcType=REAL},
       pic = #{pic,jdbcType=VARCHAR},
       createtime = #{createTime,jdbcType=TIMESTAMP}
-    where id = #{pid,jdbcType=INTEGER}
+    where id = #{odid,jdbcType=INTEGER}
   </update>
 </mapper>

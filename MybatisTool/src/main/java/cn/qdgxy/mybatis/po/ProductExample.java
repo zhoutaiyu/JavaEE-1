@@ -105,63 +105,63 @@ public class ProductExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andPidIsNull() {
+        public Criteria andOdidIsNull() {
             addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andPidIsNotNull() {
+        public Criteria andOdidIsNotNull() {
             addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPidEqualTo(Integer value) {
-            addCriterion("id =", value, "pid");
+        public Criteria andOdidEqualTo(Integer value) {
+            addCriterion("id =", value, "odid");
             return (Criteria) this;
         }
 
-        public Criteria andPidNotEqualTo(Integer value) {
-            addCriterion("id <>", value, "pid");
+        public Criteria andOdidNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "odid");
             return (Criteria) this;
         }
 
-        public Criteria andPidGreaterThan(Integer value) {
-            addCriterion("id >", value, "pid");
+        public Criteria andOdidGreaterThan(Integer value) {
+            addCriterion("id >", value, "odid");
             return (Criteria) this;
         }
 
-        public Criteria andPidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("id >=", value, "pid");
+        public Criteria andOdidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "odid");
             return (Criteria) this;
         }
 
-        public Criteria andPidLessThan(Integer value) {
-            addCriterion("id <", value, "pid");
+        public Criteria andOdidLessThan(Integer value) {
+            addCriterion("id <", value, "odid");
             return (Criteria) this;
         }
 
-        public Criteria andPidLessThanOrEqualTo(Integer value) {
-            addCriterion("id <=", value, "pid");
+        public Criteria andOdidLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "odid");
             return (Criteria) this;
         }
 
-        public Criteria andPidIn(List<Integer> values) {
-            addCriterion("id in", values, "pid");
+        public Criteria andOdidIn(List<Integer> values) {
+            addCriterion("id in", values, "odid");
             return (Criteria) this;
         }
 
-        public Criteria andPidNotIn(List<Integer> values) {
-            addCriterion("id not in", values, "pid");
+        public Criteria andOdidNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "odid");
             return (Criteria) this;
         }
 
-        public Criteria andPidBetween(Integer value1, Integer value2) {
-            addCriterion("id between", value1, value2, "pid");
+        public Criteria andOdidBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "odid");
             return (Criteria) this;
         }
 
-        public Criteria andPidNotBetween(Integer value1, Integer value2) {
-            addCriterion("id not between", value1, value2, "pid");
+        public Criteria andOdidNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "odid");
             return (Criteria) this;
         }
 

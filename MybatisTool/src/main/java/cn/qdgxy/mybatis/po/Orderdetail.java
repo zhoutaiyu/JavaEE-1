@@ -1,6 +1,8 @@
 package cn.qdgxy.mybatis.po;
 
-public class OrderDetail {
+import java.io.Serializable;
+
+public class OrderDetail implements Serializable {
     private Integer odid;
 
     private Integer ordersId;
@@ -8,6 +10,8 @@ public class OrderDetail {
     private Integer productId;
 
     private Integer productNum;
+
+    private static final long serialVersionUID = 1L;
 
     public OrderDetail(Integer odid, Integer ordersId, Integer productId, Integer productNum) {
         this.odid = odid;

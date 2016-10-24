@@ -2,12 +2,10 @@ package cn.qdgxy.mybatis.mapper;
 
 import cn.qdgxy.mybatis.po.User;
 import cn.qdgxy.mybatis.po.UserExample;
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
-
 public interface UserMapper {
-
     long countByExample(UserExample example);
 
     int deleteByExample(UserExample example);

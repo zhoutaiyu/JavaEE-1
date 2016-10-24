@@ -80,34 +80,44 @@
 
 
         <!-- 4. 要根据哪张表生成，要在这里配置 -->
-        <table tableName="orderdetail" domainObjectName="OrderDetail">
+        <table tableName="category" domainObjectName="Category">
             <!-- 插入后返回ID -->
-            <columnOverride column="id" property="odid"/>
+            <generatedKey column="cid" sqlStatement="MySql" identity="true"/>
         </table>
 
-        <table tableName="orders" domainObjectName="Order">
+        <table tableName="categorysecond" domainObjectName="CategorySecond">
             <!-- 插入后返回ID -->
-            <columnOverride column="id" property="odid"/>
-
-            <!-- 配置字段与属性映射 -->
-            <columnOverride column="id" property="oid"/>
-            <columnOverride column="createtime" property="createTime"/>
+            <generatedKey column="csid" sqlStatement="MySql" identity="true"/>
         </table>
 
-        <table tableName="product" domainObjectName="Product">
+        <table tableName="orderitem" domainObjectName="OrderItem">
             <!-- 插入后返回ID -->
-            <columnOverride column="id" property="odid"/>
-
-            <columnOverride column="id" property="pid"/>
-            <columnOverride column="createtime" property="createTime"/>
+            <generatedKey column="oiid" sqlStatement="MySql" identity="true"/>
         </table>
 
-        <table tableName="user" domainObjectName="User">
+        <table tableName="orders" domainObjectName="Order" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
+            <generatedKey column="oid" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="product" domainObjectName="Product" enableUpdateByExample="false">
+            <!-- 插入后返回ID -->
+            <generatedKey column="pid" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="users" domainObjectName="User" enableUpdateByExample="false">
+            <!-- 插入后返回ID -->
+            <generatedKey column="uid" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <!--<table tableName="orders" domainObjectName="Order">
+            &lt;!&ndash; 插入后返回ID &ndash;&gt;
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
 
-            <columnOverride column="id" property="uid"/>
-        </table>
+            &lt;!&ndash; 配置字段与属性映射 &ndash;&gt;
+            <columnOverride column="id" property="oid"/>
+            <columnOverride column="createtime" property="createTime"/>
+        </table>-->
 
         <!-- <table schema="" tableName="sys_user"/>
          <table schema="" tableName="sys_role"/>

@@ -58,7 +58,7 @@ public class UserMapperTest {
     public void insert() throws Exception {
         User user = new User();
         user.setUsername("张三");
-        user.setSex("1");
+        user.setSex("男");
 
         int flag = userMapper.insert(user);
         System.out.println("是否成功插入：" + flag);

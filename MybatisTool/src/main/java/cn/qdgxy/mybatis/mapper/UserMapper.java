@@ -2,8 +2,8 @@ package cn.qdgxy.mybatis.mapper;
 
 import cn.qdgxy.mybatis.po.User;
 import cn.qdgxy.mybatis.po.UserExample;
+
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
     long countByExample(UserExample example);
@@ -19,10 +19,6 @@ public interface UserMapper {
     List<User> selectByExample(UserExample example);
 
     User selectByPrimaryKey(Integer uid);
-
-    int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
-
-    int updateByExample(@Param("record") User record, @Param("example") UserExample example);
 
     int updateByPrimaryKeySelective(User record);
 

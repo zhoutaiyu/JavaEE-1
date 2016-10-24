@@ -4,78 +4,122 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Product implements Serializable {
-    private Integer odid;
+    private Integer pid;
 
-    private String name;
+    private String pname;
 
-    private Float price;
+    private Double marketPrice;
 
-    private String pic;
+    private Double shopPrice;
 
-    private Date createTime;
+    private String image;
 
-    private String detail;
+    private Byte isHot;
+
+    private Date ptime;
+
+    private Integer csid;
+
+    private Byte isDel;
+
+    private String pdesc;
 
     private static final long serialVersionUID = 1L;
 
-    public Product(Integer odid, String name, Float price, String pic, Date createTime, String detail) {
-        this.odid = odid;
-        this.name = name;
-        this.price = price;
-        this.pic = pic;
-        this.createTime = createTime;
-        this.detail = detail;
+    public Product(Integer pid, String pname, Double marketPrice, Double shopPrice, String image, Byte isHot, Date ptime, Integer csid, Byte isDel, String pdesc) {
+        this.pid = pid;
+        this.pname = pname;
+        this.marketPrice = marketPrice;
+        this.shopPrice = shopPrice;
+        this.image = image;
+        this.isHot = isHot;
+        this.ptime = ptime;
+        this.csid = csid;
+        this.isDel = isDel;
+        this.pdesc = pdesc;
     }
 
     public Product() {
         super();
     }
 
-    public Integer getOdid() {
-        return odid;
+    public Integer getPid() {
+        return pid;
     }
 
-    public void setOdid(Integer odid) {
-        this.odid = odid;
+    public void setPid(Integer pid) {
+        this.pid = pid;
     }
 
-    public String getName() {
-        return name;
+    public String getPname() {
+        return pname;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setPname(String pname) {
+        this.pname = pname == null ? null : pname.trim();
     }
 
-    public Float getPrice() {
-        return price;
+    public Double getMarketPrice() {
+        return marketPrice;
     }
 
-    public void setPrice(Float price) {
-        this.price = price;
+    public void setMarketPrice(Double marketPrice) {
+        this.marketPrice = marketPrice;
     }
 
-    public String getPic() {
-        return pic;
+    public Double getShopPrice() {
+        return shopPrice;
     }
 
-    public void setPic(String pic) {
-        this.pic = pic == null ? null : pic.trim();
+    public void setShopPrice(Double shopPrice) {
+        this.shopPrice = shopPrice;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public String getImage() {
+        return image;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setImage(String image) {
+        this.image = image == null ? null : image.trim();
     }
 
-    public String getDetail() {
-        return detail;
+    public Byte getIsHot() {
+        return isHot;
     }
 
-    public void setDetail(String detail) {
-        this.detail = detail == null ? null : detail.trim();
+    public void setIsHot(Byte isHot) {
+        this.isHot = isHot;
+    }
+
+    public Date getPtime() {
+        return ptime;
+    }
+
+    public void setPtime(Date ptime) {
+        this.ptime = ptime;
+    }
+
+    public Integer getCsid() {
+        return csid;
+    }
+
+    public void setCsid(Integer csid) {
+        this.csid = csid;
+    }
+
+    public Byte getIsDel() {
+        return isDel;
+    }
+
+    public void setIsDel(Byte isDel) {
+        this.isDel = isDel;
+    }
+
+    public String getPdesc() {
+        return pdesc;
+    }
+
+    public void setPdesc(String pdesc) {
+        this.pdesc = pdesc == null ? null : pdesc.trim();
     }
 }

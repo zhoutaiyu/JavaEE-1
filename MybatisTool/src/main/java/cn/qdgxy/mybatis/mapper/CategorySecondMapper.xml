@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.qdgxy.mybatis.mapper.OrderDetailMapper">
-  <resultMap id="BaseResultMap" type="cn.qdgxy.mybatis.po.OrderDetail">
+<mapper namespace="cn.qdgxy.mybatis.mapper.CategorySecondMapper">
+  <resultMap id="BaseResultMap" type="cn.qdgxy.mybatis.po.CategorySecond">
     <constructor>
-      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="orders_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="product_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="product_num" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <idArg column="csid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="csname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="cstime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="cid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="is_del" javaType="java.lang.Byte" jdbcType="TINYINT" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -68,15 +69,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, orders_id, product_id, product_num
+    csid, csname, cstime, cid, is_del
   </sql>
-  <select id="selectByExample" parameterType="cn.qdgxy.mybatis.po.OrderDetailExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="cn.qdgxy.mybatis.po.CategorySecondExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from orderdetail
+    from categorysecond
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,76 +88,85 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from orderdetail
-    where id = #{odid,jdbcType=INTEGER}
+    from categorysecond
+    where csid = #{csid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from orderdetail
-    where id = #{odid,jdbcType=INTEGER}
+    delete from categorysecond
+    where csid = #{csid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.qdgxy.mybatis.po.OrderDetailExample">
-    delete from orderdetail
+  <delete id="deleteByExample" parameterType="cn.qdgxy.mybatis.po.CategorySecondExample">
+    delete from categorysecond
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="cn.qdgxy.mybatis.po.OrderDetail">
-    insert into orderdetail (id, orders_id, product_id, 
-      product_num)
-    values (#{odid,jdbcType=INTEGER}, #{ordersId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, 
-      #{productNum,jdbcType=INTEGER})
+  <insert id="insert" parameterType="cn.qdgxy.mybatis.po.CategorySecond">
+    <selectKey keyProperty="csid" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into categorysecond (csname, cstime, cid, 
+      is_del)
+    values (#{csname,jdbcType=VARCHAR}, #{cstime,jdbcType=TIMESTAMP}, #{cid,jdbcType=INTEGER}, 
+      #{isDel,jdbcType=TINYINT})
   </insert>
-  <insert id="insertSelective" parameterType="cn.qdgxy.mybatis.po.OrderDetail">
-    insert into orderdetail
+  <insert id="insertSelective" parameterType="cn.qdgxy.mybatis.po.CategorySecond">
+    <selectKey keyProperty="csid" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into categorysecond
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="odid != null">
-        id,
+      <if test="csname != null">
+        csname,
       </if>
-      <if test="ordersId != null">
-        orders_id,
+      <if test="cstime != null">
+        cstime,
       </if>
-      <if test="productId != null">
-        product_id,
+      <if test="cid != null">
+        cid,
       </if>
-      <if test="productNum != null">
-        product_num,
+      <if test="isDel != null">
+        is_del,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="odid != null">
-        #{odid,jdbcType=INTEGER},
+      <if test="csname != null">
+        #{csname,jdbcType=VARCHAR},
       </if>
-      <if test="ordersId != null">
-        #{ordersId,jdbcType=INTEGER},
+      <if test="cstime != null">
+        #{cstime,jdbcType=TIMESTAMP},
       </if>
-      <if test="productId != null">
-        #{productId,jdbcType=INTEGER},
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
       </if>
-      <if test="productNum != null">
-        #{productNum,jdbcType=INTEGER},
+      <if test="isDel != null">
+        #{isDel,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.qdgxy.mybatis.po.OrderDetailExample" resultType="java.lang.Long">
-    select count(*) from orderdetail
+  <select id="countByExample" parameterType="cn.qdgxy.mybatis.po.CategorySecondExample" resultType="java.lang.Long">
+    select count(*) from categorysecond
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update orderdetail
+    update categorysecond
     <set>
-      <if test="record.odid != null">
-        id = #{record.odid,jdbcType=INTEGER},
+      <if test="record.csid != null">
+        csid = #{record.csid,jdbcType=INTEGER},
       </if>
-      <if test="record.ordersId != null">
-        orders_id = #{record.ordersId,jdbcType=INTEGER},
+      <if test="record.csname != null">
+        csname = #{record.csname,jdbcType=VARCHAR},
       </if>
-      <if test="record.productId != null">
-        product_id = #{record.productId,jdbcType=INTEGER},
+      <if test="record.cstime != null">
+        cstime = #{record.cstime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.productNum != null">
-        product_num = #{record.productNum,jdbcType=INTEGER},
+      <if test="record.cid != null">
+        cid = #{record.cid,jdbcType=INTEGER},
+      </if>
+      <if test="record.isDel != null">
+        is_del = #{record.isDel,jdbcType=TINYINT},
       </if>
     </set>
     <if test="_parameter != null">
@@ -164,35 +174,40 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update orderdetail
-    set id = #{record.odid,jdbcType=INTEGER},
-      orders_id = #{record.ordersId,jdbcType=INTEGER},
-      product_id = #{record.productId,jdbcType=INTEGER},
-      product_num = #{record.productNum,jdbcType=INTEGER}
+    update categorysecond
+    set csid = #{record.csid,jdbcType=INTEGER},
+      csname = #{record.csname,jdbcType=VARCHAR},
+      cstime = #{record.cstime,jdbcType=TIMESTAMP},
+      cid = #{record.cid,jdbcType=INTEGER},
+      is_del = #{record.isDel,jdbcType=TINYINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.qdgxy.mybatis.po.OrderDetail">
-    update orderdetail
+  <update id="updateByPrimaryKeySelective" parameterType="cn.qdgxy.mybatis.po.CategorySecond">
+    update categorysecond
     <set>
-      <if test="ordersId != null">
-        orders_id = #{ordersId,jdbcType=INTEGER},
+      <if test="csname != null">
+        csname = #{csname,jdbcType=VARCHAR},
       </if>
-      <if test="productId != null">
-        product_id = #{productId,jdbcType=INTEGER},
+      <if test="cstime != null">
+        cstime = #{cstime,jdbcType=TIMESTAMP},
       </if>
-      <if test="productNum != null">
-        product_num = #{productNum,jdbcType=INTEGER},
+      <if test="cid != null">
+        cid = #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=TINYINT},
       </if>
     </set>
-    where id = #{odid,jdbcType=INTEGER}
+    where csid = #{csid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.qdgxy.mybatis.po.OrderDetail">
-    update orderdetail
-    set orders_id = #{ordersId,jdbcType=INTEGER},
-      product_id = #{productId,jdbcType=INTEGER},
-      product_num = #{productNum,jdbcType=INTEGER}
-    where id = #{odid,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="cn.qdgxy.mybatis.po.CategorySecond">
+    update categorysecond
+    set csname = #{csname,jdbcType=VARCHAR},
+      cstime = #{cstime,jdbcType=TIMESTAMP},
+      cid = #{cid,jdbcType=INTEGER},
+      is_del = #{isDel,jdbcType=TINYINT}
+    where csid = #{csid,jdbcType=INTEGER}
   </update>
 </mapper>

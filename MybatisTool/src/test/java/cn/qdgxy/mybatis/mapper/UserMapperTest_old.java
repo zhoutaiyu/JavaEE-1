@@ -1,12 +1,8 @@
 package cn.qdgxy.mybatis.mapper;
 
-import cn.qdgxy.mybatis.po.UserExample;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import javax.annotation.Resource;
 
 /**
  * ${DESCRIPTION}<br>
@@ -15,11 +11,11 @@ import javax.annotation.Resource;
  * @author 李欣
  * @version ${VERSION}
  */
-@RunWith(SpringJUnit4ClassRunner.class)     //表示继承了SpringJUnit4ClassRunner类
+@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/applicationContext.xml"})
-public class UserMapperTest {
+public class UserMapperTest_old {
 
-    @Resource
+/*    @Resource
     private UserMapper userMapper;
 
     @Test
@@ -64,6 +60,6 @@ public class UserMapperTest {
     @Test
     public void updateByExample() throws Exception {
 
-    }
+    }*/
 
 }

@@ -3,7 +3,7 @@ package cn.qdgxy.mybatis.po;
 import java.util.Date;
 
 public class Product {
-    private Integer id;
+    private Integer pid;
 
     private String name;
 
@@ -11,16 +11,16 @@ public class Product {
 
     private String pic;
 
-    private Date createtime;
+    private Date createTime;
 
     private String detail;
 
-    public Product(Integer id, String name, Float price, String pic, Date createtime, String detail) {
-        this.id = id;
+    public Product(Integer pid, String name, Float price, String pic, Date createTime, String detail) {
+        this.pid = pid;
         this.name = name;
         this.price = price;
         this.pic = pic;
-        this.createtime = createtime;
+        this.createTime = createTime;
         this.detail = detail;
     }
 
@@ -28,12 +28,12 @@ public class Product {
         super();
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getPid() {
+        return pid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setPid(Integer pid) {
+        this.pid = pid;
     }
 
     public String getName() {
@@ -60,12 +60,12 @@ public class Product {
         this.pic = pic == null ? null : pic.trim();
     }
 
-    public Date getCreatetime() {
-        return createtime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public String getDetail() {

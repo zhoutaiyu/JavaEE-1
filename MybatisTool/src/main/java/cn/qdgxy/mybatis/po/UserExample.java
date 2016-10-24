@@ -6,7 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 
 public class UserExample {
-
     protected String orderByClause;
 
     protected boolean distinct;
@@ -67,7 +66,6 @@ public class UserExample {
     }
 
     protected abstract static class GeneratedCriteria {
-
         protected List<Criterion> criteria;
 
         protected GeneratedCriteria() {
@@ -134,63 +132,63 @@ public class UserExample {
             addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
         }
 
-        public Criteria andIdIsNull() {
+        public Criteria andUidIsNull() {
             addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdIsNotNull() {
+        public Criteria andUidIsNotNull() {
             addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Integer value) {
-            addCriterion("id =", value, "id");
+        public Criteria andUidEqualTo(Integer value) {
+            addCriterion("id =", value, "uid");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Integer value) {
-            addCriterion("id <>", value, "id");
+        public Criteria andUidNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "uid");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Integer value) {
-            addCriterion("id >", value, "id");
+        public Criteria andUidGreaterThan(Integer value) {
+            addCriterion("id >", value, "uid");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("id >=", value, "id");
+        public Criteria andUidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "uid");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Integer value) {
-            addCriterion("id <", value, "id");
+        public Criteria andUidLessThan(Integer value) {
+            addCriterion("id <", value, "uid");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Integer value) {
-            addCriterion("id <=", value, "id");
+        public Criteria andUidLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "uid");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<Integer> values) {
-            addCriterion("id in", values, "id");
+        public Criteria andUidIn(List<Integer> values) {
+            addCriterion("id in", values, "uid");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<Integer> values) {
-            addCriterion("id not in", values, "id");
+        public Criteria andUidNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "uid");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Integer value1, Integer value2) {
-            addCriterion("id between", value1, value2, "id");
+        public Criteria andUidBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "uid");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("id not between", value1, value2, "id");
+        public Criteria andUidNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "uid");
             return (Criteria) this;
         }
 
@@ -473,7 +471,6 @@ public class UserExample {
     }
 
     public static class Criterion {
-
         private String condition;
 
         private Object value;

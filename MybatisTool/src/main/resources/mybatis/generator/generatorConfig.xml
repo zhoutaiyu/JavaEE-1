@@ -3,20 +3,20 @@
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
-<generatorConfiguration>
-    <!--mybatis生成工具的帮助文档可以看：-->
-    <!--英文：http://www.mybatis.org/generator/usage/mysql.html-->
-    <!--中文：http://www.mybatis.tk/-->
-    <!--中文：http://mbg.cndocs.tk/-->
+<!--mybatis生成工具的帮助文档可以看：-->
+<!--英文：http://www.mybatis.org/generator/usage/mysql.html-->
+<!--中文：http://www.mybatis.tk/-->
+<!--中文：http://mbg.cndocs.tk/-->
 
+<generatorConfiguration>
     <!--导入属性配置 -->
     <properties resource="mybatis/generator/generator.properties"></properties>
 
     <!--添加你本地的驱动jar-->
     <classPathEntry location="${jdbc.driverLocation}"/>
 
-    <context id="default" targetRuntime="MyBatis3">
-        <!--设置编码格式-->
+    <context id="mysql" targetRuntime="MyBatis3">
+        <!-- 生成的Java文件的编码 -->
         <property name="javaFileEncoding" value="UTF-8"/>
 
         <commentGenerator>
@@ -77,10 +77,23 @@
 
 
         <!-- 4. 要根据哪张表生成，要在这里配置 -->
-        <table tableName="product"/>
-        <table tableName="user"/>
-        <table tableName="orderDetail"/>
-        <table tableName="orders"/>
+        <table tableName="orderdetail" domainObjectName="OrderDetail">
+            <columnOverride column="id" property="odid"/>
+        </table>
+
+        <table tableName="orders" domainObjectName="Order">
+            <columnOverride column="id" property="oid"/>
+            <columnOverride column="createtime" property="createTime"/>
+        </table>
+
+        <table tableName="product" domainObjectName="Product">
+            <columnOverride column="id" property="pid"/>
+            <columnOverride column="createtime" property="createTime"/>
+        </table>
+
+        <table tableName="user" domainObjectName="User">
+            <columnOverride column="id" property="uid"/>
+        </table>
 
         <!-- <table schema="" tableName="sys_user"/>
          <table schema="" tableName="sys_role"/>

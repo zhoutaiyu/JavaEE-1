@@ -1,22 +1,30 @@
 package cn.qdgxy.mybatis.mapper;
 
-import cn.qdgxy.mybatis.po.Orderdetail;
-import cn.qdgxy.mybatis.po.OrderdetailExample;
+import cn.qdgxy.mybatis.po.OrderDetail;
+import cn.qdgxy.mybatis.po.OrderDetailExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface OrderdetailMapper {
-    long countByExample(OrderdetailExample example);
+public interface OrderDetailMapper {
+    long countByExample(OrderDetailExample example);
 
-    int deleteByExample(OrderdetailExample example);
+    int deleteByExample(OrderDetailExample example);
 
-    int insert(Orderdetail record);
+    int deleteByPrimaryKey(Integer odid);
 
-    int insertSelective(Orderdetail record);
+    int insert(OrderDetail record);
 
-    List<Orderdetail> selectByExample(OrderdetailExample example);
+    int insertSelective(OrderDetail record);
 
-    int updateByExampleSelective(@Param("record") Orderdetail record, @Param("example") OrderdetailExample example);
+    List<OrderDetail> selectByExample(OrderDetailExample example);
 
-    int updateByExample(@Param("record") Orderdetail record, @Param("example") OrderdetailExample example);
+    OrderDetail selectByPrimaryKey(Integer odid);
+
+    int updateByExampleSelective(@Param("record") OrderDetail record, @Param("example") OrderDetailExample example);
+
+    int updateByExample(@Param("record") OrderDetail record, @Param("example") OrderDetailExample example);
+
+    int updateByPrimaryKeySelective(OrderDetail record);
+
+    int updateByPrimaryKey(OrderDetail record);
 }

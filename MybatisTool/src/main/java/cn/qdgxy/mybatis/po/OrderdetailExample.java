@@ -3,14 +3,14 @@ package cn.qdgxy.mybatis.po;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderdetailExample {
+public class OrderDetailExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public OrderdetailExample() {
+    public OrderDetailExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -104,63 +104,63 @@ public class OrderdetailExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andIdIsNull() {
+        public Criteria andOdidIsNull() {
             addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdIsNotNull() {
+        public Criteria andOdidIsNotNull() {
             addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Integer value) {
-            addCriterion("id =", value, "id");
+        public Criteria andOdidEqualTo(Integer value) {
+            addCriterion("id =", value, "odid");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Integer value) {
-            addCriterion("id <>", value, "id");
+        public Criteria andOdidNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "odid");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Integer value) {
-            addCriterion("id >", value, "id");
+        public Criteria andOdidGreaterThan(Integer value) {
+            addCriterion("id >", value, "odid");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("id >=", value, "id");
+        public Criteria andOdidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "odid");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Integer value) {
-            addCriterion("id <", value, "id");
+        public Criteria andOdidLessThan(Integer value) {
+            addCriterion("id <", value, "odid");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Integer value) {
-            addCriterion("id <=", value, "id");
+        public Criteria andOdidLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "odid");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<Integer> values) {
-            addCriterion("id in", values, "id");
+        public Criteria andOdidIn(List<Integer> values) {
+            addCriterion("id in", values, "odid");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<Integer> values) {
-            addCriterion("id not in", values, "id");
+        public Criteria andOdidNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "odid");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Integer value1, Integer value2) {
-            addCriterion("id between", value1, value2, "id");
+        public Criteria andOdidBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "odid");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("id not between", value1, value2, "id");
+        public Criteria andOdidNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "odid");
             return (Criteria) this;
         }
 

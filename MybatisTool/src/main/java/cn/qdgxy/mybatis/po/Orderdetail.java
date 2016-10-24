@@ -1,7 +1,7 @@
 package cn.qdgxy.mybatis.po;
 
-public class Orderdetail {
-    private Integer id;
+public class OrderDetail {
+    private Integer odid;
 
     private Integer ordersId;
 
@@ -9,23 +9,23 @@ public class Orderdetail {
 
     private Integer productNum;
 
-    public Orderdetail(Integer id, Integer ordersId, Integer productId, Integer productNum) {
-        this.id = id;
+    public OrderDetail(Integer odid, Integer ordersId, Integer productId, Integer productNum) {
+        this.odid = odid;
         this.ordersId = ordersId;
         this.productId = productId;
         this.productNum = productNum;
     }
 
-    public Orderdetail() {
+    public OrderDetail() {
         super();
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getOdid() {
+        return odid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setOdid(Integer odid) {
+        this.odid = odid;
     }
 
     public Integer getOrdersId() {

@@ -3,7 +3,7 @@ package cn.qdgxy.mybatis.po;
 import java.util.Date;
 
 public class User {
-    private Integer id;
+    private Integer uid;
 
     private String username;
 
@@ -13,8 +13,8 @@ public class User {
 
     private String address;
 
-    public User(Integer id, String username, Date birthday, String sex, String address) {
-        this.id = id;
+    public User(Integer uid, String username, Date birthday, String sex, String address) {
+        this.uid = uid;
         this.username = username;
         this.birthday = birthday;
         this.sex = sex;
@@ -25,12 +25,12 @@ public class User {
         super();
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getUid() {
+        return uid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 
     public String getUsername() {

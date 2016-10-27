@@ -17,18 +17,18 @@
     <bean id="productController1" name="/productList.action" class="cn.qdgxy.springmvc.first.ProductController1"/>
 
     <!-- handler2 -->
-    <bean id="productController2" class="cn.qdgxy.springmvc.first.ProductController2"></bean>
+    <bean id="productController2" class="cn.qdgxy.springmvc.first.ProductController2"/>
 
     <!-- 注解的handler，单个配置 -->
-    <!-- <bean class="cn.qdgxy.springmvc.first.ProductController3"/> -->
+    <!-- <bean class="cn.qdgxy.springmvc.first.ProductController3"/>-->
     <!-- 使用spring组件扫描 -->
-    <!--<context:component-scan base-package="cn.qdgxy.springmvc.first" />-->
+    <context:component-scan base-package="cn.qdgxy.springmvc.first"/>
 
-    
+
     <!-- 【配置处理器映射器】 springmvc框架根据HandlerMapping接口判断是否是处理器映射器 -->
     <!-- 根据bean的name进行查找Handler 将action的url配置在bean的name中 -->
     <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
-    
+
     <!--【简单url映射】 集中配置bean的id对应 的url -->
     <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
@@ -39,8 +39,8 @@
         </property>
     </bean>
 
-    <!-- 注解处理器映射器 -->
-    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>-->
+    <!-- 【注解处理器映射器】 -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
 
 
     <!-- 【配置处理器适配器】 springmvc框架根据HandlerAdapter接口判断是否是处理器适配器 -->
@@ -49,14 +49,16 @@
     <!-- 【HttpRequestHandlerAdapter适配器 】 -->
     <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"/>
 
-    <!-- 注解适配器 -->
-    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" />-->
+    <!-- 【注解适配器】 -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
 
 
     <!-- 【配置视图解析器】 要求将jstl的包加到classpath -->
     <!-- ViewResolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <!--<property name="prefix" value="/WEB-INF/jsp/" />
-        <property name="suffix" value=".jsp" />-->
+        <!-- 前缀 -->
+        <property name="prefix" value="/WEB-INF/jsp/product/"/>
+        <!-- 后缀 -->
+        <property name="suffix" value=".jsp"/>
     </bean>
 </beans>

@@ -1,12 +1,10 @@
 package cn.qdgxy.springmvc.first;
 
 import cn.qdgxy.springmvc.po.Product;
-import org.springframework.web.HttpRequestHandler;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,10 +15,12 @@ import java.util.List;
  * @author 李欣
  * @version 1.0
  */
-public class ProductController2 implements HttpRequestHandler {
+@Controller
+public class ProductController3 {
 
-    @Override
-    public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    //商品列表，@RequestMapping中url建议和方法名一致，方便开发维护
+    @RequestMapping("/queryProduct")
+    public ModelAndView queryProduct() {
         List<Product> productList = new ArrayList<>();
 
         Product product_1 = new Product();
@@ -37,9 +37,11 @@ public class ProductController2 implements HttpRequestHandler {
         productList.add(product_1);
         productList.add(product_2);
 
-        request.setAttribute("productList", productList);
-        // 指定转发jsp页面
-        request.getRequestDispatcher("/WEB-INF/jsps/product/productList.jsp").forward(request, response);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("productList", productList);
+        // 逻辑视图名
+        modelAndView.setViewName("productList");
+        return modelAndView;
     }
 
 }

@@ -16,30 +16,28 @@
     <!-- 【配置Handler】 由于使用了BeanNameUrlHandlerMapping处理映射器，name配置为url -->
     <bean id="productController1" name="/productList.action" class="cn.qdgxy.springmvc.first.ProductController1"/>
 
-
     <!-- handler2 -->
-    <!--<bean id="productController2" class="cn.itcast.springmvc.first.ItemController2"></bean>-->
+    <bean id="productController2" class="cn.qdgxy.springmvc.first.ProductController2"></bean>
 
     <!-- 注解的handler，单个配置 -->
-    <!-- <bean class="cn.itcast.springmvc.first.ItemController3"/> -->
+    <!-- <bean class="cn.qdgxy.springmvc.first.ProductController3"/> -->
     <!-- 使用spring组件扫描 -->
-    <!--<context:component-scan base-package="cn.itcast.springmvc.first" />-->
+    <!--<context:component-scan base-package="cn.qdgxy.springmvc.first" />-->
 
+    
     <!-- 【配置处理器映射器】 springmvc框架根据HandlerMapping接口判断是否是处理器映射器 -->
     <!-- 根据bean的name进行查找Handler 将action的url配置在bean的name中 -->
     <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
-
-
+    
     <!--【简单url映射】 集中配置bean的id对应 的url -->
     <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
                 <prop key="/productList1.action">productController1</prop>
-                <prop key="/productList2.action">productController1</prop>
+                <prop key="/productList2.action">productController2</prop>
             </props>
         </property>
     </bean>
-
 
     <!-- 注解处理器映射器 -->
     <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>-->

@@ -49,7 +49,7 @@
 
 
         <!-- 2. targetProject：生成PO类的位置 -->
-        <javaModelGenerator targetPackage="cn.qdgxy.newproject.po" targetProject="src\main\java">
+        <javaModelGenerator targetPackage="cn.qdgxy.ssm.po" targetProject="src\main\java">
             <!-- 是否对model添加 构造函数 -->
             <property name="constructorBased" value="true"/>
             <!-- enableSubPackages：是否让schema作为包的后缀 -->
@@ -60,7 +60,7 @@
 
 
         <!-- 3.1 targetProject：mapper映射文件生成的位置 -->
-        <sqlMapGenerator targetPackage="cn.qdgxy.newproject.mapper" targetProject="src\main\java">
+        <sqlMapGenerator targetPackage="cn.qdgxy.ssm.mapper" targetProject="src\main\java">
             <!-- enableSubPackages：是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
@@ -72,7 +72,7 @@
                 type="XMLMAPPER",       生成SQLMap XML文件 和 独立的Mapper接口
         -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="cn.qdgxy.newproject.mapper"
+                             targetPackage="cn.qdgxy.ssm.mapper"
                              targetProject="src\main\java">
             <!-- enableSubPackages：是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false"/>

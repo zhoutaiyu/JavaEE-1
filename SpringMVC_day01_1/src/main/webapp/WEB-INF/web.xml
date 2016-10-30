@@ -25,6 +25,6 @@
             可以配置*.do或*.action，所有请求的url扩展名为.do或.action由springmvc解析，此种方法常用
             不可以/*，如果配置/*，返回jsp也由springmvc解析，这是不对的。
          -->
-        <url-pattern>*.action</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 </web-app>

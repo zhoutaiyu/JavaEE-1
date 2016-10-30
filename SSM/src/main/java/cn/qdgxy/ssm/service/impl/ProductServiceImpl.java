@@ -32,6 +32,7 @@ public class ProductServiceImpl implements ProductService {
      */
     @Override
     public List<ProductCustom> findProductList(ProductQueryVo productQueryVo) throws Exception {
-        return null;
+        return productMapper.findProductList(productQueryVo);
     }
+
 }

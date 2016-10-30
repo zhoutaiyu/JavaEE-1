@@ -14,6 +14,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
 
         <junit.version>4.12</junit.version>
+        <servlet.version>2.5</servlet.version>
 
         <!-- 整合Log4j -->
         <slf4j.version>1.7.21</slf4j.version>
@@ -35,7 +36,7 @@
 
         <!-- 【DHCP-连接池】 -->
         <commons-dbcp.version>1.4</commons-dbcp.version>
-        <mysql.version>6.0.4</mysql.version>
+        <mysql.version>5.1.38</mysql.version>
     </properties>
 
     <dependencies>
@@ -44,6 +45,12 @@
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>${servlet.version}</version>
         </dependency>
 
 

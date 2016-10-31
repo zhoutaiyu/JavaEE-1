@@ -6,10 +6,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- 配置注解需要扫描的包 -->
-    <context:component-scan base-package="cn.qdgxy.ssm"/>
-
-
     <!-- 加载配置文件 -->
     <context:property-placeholder location="classpath:dbconfig.properties"/>
     <!-- 数据库连接池 -->

@@ -83,25 +83,25 @@
         <table tableName="orderdetail" domainObjectName="OrderDetail">
             <!-- 插入后返回ID -->
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-            <columnOverride column="id" property="odid"/>
+            <!--<columnOverride column="id" property="odid"/>-->
         </table>
 
         <table tableName="orders" domainObjectName="Order">
             <!-- 插入后返回ID -->
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-            <columnOverride column="id" property="oid"/>
+            <!--<columnOverride column="id" property="oid"/>-->
         </table>
 
         <table tableName="product" domainObjectName="Product">
             <!-- 插入后返回ID -->
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-            <columnOverride column="id" property="pid"/>
+            <!--<columnOverride column="id" property="pid"/>-->
         </table>
 
         <table tableName="user" domainObjectName="User">
             <!-- 插入后返回ID -->
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-            <columnOverride column="id" property="uid"/>
+            <!--<columnOverride column="id" property="uid"/>-->
         </table>
 
 

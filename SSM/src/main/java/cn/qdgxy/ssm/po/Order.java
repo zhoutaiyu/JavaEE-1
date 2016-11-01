@@ -4,100 +4,67 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Order implements Serializable {
-    private Integer oid;
+    private Integer id;
 
-    private Double total;
+    private Integer userId;
 
-    private String name;
+    private String number;
 
-    private String phone;
+    private Date createtime;
 
-    private String address;
-
-    private Date otime;
-
-    private Byte state;
-
-    private Integer uid;
+    private String note;
 
     private static final long serialVersionUID = 1L;
 
-    public Order(Integer oid, Double total, String name, String phone, String address, Date otime, Byte state, Integer uid) {
-        this.oid = oid;
-        this.total = total;
-        this.name = name;
-        this.phone = phone;
-        this.address = address;
-        this.otime = otime;
-        this.state = state;
-        this.uid = uid;
+    public Order(Integer id, Integer userId, String number, Date createtime, String note) {
+        this.id = id;
+        this.userId = userId;
+        this.number = number;
+        this.createtime = createtime;
+        this.note = note;
     }
 
     public Order() {
         super();
     }
 
-    public Integer getOid() {
-        return oid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setOid(Integer oid) {
-        this.oid = oid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Double getTotal() {
-        return total;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setTotal(Double total) {
-        this.total = total;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public String getName() {
-        return name;
+    public String getNumber() {
+        return number;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setNumber(String number) {
+        this.number = number == null ? null : number.trim();
     }
 
-    public String getPhone() {
-        return phone;
+    public Date getCreatetime() {
+        return createtime;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 
-    public String getAddress() {
-        return address;
+    public String getNote() {
+        return note;
     }
 
-    public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
-    }
-
-    public Date getOtime() {
-        return otime;
-    }
-
-    public void setOtime(Date otime) {
-        this.otime = otime;
-    }
-
-    public Byte getState() {
-        return state;
-    }
-
-    public void setState(Byte state) {
-        this.state = state;
-    }
-
-    public Integer getUid() {
-        return uid;
-    }
-
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setNote(String note) {
+        this.note = note == null ? null : note.trim();
     }
 }

@@ -1,6 +1,6 @@
 package cn.qdgxy.ssm.service.impl;
 
-import cn.qdgxy.ssm.mapper.ProductMapper;
+import cn.qdgxy.ssm.mapper.ProductMapperCustom;
 import cn.qdgxy.ssm.po.ProductCustom;
 import cn.qdgxy.ssm.po.ProductQueryVo;
 import cn.qdgxy.ssm.service.ProductService;
@@ -22,7 +22,7 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     @Resource
-    private ProductMapper productMapper;
+    private ProductMapperCustom productMapperCustom;
 
     /**
      * 商品查询
@@ -32,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
      */
     @Override
     public List<ProductCustom> findProductList(ProductQueryVo productQueryVo) throws Exception {
-        return productMapper.findProductList(productQueryVo);
+        return productMapperCustom.findProductList(productQueryVo);
     }
 
 }

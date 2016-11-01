@@ -4,17 +4,13 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Order implements Serializable {
-    private Integer id;
-
-    private Integer userId;
-
-    private String number;
-
-    private Date createtime;
-
-    private String note;
 
     private static final long serialVersionUID = 1L;
+    private Integer id;
+    private Integer userId;
+    private String number;
+    private Date createtime;
+    private String note;
 
     public Order(Integer id, Integer userId, String number, Date createtime, String note) {
         this.id = id;

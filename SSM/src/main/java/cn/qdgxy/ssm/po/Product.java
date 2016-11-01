@@ -4,19 +4,14 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Product implements Serializable {
-    private Integer id;
-
-    private String name;
-
-    private Float price;
-
-    private String pic;
-
-    private Date createtime;
-
-    private String detail;
 
     private static final long serialVersionUID = 1L;
+    private Integer id;
+    private String name;
+    private Float price;
+    private String pic;
+    private Date createtime;
+    private String detail;
 
     public Product(Integer id, String name, Float price, String pic, Date createtime, String detail) {
         this.id = id;

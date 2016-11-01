@@ -23,11 +23,8 @@ public class ProductController {
     @Resource
     private ProductService productService;
 
-    @RequestMapping("/findProductList")
-    public ModelAndView findProductList(HttpServletRequest request) throws Exception {
-
-        System.out.println(request.getParameter("id"));
-
+    @RequestMapping("/findAllProduct")
+    public ModelAndView findAllProduct(HttpServletRequest request) throws Exception {
         //调用service查询商品列表
         List<ProductCustom> productList = productService.findProductList(null);
 

@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface ProductMapper {
+
     long countByExample(ProductExample example);
 
     int deleteByExample(ProductExample example);

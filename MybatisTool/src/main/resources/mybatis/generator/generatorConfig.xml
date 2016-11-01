@@ -80,35 +80,62 @@
 
 
         <!-- 4. 要根据哪张表生成，要在这里配置 -->
+        <table tableName="orderdetail" domainObjectName="OrderDetail">
+            <!-- 插入后返回ID -->
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <columnOverride column="id" property="odid"/>
+        </table>
+
+        <table tableName="orders" domainObjectName="Order">
+            <!-- 插入后返回ID -->
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <columnOverride column="id" property="oid"/>
+        </table>
+
+        <table tableName="product" domainObjectName="Product">
+            <!-- 插入后返回ID -->
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <columnOverride column="id" property="pid"/>
+        </table>
+
+        <table tableName="user" domainObjectName="User">
+            <!-- 插入后返回ID -->
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <columnOverride column="id" property="uid"/>
+        </table>
+
+
+        <!-- 4. 要根据哪张表生成，要在这里配置 -->
         <table tableName="category" domainObjectName="Category">
             <!-- 插入后返回ID -->
             <generatedKey column="cid" sqlStatement="MySql" identity="true"/>
         </table>
 
-        <table tableName="categorysecond" domainObjectName="CategorySecond">
-            <!-- 插入后返回ID -->
-            <generatedKey column="csid" sqlStatement="MySql" identity="true"/>
-        </table>
+        <!--<table tableName="categorysecond" domainObjectName="CategorySecond">-->
+        <!--&lt;!&ndash; 插入后返回ID &ndash;&gt;-->
+        <!--<generatedKey column="csid" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
 
-        <table tableName="orderitem" domainObjectName="OrderItem">
-            <!-- 插入后返回ID -->
-            <generatedKey column="oiid" sqlStatement="MySql" identity="true"/>
-        </table>
+        <!--<table tableName="orderitem" domainObjectName="OrderItem">-->
+        <!--&lt;!&ndash; 插入后返回ID &ndash;&gt;-->
+        <!--<generatedKey column="oiid" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
 
-        <table tableName="orders" domainObjectName="Order" enableUpdateByExample="false">
-            <!-- 插入后返回ID -->
-            <generatedKey column="oid" sqlStatement="MySql" identity="true"/>
-        </table>
+        <!--<table tableName="orders" domainObjectName="Order" enableUpdateByExample="false">-->
+        <!--&lt;!&ndash; 插入后返回ID &ndash;&gt;-->
+        <!--<generatedKey column="oid" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
 
-        <table tableName="product" domainObjectName="Product" enableUpdateByExample="false">
-            <!-- 插入后返回ID -->
-            <generatedKey column="pid" sqlStatement="MySql" identity="true"/>
-        </table>
+        <!--<table tableName="product" domainObjectName="Product" enableUpdateByExample="false">-->
+        <!--&lt;!&ndash; 插入后返回ID &ndash;&gt;-->
+        <!--<generatedKey column="pid" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
 
-        <table tableName="users" domainObjectName="User" enableUpdateByExample="false">
-            <!-- 插入后返回ID -->
-            <generatedKey column="uid" sqlStatement="MySql" identity="true"/>
-        </table>
+        <!--<table tableName="users" domainObjectName="User" enableUpdateByExample="false">-->
+        <!--&lt;!&ndash; 插入后返回ID &ndash;&gt;-->
+        <!--<generatedKey column="uid" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
 
         <!--<table tableName="orders" domainObjectName="Order">
             &lt;!&ndash; 插入后返回ID &ndash;&gt;

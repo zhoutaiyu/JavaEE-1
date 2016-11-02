@@ -33,10 +33,9 @@ public interface ProductService {
     /**
      * 定义service接口，遵循单一职责，将业务参数细化 （不要使用包装类型，比如map）
      *
-     * @param id            修改商品的id
      * @param productCustom 修改商品的信息
      * @throws Exception 异常
      */
-    void updateProduct(Integer id, ProductCustom productCustom) throws Exception;
+    void updateProduct(ProductCustom productCustom) throws Exception;
 
 }

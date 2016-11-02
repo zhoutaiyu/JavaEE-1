@@ -65,11 +65,11 @@ public class ProductServiceImpl implements ProductService {
      * @throws Exception 异常
      */
     @Override
-    public void updateProduct(Integer id, ProductCustom productCustom) throws Exception {
+    public void updateProduct(ProductCustom productCustom) throws Exception {
         // 写业务代码
 
         //对于关键业务数据的非空校验
-        if (id == null) {
+        if (productCustom.getId() == null) {
             //抛出异常，提示调用接口的用户，id不能为空
             //...
         }

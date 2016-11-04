@@ -26,6 +26,9 @@ public class UserMapperTest {
 
     private SqlSessionFactory sqlSessionFactory;
 
+    /**
+     * 执行每个方法前初始化
+     */
     @Before
     public void init() throws IOException {
         // 配置文件

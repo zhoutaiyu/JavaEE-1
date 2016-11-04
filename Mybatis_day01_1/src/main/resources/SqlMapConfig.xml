@@ -11,7 +11,7 @@
         <!--
         【单个别名的定义】
             alias：别名，type：别名映射的类型  -->
-            <!--<typeAlias type="cn.qdgxy.mybatis.po.User" alias="user"/>-->
+        <!--<typeAlias type="cn.qdgxy.mybatis.po.User" alias="user"/>-->
         <!-- 【批量别名定义】
             指定包路径，自动扫描包下边的pojo，定义别名，别名默认为类名（首字母小写或大写）
      -->

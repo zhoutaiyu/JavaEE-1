@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<form id="productForm" action="${pageContext.request.contextPath }/products/editItemSubmit.action" method="post">
+<form id="productForm" action="${pageContext.request.contextPath }/product/editProductSubmit" method="post">
     <input type="hidden" name="id" value="${product.id }"/>
     修改商品信息：
     <table width="100%" border=1>
@@ -33,11 +33,9 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2" align="center"><input type="submit" value="提交"/>
-            </td>
+            <td colspan="2" align="center"><input type="submit" value="提交"/></td>
         </tr>
     </table>
-
 </form>
 </body>
 </html>

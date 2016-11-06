@@ -12,7 +12,8 @@
     <!-- 通过annotation-driven可以替代下边的处理器映射器和适配器 -->
     <!--<mvc:annotation-driven conversion-service="conversionService"/>-->
 
-    <!-- 【注解处理器映射器】 -->
+
+    <!--【注解处理器映射器】 -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
 
     <!-- 【注解适配器】 -->
@@ -34,31 +35,32 @@
 
 
     <!-- 注册属性编辑器 -->
-    <bean id="customPropertyEditor" class="cn.qdgxy.ssm.controller.propertyeditor.CustomPropertyEditor"/>
+    <!-- <bean id="customPropertyEditor" class="cn.qdgxy.ssm.controller.propertyeditor.CustomPropertyEditor"/>-->
+
 
     <!-- 自定义webBinder -->
     <bean id="customBinder" class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
         <!-- 使用converter进行参数转 -->
-        <!--<property name="conversionService" ref="conversionService"/>-->
+        <property name="conversionService" ref="conversionService"/>
 
         <!--propertyEditorRegistrars用于属性编辑器-->
-        <property name="propertyEditorRegistrars">
+        <!--<property name="propertyEditorRegistrars">
             <list>
                 <ref bean="customPropertyEditor"/>
             </list>
+        </property>-->
+    </bean>
+
+    <!-- conversionService -->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <!-- 转换器 -->
+        <property name="converters">
+            <set>
+                <bean class="cn.qdgxy.ssm.controller.converter.CustomDateConverter"/>
+                <bean class="cn.qdgxy.ssm.controller.converter.StringTrimConverter"/>
+            </set>
         </property>
     </bean>
 
-
-    <!-- 转换器 -->
-    <!--<bean id="conversionService"
-          class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-        <property name="converters">
-            <list>
-                <bean class="cn.itcast.ssm.controller.converter.CustomDateConverter"/>
-                <bean class="cn.itcast.ssm.controller.converter.StringTrimConverter"/>
-            </list>
-        </property>
-    </bean>-->
 
 </beans>

@@ -36,6 +36,6 @@ public interface ProductService {
      * @param productCustom 修改商品的信息
      * @throws Exception 异常
      */
-    void updateProduct(ProductCustom productCustom) throws Exception;
+    void updateProduct(Integer id, ProductCustom productCustom) throws Exception;
 
 }

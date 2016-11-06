@@ -92,14 +92,23 @@ public class ProductController {
 
 
     @RequestMapping("/editProductSubmit")
-    public String editProductSubmit(ProductCustom productCustom) throws Exception {
+    public String editProductSubmit(Integer id, ProductCustom productCustom) throws Exception {
         //调用service接口更新商品信息
-        productService.updateProduct(productCustom);
+        productService.updateProduct(id, productCustom);
 
         //请求重定向
         return "redirect:findAllProduct";
         //转发
         // return "forward:findAllProduct";
     }
+
+
+    //自定义属性编辑器
+    //@InitBinder
+    //public void initBinder(WebDataBinder binder) throws Exception {
+    //    // Date.class必须是与controller方法形参pojo属性一致的date类型，这里是java.util.Date
+    //    binder.registerCustomEditor(Date.class, new CustomDateEditor(
+    //            new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"), true));
+    //}
 
 }

@@ -20,6 +20,13 @@
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <!-- 在webBindingInitializer中注入自定义属性编辑器、自定义转换器 -->
         <property name="webBindingInitializer" ref="customBinder"/>
+
+        <!-- 加入 json数据的消息转换器 MappingJacksonHttpMessageConverter依赖Jackson的包 -->
+        <property name="messageConverters">
+            <list>
+                <ref bean="mappingJacksonHttpMessageConverter"/>
+            </list>
+        </property>
     </bean>
 
 
@@ -34,21 +41,10 @@
     </bean>
 
 
-    <!-- 注册属性编辑器 -->
-    <!-- <bean id="customPropertyEditor" class="cn.qdgxy.ssm.controller.propertyeditor.CustomPropertyEditor"/>-->
-
-
     <!-- 自定义webBinder -->
     <bean id="customBinder" class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
         <!-- 使用converter进行参数转 -->
         <property name="conversionService" ref="conversionService"/>
-
-        <!--propertyEditorRegistrars用于属性编辑器-->
-        <!--<property name="propertyEditorRegistrars">
-            <list>
-                <ref bean="customPropertyEditor"/>
-            </list>
-        </property>-->
     </bean>
 
     <!-- conversionService -->
@@ -63,4 +59,21 @@
     </bean>
 
 
+    <!-- json配置 -->
+    <bean id="mappingJacksonHttpMessageConverter"
+          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/html;charset=UTF-8</value>
+                <value>application/json;charset=utf-8</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <!-- 文件上传 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 设置上传文件的最大尺寸为5MB -->
+        <property name="maxUploadSize" value="5242880"/>
+    </bean>
 </beans>

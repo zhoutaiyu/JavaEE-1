@@ -9,7 +9,8 @@
 
 </head>
 <body>
-<form id="productForm" action="${pageContext.request.contextPath }/product/editProductSubmit" method="post">
+<form id="productForm" action="${pageContext.request.contextPath }/product/editProductSubmit" method="post"
+      enctype="multipart/form-data">
     <input type="hidden" name="id" value="${product.id}"/>
     修改商品信息：
     <table width="100%" border=1>
@@ -25,6 +26,16 @@
             <td>商品生产日期</td>
             <td><input type="text" name="createtime"
                        value="<fmt:formatDate value="${product.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/>"/></td>
+        </tr>
+        <tr>
+            <td>商品图片</td>
+            <td>
+                <c:if test="${product.pic !=null}">
+                    <img src="/image/${product.pic}" width=100 height=100/>
+                    <br/>
+                </c:if>
+                <input type="file" name="pictureFile"/>
+            </td>
         </tr>
         <tr>
             <td>商品简介</td>

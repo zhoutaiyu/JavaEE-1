@@ -12,7 +12,7 @@
         function updateProduct() {
 
             //将form的action指向删除商品的地址
-            document.productFrom.action = "${pageContext.request.contextPath }/product/editItemsListSubmit";
+            document.productFrom.action = "${pageContext.request.contextPath }/product/editItemsListSubmit.action";
 
             //进行form提交
             document.productFrom.submit();
@@ -56,7 +56,8 @@
                 <td><input type="text" name="productList[${s.index }].price" value="${product.price }"/></td>
                 <td><fmt:formatDate value="${product.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
                 <td>${product.detail }</td>
-                <td><a href="${pageContext.request.contextPath }/product/editProduct?id=${product.id}">修改</a></td>
+                <td><a href="${pageContext.request.contextPath }/product/editProduct.action?id=${product.id}">修改</a>
+                </td>
             </tr>
         </c:forEach>
     </table>

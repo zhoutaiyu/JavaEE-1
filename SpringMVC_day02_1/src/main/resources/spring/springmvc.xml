@@ -41,10 +41,20 @@
     </bean>
 
 
+    <!-- 文件上传 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 设置上传文件的最大尺寸为5MB -->
+        <property name="maxUploadSize" value="5242880"/>
+    </bean>
+
+
     <!-- 自定义webBinder -->
     <bean id="customBinder" class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
         <!-- 使用converter进行参数转 -->
         <property name="conversionService" ref="conversionService"/>
+
+        <!-- 配置validator -->
+        <property name="validator" ref="validator"/>
     </bean>
 
     <!-- conversionService -->
@@ -59,6 +69,30 @@
     </bean>
 
 
+    <!-- 校验器 -->
+    <bean id="validator"
+          class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <!-- 校验器 -->
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+        <!-- 指定校验使用的资源文件，如果不指定则默认使用classpath下的ValidationMessages.properties -->
+        <property name="validationMessageSource" ref="messageSource"/>
+    </bean>
+    <!-- 校验错误信息配置文件 -->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <!-- 资源文件名 -->
+        <property name="basenames">
+            <list>
+                <value>classpath:CustomValidationMessages</value>
+            </list>
+        </property>
+        <!-- 资源文件编码格式 -->
+        <property name="fileEncodings" value="utf-8"/>
+        <!-- 对资源文件内容缓存时间，单位秒 -->
+        <property name="cacheSeconds" value="120"/>
+    </bean>
+
+
     <!-- json配置 -->
     <bean id="mappingJacksonHttpMessageConverter"
           class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
@@ -68,12 +102,5 @@
                 <value>application/json;charset=utf-8</value>
             </list>
         </property>
-    </bean>
-
-
-    <!-- 文件上传 -->
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <!-- 设置上传文件的最大尺寸为5MB -->
-        <property name="maxUploadSize" value="5242880"/>
     </bean>
 </beans>

@@ -1,10 +1,14 @@
 package cn.qdgxy.ssm.controller;
 
+import cn.qdgxy.ssm.controller.validation.ValidGroup1;
 import cn.qdgxy.ssm.po.ProductCustom;
 import cn.qdgxy.ssm.po.ProductQueryVo;
 import cn.qdgxy.ssm.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,7 +27,7 @@ import java.util.*;
  * @version 1.0
  */
 @Controller
-@RequestMapping("/product.action") //定义url的根路径，访问时根路径+方法的url
+@RequestMapping("/product") //定义url的根路径，访问时根路径+方法的url
 public class ProductController {
 
     @Resource
@@ -90,10 +94,28 @@ public class ProductController {
      * @throws Exception
      */
     @RequestMapping("/editProductSubmit.action")
-    public String editProductSubmit(Model model, Integer id,
-                                    @ModelAttribute("product") ProductCustom productCustom,
+    public String editProductSubmit(Model model,
+                                    Integer id,
+                                    @Validated(value = {ValidGroup1.class}) @ModelAttribute("product") ProductCustom productCustom,
+                                    BindingResult bindingResult,
                                     // 上传图片
                                     MultipartFile pictureFile) throws Exception {
+
+        //输出校验错误信息
+        //如果参数绑定时有错
+        if (bindingResult.hasErrors()) {
+            //获取错误
+            List<ObjectError> errors = bindingResult.getAllErrors();
+            //准备在页面输出errors，页面使用jstl遍历
+            model.addAttribute("errors", errors);
+            for (ObjectError error : errors) {
+                //输出错误信息
+                System.out.println(error.getDefaultMessage());
+            }
+            //如果校验错误，回到商品修改页面
+            return "editProduct";
+        }
+
 
         //进行图片上传
         if (pictureFile != null && pictureFile.getOriginalFilename() != null

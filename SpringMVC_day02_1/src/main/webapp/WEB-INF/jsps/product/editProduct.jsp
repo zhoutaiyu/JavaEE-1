@@ -1,15 +1,19 @@
-<%@ page language="java" pageEncoding="UTF-8" %>
+<%@ page language="java" pageEncoding="utf-8" isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>修改商品信息</title>
 
 </head>
 <body>
-<form id="productForm" action="${pageContext.request.contextPath }/product/editProductSubmit" method="post"
+<!-- 错误信息 -->
+<c:forEach items="${errors}" var="error">
+    ${error.defaultMessage}<br/>
+</c:forEach>
+
+<form id="productForm" action="${pageContext.request.contextPath }/product/editProductSubmit.action" method="post"
       enctype="multipart/form-data">
     <input type="hidden" name="id" value="${product.id}"/>
     修改商品信息：

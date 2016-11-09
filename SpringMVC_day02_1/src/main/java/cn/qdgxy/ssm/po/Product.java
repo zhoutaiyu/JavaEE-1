@@ -1,16 +1,28 @@
 package cn.qdgxy.ssm.po;
 
+import cn.qdgxy.ssm.controller.validation.ValidGroup1;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     private Integer id;
+
+    @Size(min = 1, max = 30, message = "{product.name.length.error}")
     private String name;
+
     private Float price;
+
     private String pic;
+
+    @NotNull(message = "{product.createtime.is.notnull}", groups = {ValidGroup1.class})
     private Date createtime;
+
     private String detail;
 
     public Product(Integer id, String name, Float price, String pic, Date createtime, String detail) {

@@ -30,7 +30,6 @@
         <spring.version>4.3.3.RELEASE</spring.version>
 
         <!-- 【Hibernate】 -->
-        <!-- 核心包 -->
         <hibernate.version>5.2.2.Final</hibernate.version>
 
         <!-- MySQL -->

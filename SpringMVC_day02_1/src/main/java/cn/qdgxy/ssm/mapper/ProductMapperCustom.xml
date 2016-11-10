@@ -18,8 +18,8 @@
 
     <!-- 商品查询
         parameterType：输入 查询条件 -->
-    <select id="findProductList" parameterType="cn.qdgxy.ssm.po.ProductQueryVo"
-            resultType="cn.qdgxy.ssm.po.ProductCustom">
+    <select id="findProductList" parameterType="ProductQueryVo"
+            resultType="ProductCustom">
         SELECT * FROM product
         <where>
             <include refid="query_product_where"/>

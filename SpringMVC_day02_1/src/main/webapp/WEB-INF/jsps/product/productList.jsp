@@ -49,6 +49,7 @@
             <td>生产日期</td>
             <td>商品描述</td>
             <td>操作</td>
+            <td>rest连接</td>
         </tr>
         <c:forEach items="${productList}" var="product">
             <tr>
@@ -57,8 +58,10 @@
                 <td>${product.price}</td>
                 <td><fmt:formatDate value="${product.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
                 <td>${product.detail}</td>
+
                 <td><a href="${pageContext.request.contextPath }/product/editProduct.action?id=${product.id}">修改</a>
                 </td>
+                <td><a href="${pageContext.request.contextPath }/product/viewProduct/${product.id}">商品查看</a></td>
             </tr>
         </c:forEach>
 

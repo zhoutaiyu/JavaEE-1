@@ -1,5 +1,6 @@
 package cn.qdgxy.ssm.service.impl;
 
+import cn.qdgxy.ssm.exception.CustomException;
 import cn.qdgxy.ssm.mapper.ProductMapper;
 import cn.qdgxy.ssm.mapper.ProductMapperCustom;
 import cn.qdgxy.ssm.po.Product;
@@ -51,6 +52,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductCustom findProductById(Integer id) throws Exception {
         Product product = productMapper.selectByPrimaryKey(id);
+
+        if (product == null) {
+            throw new CustomException("此商品信息不存在");
+        }
 
         //在这里随着需求的变量，需要查询商品的其它的相关信息，返回到controller
         ProductCustom productCustom = new ProductCustom();

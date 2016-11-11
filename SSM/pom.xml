@@ -24,10 +24,21 @@
         <!-- 【Spring】 -->
         <spring.version>4.3.3.RELEASE</spring.version>
 
+        <!-- 【SpringMVC】 -->
         <!-- Jstl -->
         <jstl.version>1.2</jstl.version>
         <standard.version>1.1.2</standard.version>
 
+        <!-- 图片上传 -->
+        <commons-fileupload.versinon>1.3.2</commons-fileupload.versinon>
+
+        <!-- json解析 -->
+        <jackson.version>2.8.4</jackson.version>
+
+        <!-- 校验 -->
+        <hibernate-validator.version>5.3.1.Final</hibernate-validator.version>
+        <jboss-logging.version>3.3.0.Final</jboss-logging.version>
+        <validation-api.version>1.1.0.Final</validation-api.version>
 
         <!-- 【Mybatis】 -->
         <mybatis.version>3.4.1</mybatis.version>
@@ -51,6 +62,7 @@
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>${servlet.version}</version>
+            <scope>provided</scope>
         </dependency>
 
 
@@ -142,13 +154,13 @@
             <scope>test</scope>
         </dependency>
 
+
         <!-- 【SpringMVC】 -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
 
         <!-- jstl -->
         <dependency>
@@ -162,6 +174,46 @@
             <artifactId>standard</artifactId>
             <version>${standard.version}</version>
         </dependency>
+
+        <!-- 图片上传 -->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${commons-fileupload.versinon}</version>
+        </dependency>
+
+        <!-- json解析 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <!-- 校验 -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.logging</groupId>
+            <artifactId>jboss-logging</artifactId>
+            <version>${jboss-logging.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${validation-api.version}</version>
+        </dependency>
+
 
         <!-- 【Mybatis】 -->
         <dependency>
@@ -190,7 +242,6 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
         </dependency>
-
     </dependencies>
 
     <build>

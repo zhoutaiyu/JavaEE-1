@@ -10,7 +10,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -32,6 +34,23 @@ public class ProductController {
 
     @Resource
     private ProductService productService;
+
+    /**
+     * 根据商品id查看商品信息rest接口
+     *
+     * @param id @PathVariable将url中的{}包起参数和形参进行绑定
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/viewProduct/{id}")  //@RequestMapping中指定restful方式的url中的参数，参数需要用{}包起来
+    public
+    @ResponseBody
+    ProductCustom productCustom(@PathVariable("id") Integer id) throws Exception {
+        //调用 service查询商品信息
+        ProductCustom productCustom = productService.findProductById(id);
+
+        return productCustom;
+    }
 
     /**
      * 单独将商品类型的方法提出来，将方法返回值填充到request，在页面显示

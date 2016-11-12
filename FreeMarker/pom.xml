@@ -5,16 +5,30 @@
     <artifactId>freemarker</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>freemarker Maven Webapp</name>
-    <url>http://maven.apache.org</url>
+
+    <properties>
+        <junit.version>4.12</junit.version>
+
+
+        <freemarker.version>2.3.23</freemarker.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>${freemarker.version}</version>
+        </dependency>
     </dependencies>
+
     <build>
         <finalName>freemarker</finalName>
     </build>

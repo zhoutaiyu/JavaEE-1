@@ -3,8 +3,10 @@
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns="http://www.springframework.org/schema/beans"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- 加载配置文件 -->
     <context:property-placeholder location="classpath:dbconfig.properties"/>
@@ -48,7 +50,7 @@
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 配置扫描包的路径
              如果要扫描多个包，中间使用半角逗号分隔  -->
-        <property name="basePackage" value="cn.qdgxy.ssm.mapper"/>
+        <property name="basePackage" value="cn.qdgxy.sss.mapper"/>
         <!-- 使用sqlSessionFactoryBeanName -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>

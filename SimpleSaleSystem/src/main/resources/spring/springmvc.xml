@@ -10,13 +10,12 @@
 		http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!-- 静态资源 解析 -->
-    <mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
-    <mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
-    <mvc:resources location="/WEB-INF/img/" mapping="/img/**"/>
+    <mvc:resources location="/js/" mapping="/js/**"/>
+    <mvc:resources location="/css/" mapping="/css/**"/>
 
     <!-- 【配置Handler】 -->
     <!-- 使用spring组件扫描 -->
-    <context:component-scan base-package="cn.qdgxy.ssm.controller"/>
+    <context:component-scan base-package="cn.qdgxy.sss.controller"/>
 
 
     <!-- 通过annotation-driven可以替代下边的处理器映射器和适配器 -->
@@ -41,7 +40,7 @@
 
     <!-- freemarker的配置 -->
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-        <property name="templateLoaderPath" value="/WEB-INF/ftl/"/>
+        <property name="templateLoaderPath" value="/template"/>
         <property name="defaultEncoding" value="utf-8"/>
         <property name="freemarkerSettings">
             <props>
@@ -66,17 +65,6 @@
     </bean>
 
 
-    <!-- 【视图解析器】 要求将jstl的包加到classpath -->
-    <!-- ViewResolver -->
-    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        &lt;!&ndash; 这里的配置我的理解是自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址 &ndash;&gt;
-        &lt;!&ndash; 前缀 &ndash;&gt;
-        <property name="prefix" value="/WEB-INF/jsps/"/>
-        &lt;!&ndash; 后缀 &ndash;&gt;
-        <property name="suffix" value=".jsp"/>
-    </bean>-->
-
-
     <!-- 文件上传 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <!-- 设置上传文件的最大尺寸为5MB -->
@@ -97,7 +85,7 @@
 
 
     <!-- 定义统一异常处理器 -->
-    <bean class="cn.qdgxy.ssm.exception.CustomExceptionResolver"/>
+    <bean class="cn.qdgxy.sss.exception.CustomExceptionResolver"/>
 
 
     <!-- 自定义webBinder -->
@@ -114,8 +102,8 @@
         <!-- 转换器 -->
         <property name="converters">
             <set>
-                <bean class="cn.qdgxy.ssm.controller.converter.CustomDateConverter"/>
-                <bean class="cn.qdgxy.ssm.controller.converter.StringTrimConverter"/>
+                <bean class="cn.qdgxy.sss.controller.converter.CustomDateConverter"/>
+                <bean class="cn.qdgxy.sss.controller.converter.StringTrimConverter"/>
             </set>
         </property>
     </bean>

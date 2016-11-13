@@ -4,7 +4,8 @@
 <body>
 <#include "include/support.ftl">
 <#include "include/header.ftl">
-<form class="m-form m-form-ht n-login" id="loginForm" onsubmit="return false;" autocomplete="off">
+<form action="/api/login" method="post" onsubmit="return false;" class="m-form m-form-ht n-login" id="loginForm"
+      autocomplete="off">
     <div class="fmitem">
         <label class="fmlab">用户名：</label>
         <div class="fmipt">

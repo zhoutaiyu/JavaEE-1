@@ -16,6 +16,7 @@
                     isSubmiting = true;
                     loading.show();
                     ajax({
+                        type: 'POST',
                         data: {userName: value1, password: value2},
                         url: '/api/login',
                         success: function (result) {

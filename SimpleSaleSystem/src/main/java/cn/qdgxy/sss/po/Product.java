@@ -1,8 +1,10 @@
 package cn.qdgxy.sss.po;
 
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 
 public class Product implements Serializable {
+
     private static final long serialVersionUID = 1L;
     private Integer id;
     private Double price;
@@ -64,8 +66,14 @@ public class Product implements Serializable {
         this.summary = summary == null ? null : summary.trim();
     }
 
-    public byte[] getDetail() {
-        return detail;
+    /**
+     * 方便页面显示
+     *
+     * @return String
+     * @throws UnsupportedEncodingException 转换异常
+     */
+    public String getDetail() throws UnsupportedEncodingException {
+        return new String(detail, "UTF-8");
     }
 
     public void setDetail(byte[] detail) {

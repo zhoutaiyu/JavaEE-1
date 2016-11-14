@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.qdgxy.sss.mapper.OrderCustomMapper">
+
+    <select id="findOrderByUid" resultType="OrderCustom" parameterType="Integer">
+        select p.id, p.title, p.image, o.buy_price buyPrice, o.buy_time buyTime
+        from `order` o, product p
+        where o.pid=p.id and o.uid=#{uid};
+    </select>
+
+</mapper>

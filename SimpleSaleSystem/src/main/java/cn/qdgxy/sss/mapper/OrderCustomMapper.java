@@ -1,17 +1,17 @@
-package cn.qdgxy.sss.service;
+package cn.qdgxy.sss.mapper;
 
 import cn.qdgxy.sss.po.OrderCustom;
 
 import java.util.List;
 
 /**
- * 订单Service接口
- * create:2016-11-12 20:52
+ * 自定义订单Mapper
+ * create:2016-11-14 21:12
  *
  * @author 李欣
  * @version 1.0
  */
-public interface OrderService {
+public interface OrderCustomMapper {
 
     /**
      * 按用户ID查找订单

@@ -1,7 +1,6 @@
 package cn.qdgxy.sss.controller;
 
 import cn.qdgxy.sss.exception.MyException;
-import cn.qdgxy.sss.po.User;
 import cn.qdgxy.sss.po.UserCustom;
 import cn.qdgxy.sss.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -62,7 +61,7 @@ public class UserController {
             session.setAttribute("user", userCustom);
         } catch (MyException e) {
             map.put("code", 500);
-            map.put("message", e.getLocalizedMessage());
+            map.put("message", e.getMessage());
             map.put("result", false);
         }
 
@@ -81,23 +80,5 @@ public class UserController {
         session.invalidate();
         return "login";
     }
-
-    /**
-     * 账务页
-     *
-     * @return ModelAndView
-     * @throws Exception Exception
-     */
-    @RequestMapping(value = "/account", method = RequestMethod.GET)
-    public String account(HttpSession session) throws Exception {
-        User user = (User) session.getAttribute("user");
-
-        if (user != null) {
-
-        }
-
-        return "account";
-    }
-
 
 }

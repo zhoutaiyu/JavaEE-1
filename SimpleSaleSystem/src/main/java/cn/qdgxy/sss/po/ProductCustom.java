@@ -9,12 +9,9 @@ package cn.qdgxy.sss.po;
  */
 public class ProductCustom extends Product {
 
-    private Integer oid;
-
-    private double buyPrice;
-
-    private String buyTime;
-
+    private Integer oid; // 订单ID
+    private double buyPrice;  // 购买价格
+    private String buyTime; // 购买时间
 
     /**
      * 是否购买

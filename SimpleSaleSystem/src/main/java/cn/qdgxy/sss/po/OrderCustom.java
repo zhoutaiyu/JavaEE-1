@@ -9,4 +9,22 @@ package cn.qdgxy.sss.po;
  */
 public class OrderCustom extends Order {
 
+    private String title; // 商品名
+    private String image; // 商品图片
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }

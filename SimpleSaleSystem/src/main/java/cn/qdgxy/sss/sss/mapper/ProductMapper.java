@@ -1,14 +1,12 @@
-package cn.qdgxy.sss.mapper;
+package cn.qdgxy.sss.sss.mapper;
 
 import cn.qdgxy.sss.po.Product;
 import cn.qdgxy.sss.po.ProductExample;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
-
 public interface ProductMapper {
-
     long countByExample(ProductExample example);
 
     int deleteByExample(ProductExample example);

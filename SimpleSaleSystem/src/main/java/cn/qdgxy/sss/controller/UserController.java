@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -34,14 +33,14 @@ public class UserController {
      * @throws Exception Exception
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView login() throws Exception {
-        return new ModelAndView("login");
+    public String login() throws Exception {
+        return "login";
     }
 
     /**
      * 登录提交
      *
-     * @return ModelAndView
+     * @return Json
      * @throws Exception Exception
      */
     @RequestMapping(value = "/api/login", method = RequestMethod.POST)
@@ -51,12 +50,12 @@ public class UserController {
         Map<String, Object> map = new HashMap<>();
 
         try {
-            UserCustom personCustom = userService.login(userName, password);
+            UserCustom userCustom = userService.login(userName, password);
 
             map.put("code", 200);
             map.put("result", true);
 
-            session.setAttribute("user", personCustom);
+            session.setAttribute("user", userCustom);
         } catch (MyException e) {
             map.put("code", 500);
             map.put("message", e.getLocalizedMessage());
@@ -73,9 +72,9 @@ public class UserController {
      * @throws Exception Exception
      */
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
-    public ModelAndView logout(HttpSession session) throws Exception {
+    public String logout(HttpSession session) throws Exception {
         session.invalidate();
-        return new ModelAndView("/login");
+        return "login";
     }
 
 }

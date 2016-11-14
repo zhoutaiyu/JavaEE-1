@@ -1,4 +1,4 @@
-package cn.qdgxy.sss.po;
+package cn.qdgxy.sss.sss.po;
 
 import java.util.ArrayList;
 import java.util.List;

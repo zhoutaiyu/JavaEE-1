@@ -6,7 +6,7 @@
             <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
             <arg column="pid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
             <arg column="uid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="buy_price" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <arg column="buy_price" javaType="java.lang.Double" jdbcType="DOUBLE"/>
             <arg column="buy_time" javaType="java.lang.String" jdbcType="VARCHAR"/>
         </constructor>
     </resultMap>
@@ -94,9 +94,9 @@
         where id = #{id,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from order
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from order
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
     <delete id="deleteByExample" parameterType="cn.qdgxy.sss.po.OrderExample">
         delete from order
         <if test="_parameter != null">
@@ -109,7 +109,7 @@
         </selectKey>
         insert into order (pid, uid, buy_price,
         buy_time)
-        values (#{pid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{buyPrice,jdbcType=INTEGER},
+        values (#{pid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{buyPrice,jdbcType=DOUBLE},
         #{buyTime,jdbcType=VARCHAR})
     </insert>
     <insert id="insertSelective" parameterType="cn.qdgxy.sss.po.Order">
@@ -139,7 +139,7 @@
                 #{uid,jdbcType=INTEGER},
             </if>
             <if test="buyPrice != null">
-                #{buyPrice,jdbcType=INTEGER},
+                #{buyPrice,jdbcType=DOUBLE},
             </if>
             <if test="buyTime != null">
                 #{buyTime,jdbcType=VARCHAR},
@@ -165,7 +165,7 @@
                 uid = #{record.uid,jdbcType=INTEGER},
             </if>
             <if test="record.buyPrice != null">
-                buy_price = #{record.buyPrice,jdbcType=INTEGER},
+                buy_price = #{record.buyPrice,jdbcType=DOUBLE},
             </if>
             <if test="record.buyTime != null">
                 buy_time = #{record.buyTime,jdbcType=VARCHAR},
@@ -180,7 +180,7 @@
         set id = #{record.id,jdbcType=INTEGER},
         pid = #{record.pid,jdbcType=INTEGER},
         uid = #{record.uid,jdbcType=INTEGER},
-        buy_price = #{record.buyPrice,jdbcType=INTEGER},
+        buy_price = #{record.buyPrice,jdbcType=DOUBLE},
         buy_time = #{record.buyTime,jdbcType=VARCHAR}
         <if test="_parameter != null">
             <include refid="Update_By_Example_Where_Clause"/>
@@ -196,7 +196,7 @@
                 uid = #{uid,jdbcType=INTEGER},
             </if>
             <if test="buyPrice != null">
-                buy_price = #{buyPrice,jdbcType=INTEGER},
+                buy_price = #{buyPrice,jdbcType=DOUBLE},
             </if>
             <if test="buyTime != null">
                 buy_time = #{buyTime,jdbcType=VARCHAR},
@@ -208,7 +208,7 @@
     update order
     set pid = #{pid,jdbcType=INTEGER},
       uid = #{uid,jdbcType=INTEGER},
-      buy_price = #{buyPrice,jdbcType=INTEGER},
+      buy_price = #{buyPrice,jdbcType=DOUBLE},
       buy_time = #{buyTime,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>

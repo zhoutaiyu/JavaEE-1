@@ -71,8 +71,8 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-    id, userName, password, nickName, userType
-  </sql>
+        id, userName, password, nickName, userType
+    </sql>
     <select id="selectByExample" parameterType="cn.qdgxy.sss.po.UserExample" resultMap="BaseResultMap">
         select
         <if test="distinct">
@@ -94,9 +94,9 @@
         where id = #{id,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from user
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from user
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
     <delete id="deleteByExample" parameterType="cn.qdgxy.sss.po.UserExample">
         delete from user
         <if test="_parameter != null">
@@ -205,11 +205,11 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="cn.qdgxy.sss.po.User">
-    update user
-    set userName = #{username,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      nickName = #{nickname,jdbcType=VARCHAR},
-      userType = #{usertype,jdbcType=TINYINT}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update user
+        set userName = #{username,jdbcType=VARCHAR},
+        password = #{password,jdbcType=VARCHAR},
+        nickName = #{nickname,jdbcType=VARCHAR},
+        userType = #{usertype,jdbcType=TINYINT}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

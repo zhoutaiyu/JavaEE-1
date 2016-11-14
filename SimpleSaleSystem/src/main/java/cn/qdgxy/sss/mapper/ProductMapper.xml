@@ -81,11 +81,11 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-    id, price, title, image, summary
-  </sql>
+        id, price, title, image, summary
+    </sql>
     <sql id="Blob_Column_List">
-    detail
-  </sql>
+        detail
+    </sql>
     <select id="selectByExampleWithBLOBs" parameterType="cn.qdgxy.sss.po.ProductExample" resultMap="ResultMapWithBLOBs">
         select
         <if test="distinct">
@@ -125,9 +125,9 @@
         where id = #{id,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from product
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from product
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
     <delete id="deleteByExample" parameterType="cn.qdgxy.sss.po.ProductExample">
         delete from product
         <if test="_parameter != null">
@@ -260,20 +260,20 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.qdgxy.sss.po.Product">
-    update product
-    set price = #{price,jdbcType=DOUBLE},
-      title = #{title,jdbcType=VARCHAR},
-      image = #{image,jdbcType=VARCHAR},
-      summary = #{summary,jdbcType=VARCHAR},
-      detail = #{detail,jdbcType=LONGVARBINARY}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update product
+        set price = #{price,jdbcType=DOUBLE},
+        title = #{title,jdbcType=VARCHAR},
+        image = #{image,jdbcType=VARCHAR},
+        summary = #{summary,jdbcType=VARCHAR},
+        detail = #{detail,jdbcType=LONGVARBINARY}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
     <update id="updateByPrimaryKey" parameterType="cn.qdgxy.sss.po.Product">
-    update product
-    set price = #{price,jdbcType=DOUBLE},
-      title = #{title,jdbcType=VARCHAR},
-      image = #{image,jdbcType=VARCHAR},
-      summary = #{summary,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update product
+        set price = #{price,jdbcType=DOUBLE},
+        title = #{title,jdbcType=VARCHAR},
+        image = #{image,jdbcType=VARCHAR},
+        summary = #{summary,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

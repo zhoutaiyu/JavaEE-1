@@ -13,6 +13,19 @@ import java.util.List;
  */
 public interface ProductCustomMapper {
 
+    /**
+     * 查找所有商品
+     *
+     * @return 商品
+     */
     List<ProductCustom> findAllProduct();
+
+    /**
+     * 按id查找商品
+     *
+     * @param id id
+     * @return 商品
+     */
+    ProductCustom findProductById(Integer id);
 
 }

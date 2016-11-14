@@ -11,6 +11,11 @@ public class ProductCustom extends Product {
 
     private Integer oid;
 
+    private double buyPrice;
+
+    private String buyTime;
+
+
     /**
      * 是否购买
      *
@@ -35,5 +40,21 @@ public class ProductCustom extends Product {
 
     public void setOid(Integer oid) {
         this.oid = oid;
+    }
+
+    public double getBuyPrice() {
+        return buyPrice;
+    }
+
+    public void setBuyPrice(double buyPrice) {
+        this.buyPrice = buyPrice;
+    }
+
+    public String getBuyTime() {
+        return buyTime;
+    }
+
+    public void setBuyTime(String buyTime) {
+        this.buyTime = buyTime;
     }
 }

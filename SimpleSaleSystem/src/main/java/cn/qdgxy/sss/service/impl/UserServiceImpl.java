@@ -1,7 +1,7 @@
 package cn.qdgxy.sss.service.impl;
 
-import cn.qdgxy.sss.dao.UserDao;
 import cn.qdgxy.sss.exception.MyException;
+import cn.qdgxy.sss.mapper.UserCustomMapper;
 import cn.qdgxy.sss.po.UserCustom;
 import cn.qdgxy.sss.service.UserService;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ import javax.annotation.Resource;
 public class UserServiceImpl implements UserService {
 
     @Resource
-    private UserDao userDao;
+    private UserCustomMapper UserCustomMapper;
 
 
     /**
@@ -34,16 +34,17 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public UserCustom login(String userName, String password) throws Exception {
-        UserCustom personCustom = userDao.findByUsername(userName);
+        UserCustom userCustom = UserCustomMapper.findUserByUsername(userName);
 
-        if (personCustom == null) {
+        if (userCustom == null) {
             throw new MyException("用户不存在!");
         }
 
-        if (!personCustom.getPassword().equals(password)) {
+        if (!userCustom.getPassword().equals(password)) {
             throw new MyException("密码错误！");
         }
 
-        return personCustom;
+        return userCustom;
     }
+
 }

@@ -1,6 +1,7 @@
 package cn.qdgxy.sss.controller;
 
 import cn.qdgxy.sss.exception.MyException;
+import cn.qdgxy.sss.po.User;
 import cn.qdgxy.sss.po.UserCustom;
 import cn.qdgxy.sss.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -29,7 +30,7 @@ public class UserController {
     /**
      * 登录
      *
-     * @return ModelAndView
+     * @return String
      * @throws Exception Exception
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -40,6 +41,9 @@ public class UserController {
     /**
      * 登录提交
      *
+     * @param session  session
+     * @param userName 用户名
+     * @param password 密码
      * @return Json
      * @throws Exception Exception
      */
@@ -68,7 +72,8 @@ public class UserController {
     /**
      * 退出
      *
-     * @return ModelAndView
+     * @param session session
+     * @return String
      * @throws Exception Exception
      */
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -76,5 +81,23 @@ public class UserController {
         session.invalidate();
         return "login";
     }
+
+    /**
+     * 账务页
+     *
+     * @return ModelAndView
+     * @throws Exception Exception
+     */
+    @RequestMapping(value = "/account", method = RequestMethod.GET)
+    public String account(HttpSession session) throws Exception {
+        User user = (User) session.getAttribute("user");
+
+        if (user != null) {
+
+        }
+
+        return "account";
+    }
+
 
 }

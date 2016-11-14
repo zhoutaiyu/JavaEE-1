@@ -20,4 +20,12 @@ public interface ProductService {
      */
     List<ProductCustom> findAllProduct() throws Exception;
 
+    /**
+     * 按id查找商品
+     *
+     * @param id id
+     * @return 商品
+     */
+    ProductCustom findProductById(Integer id) throws Exception;
+
 }

@@ -3,13 +3,17 @@ package cn.qdgxy.sss.po;
 import java.io.Serializable;
 
 public class Order implements Serializable {
+    private Integer id;
+
+    private Integer pid;
+
+    private Integer uid;
+
+    private Double buyPrice;
+
+    private String buyTime;
 
     private static final long serialVersionUID = 1L;
-    private Integer id;
-    private Integer pid;
-    private Integer uid;
-    private Double buyPrice;
-    private String buyTime;
 
     public Order(Integer id, Integer pid, Integer uid, Double buyPrice, String buyTime) {
         this.id = id;

@@ -57,10 +57,10 @@
 
             <!-- 最终拼接的效果：
             SELECT id ,username ,birthday FROM USER WHERE username LIKE '%小明%' AND (id = 16 OR id = 22 OR id = 25) -->
-           <!--<foreach collection="ids" open=" AND ( " close=")" item="id" separator="OR">
-               id = #{id}
-           </foreach>-->
-           <!-- 还有很的查询条件 -->
+            <!--<foreach collection="ids" open=" AND ( " close=")" item="id" separator="OR">
+                id = #{id}
+            </foreach>-->
+            <!-- 还有很的查询条件 -->
         </if>
     </sql>
 
@@ -170,7 +170,7 @@
 
     <!-- 【用户删除】  -->
     <delete id="deleteUser" parameterType="int">
-        delete from user where id=#{id}
+        delete from user where p.id=#{id}
     </delete>
 
     <!-- 【用户更新】

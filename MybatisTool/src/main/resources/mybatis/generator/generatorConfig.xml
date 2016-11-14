@@ -81,19 +81,25 @@
 
         <!-- 4. 要根据哪张表生成，要在这里配置 -->
 
-        <table tableName="Product" domainObjectName="Product">
+        <table tableName="Product" domainObjectName="Product"
+               enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
 
-        <table tableName="User" domainObjectName="User">
+        <table tableName="User" domainObjectName="User"
+               enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
 
-        <table tableName="Order" domainObjectName="Order">
+        <table tableName="Order" domainObjectName="Order"
+               enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>

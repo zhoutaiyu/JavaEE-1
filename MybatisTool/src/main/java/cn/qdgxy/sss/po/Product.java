@@ -3,14 +3,19 @@ package cn.qdgxy.sss.po;
 import java.io.Serializable;
 
 public class Product implements Serializable {
+    private Integer id;
+
+    private Double price;
+
+    private String title;
+
+    private String image;
+
+    private String summary;
+
+    private byte[] detail;
 
     private static final long serialVersionUID = 1L;
-    private Integer id;
-    private Double price;
-    private String title;
-    private String image;
-    private String summary;
-    private byte[] detail;
 
     public Product(Integer id, Double price, String title, String image, String summary, byte[] detail) {
         this.id = id;

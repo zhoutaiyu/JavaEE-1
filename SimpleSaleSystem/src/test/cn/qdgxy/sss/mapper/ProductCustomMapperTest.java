@@ -32,7 +32,13 @@ public class ProductCustomMapperTest {
             System.out.println("id:" + productCustom.getId());
             System.out.println("getIsBuy:" + productCustom.getIsBuy());
         }
-
     }
+
+    @Test
+    public void findProductById() throws Exception {
+        ProductCustom productCustom = productCustomMapper.findProductById(2);
+        System.out.println(productCustom);
+    }
+
 
 }

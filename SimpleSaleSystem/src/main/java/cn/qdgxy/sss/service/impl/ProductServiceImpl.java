@@ -1,6 +1,6 @@
 package cn.qdgxy.sss.service.impl;
 
-import cn.qdgxy.sss.dao.ProductDao;
+import cn.qdgxy.sss.mapper.ProductCustomMapper;
 import cn.qdgxy.sss.po.ProductCustom;
 import cn.qdgxy.sss.service.ProductService;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 商品Servoce实现
+ * 商品Service实现
  * create:2016-11-12 20:53
  *
  * @author 李欣
@@ -21,7 +21,7 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     @Resource
-    private ProductDao productDao;
+    private ProductCustomMapper productCustomMapper;
 
     /**
      * 查找商品
@@ -31,6 +31,18 @@ public class ProductServiceImpl implements ProductService {
      */
     @Override
     public List<ProductCustom> findAllProduct() throws Exception {
-        return productDao.findAllProduct();
+        return productCustomMapper.findAllProduct();
     }
+
+    /**
+     * 按id查找商品
+     *
+     * @param id id
+     * @return 商品
+     */
+    @Override
+    public ProductCustom findProductById(Integer id) throws Exception {
+        return productCustomMapper.findProductById(id);
+    }
+
 }

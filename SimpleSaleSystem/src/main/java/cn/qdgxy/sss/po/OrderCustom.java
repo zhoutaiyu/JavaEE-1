@@ -7,6 +7,6 @@ package cn.qdgxy.sss.po;
  * @author 李欣
  * @version 1.0
  */
-public class TrxCustom extends Trx {
+public class OrderCustom extends Order {
 
 }

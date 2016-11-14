@@ -7,6 +7,6 @@ package cn.qdgxy.sss.controller;
  * @author 李欣
  * @version 1.0
  */
-public class TrxController {
+public class OrderController {
 
 }

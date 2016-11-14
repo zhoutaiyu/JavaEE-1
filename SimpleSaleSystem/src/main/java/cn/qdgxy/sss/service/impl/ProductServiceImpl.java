@@ -1,11 +1,14 @@
 package cn.qdgxy.sss.service.impl;
 
-import cn.qdgxy.sss.service.TrxService;
+import cn.qdgxy.sss.dao.ProductDao;
+import cn.qdgxy.sss.service.ProductService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
+
 /**
- * 订单Service实现
+ * 商品Servoce实现
  * create:2016-11-12 20:53
  *
  * @author 李欣
@@ -13,6 +16,9 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class TrxServiceImpl implements TrxService {
+public class ProductServiceImpl implements ProductService {
+
+    @Resource
+    private ProductDao contentDao;
 
 }

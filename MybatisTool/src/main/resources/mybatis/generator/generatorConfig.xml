@@ -81,20 +81,19 @@
 
         <!-- 4. 要根据哪张表生成，要在这里配置 -->
 
-        <table tableName="content" domainObjectName="Content">
-            <!-- 插入后返回ID -->
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-            <columnOverride column="abstract" property="digest"/>
-        </table>
-
-
-        <table tableName="person" domainObjectName="Person">
+        <table tableName="Product" domainObjectName="Product">
             <!-- 插入后返回ID -->
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
 
-        <table tableName="trx" domainObjectName="Trx">
+        <table tableName="User" domainObjectName="User">
+            <!-- 插入后返回ID -->
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+
+        <table tableName="Order" domainObjectName="Order">
             <!-- 插入后返回ID -->
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>

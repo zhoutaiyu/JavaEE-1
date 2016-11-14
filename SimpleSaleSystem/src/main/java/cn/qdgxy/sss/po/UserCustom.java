@@ -7,6 +7,6 @@ package cn.qdgxy.sss.po;
  * @author 李欣
  * @version 1.0
  */
-public class PersonCustom extends Person {
+public class UserCustom extends User {
 
 }

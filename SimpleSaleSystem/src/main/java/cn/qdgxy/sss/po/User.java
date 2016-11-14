@@ -2,7 +2,7 @@ package cn.qdgxy.sss.po;
 
 import java.io.Serializable;
 
-public class Person implements Serializable {
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private Integer id;
@@ -11,7 +11,7 @@ public class Person implements Serializable {
     private String nickname;
     private Byte usertype;
 
-    public Person(Integer id, String username, String password, String nickname, Byte usertype) {
+    public User(Integer id, String username, String password, String nickname, Byte usertype) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -19,7 +19,7 @@ public class Person implements Serializable {
         this.usertype = usertype;
     }
 
-    public Person() {
+    public User() {
         super();
     }
 

@@ -1,8 +1,8 @@
 package cn.qdgxy.sss.controller;
 
 import cn.qdgxy.sss.exception.MyException;
-import cn.qdgxy.sss.po.PersonCustom;
-import cn.qdgxy.sss.service.PersonService;
+import cn.qdgxy.sss.po.UserCustom;
+import cn.qdgxy.sss.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,10 +22,10 @@ import java.util.Map;
  * @version 1.0
  */
 @Controller
-public class PersonController {
+public class UserController {
 
     @Resource
-    private PersonService personService;
+    private UserService userService;
 
     /**
      * 登录
@@ -39,7 +39,7 @@ public class PersonController {
     }
 
     /**
-     * 登录
+     * 登录提交
      *
      * @return ModelAndView
      * @throws Exception Exception
@@ -51,7 +51,7 @@ public class PersonController {
         Map<String, Object> map = new HashMap<>();
 
         try {
-            PersonCustom personCustom = personService.login(userName, password);
+            UserCustom personCustom = userService.login(userName, password);
 
             map.put("code", 200);
             map.put("result", true);
@@ -65,4 +65,17 @@ public class PersonController {
 
         return map;
     }
+
+    /**
+     * 退出
+     *
+     * @return ModelAndView
+     * @throws Exception Exception
+     */
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public ModelAndView logout(HttpSession session) throws Exception {
+        session.invalidate();
+        return new ModelAndView("/login");
+    }
+
 }

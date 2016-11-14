@@ -1,9 +1,9 @@
 package cn.qdgxy.sss.service.impl;
 
-import cn.qdgxy.sss.dao.PersonDao;
+import cn.qdgxy.sss.dao.UserDao;
 import cn.qdgxy.sss.exception.MyException;
-import cn.qdgxy.sss.po.PersonCustom;
-import cn.qdgxy.sss.service.PersonService;
+import cn.qdgxy.sss.po.UserCustom;
+import cn.qdgxy.sss.service.UserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,10 +18,10 @@ import javax.annotation.Resource;
  */
 @Service
 @Transactional
-public class PersonServiceImpl implements PersonService {
+public class UserServiceImpl implements UserService {
 
     @Resource
-    private PersonDao personDao;
+    private UserDao userDao;
 
 
     /**
@@ -33,8 +33,8 @@ public class PersonServiceImpl implements PersonService {
      * @throws Exception 异常
      */
     @Override
-    public PersonCustom login(String userName, String password) throws Exception {
-        PersonCustom personCustom = personDao.findByUsername(userName);
+    public UserCustom login(String userName, String password) throws Exception {
+        UserCustom personCustom = userDao.findByUsername(userName);
 
         if (personCustom == null) {
             throw new MyException("用户不存在!");

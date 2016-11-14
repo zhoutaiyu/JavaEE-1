@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.qdgxy.sss.mapper.TrxMapper">
-    <resultMap id="BaseResultMap" type="cn.qdgxy.sss.po.Trx">
+<mapper namespace="cn.qdgxy.sss.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="cn.qdgxy.sss.po.User">
         <constructor>
             <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="contentId" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="personId" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="price" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="time" javaType="java.lang.Long" jdbcType="BIGINT"/>
+            <arg column="userName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="password" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="nickName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="userType" javaType="java.lang.Byte" jdbcType="TINYINT"/>
         </constructor>
     </resultMap>
     <sql id="Example_Where_Clause">
@@ -71,15 +71,15 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-    id, contentId, personId, price, time
+    id, userName, password, nickName, userType
   </sql>
-    <select id="selectByExample" parameterType="cn.qdgxy.sss.po.TrxExample" resultMap="BaseResultMap">
+    <select id="selectByExample" parameterType="cn.qdgxy.sss.po.UserExample" resultMap="BaseResultMap">
         select
         <if test="distinct">
             distinct
         </if>
         <include refid="Base_Column_List"/>
-        from trx
+        from user
         <if test="_parameter != null">
             <include refid="Example_Where_Clause"/>
         </if>
@@ -90,85 +90,85 @@
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from trx
+        from user
         where id = #{id,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from trx
+    delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <delete id="deleteByExample" parameterType="cn.qdgxy.sss.po.TrxExample">
-        delete from trx
+    <delete id="deleteByExample" parameterType="cn.qdgxy.sss.po.UserExample">
+        delete from user
         <if test="_parameter != null">
             <include refid="Example_Where_Clause"/>
         </if>
     </delete>
-    <insert id="insert" parameterType="cn.qdgxy.sss.po.Trx">
+    <insert id="insert" parameterType="cn.qdgxy.sss.po.User">
         <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        insert into trx (contentId, personId, price,
-        time)
-        values (#{contentid,jdbcType=INTEGER}, #{personid,jdbcType=INTEGER}, #{price,jdbcType=INTEGER},
-        #{time,jdbcType=BIGINT})
+        insert into user (userName, password, nickName,
+        userType)
+        values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR},
+        #{usertype,jdbcType=TINYINT})
     </insert>
-    <insert id="insertSelective" parameterType="cn.qdgxy.sss.po.Trx">
+    <insert id="insertSelective" parameterType="cn.qdgxy.sss.po.User">
         <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        insert into trx
+        insert into user
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="contentid != null">
-                contentId,
+            <if test="username != null">
+                userName,
             </if>
-            <if test="personid != null">
-                personId,
+            <if test="password != null">
+                password,
             </if>
-            <if test="price != null">
-                price,
+            <if test="nickname != null">
+                nickName,
             </if>
-            <if test="time != null">
-                time,
+            <if test="usertype != null">
+                userType,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="contentid != null">
-                #{contentid,jdbcType=INTEGER},
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
             </if>
-            <if test="personid != null">
-                #{personid,jdbcType=INTEGER},
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
             </if>
-            <if test="price != null">
-                #{price,jdbcType=INTEGER},
+            <if test="nickname != null">
+                #{nickname,jdbcType=VARCHAR},
             </if>
-            <if test="time != null">
-                #{time,jdbcType=BIGINT},
+            <if test="usertype != null">
+                #{usertype,jdbcType=TINYINT},
             </if>
         </trim>
     </insert>
-    <select id="countByExample" parameterType="cn.qdgxy.sss.po.TrxExample" resultType="java.lang.Long">
-        select count(*) from trx
+    <select id="countByExample" parameterType="cn.qdgxy.sss.po.UserExample" resultType="java.lang.Long">
+        select count(*) from user
         <if test="_parameter != null">
             <include refid="Example_Where_Clause"/>
         </if>
     </select>
     <update id="updateByExampleSelective" parameterType="map">
-        update trx
+        update user
         <set>
             <if test="record.id != null">
                 id = #{record.id,jdbcType=INTEGER},
             </if>
-            <if test="record.contentid != null">
-                contentId = #{record.contentid,jdbcType=INTEGER},
+            <if test="record.username != null">
+                userName = #{record.username,jdbcType=VARCHAR},
             </if>
-            <if test="record.personid != null">
-                personId = #{record.personid,jdbcType=INTEGER},
+            <if test="record.password != null">
+                password = #{record.password,jdbcType=VARCHAR},
             </if>
-            <if test="record.price != null">
-                price = #{record.price,jdbcType=INTEGER},
+            <if test="record.nickname != null">
+                nickName = #{record.nickname,jdbcType=VARCHAR},
             </if>
-            <if test="record.time != null">
-                time = #{record.time,jdbcType=BIGINT},
+            <if test="record.usertype != null">
+                userType = #{record.usertype,jdbcType=TINYINT},
             </if>
         </set>
         <if test="_parameter != null">
@@ -176,40 +176,40 @@
         </if>
     </update>
     <update id="updateByExample" parameterType="map">
-        update trx
+        update user
         set id = #{record.id,jdbcType=INTEGER},
-        contentId = #{record.contentid,jdbcType=INTEGER},
-        personId = #{record.personid,jdbcType=INTEGER},
-        price = #{record.price,jdbcType=INTEGER},
-        time = #{record.time,jdbcType=BIGINT}
+        userName = #{record.username,jdbcType=VARCHAR},
+        password = #{record.password,jdbcType=VARCHAR},
+        nickName = #{record.nickname,jdbcType=VARCHAR},
+        userType = #{record.usertype,jdbcType=TINYINT}
         <if test="_parameter != null">
             <include refid="Update_By_Example_Where_Clause"/>
         </if>
     </update>
-    <update id="updateByPrimaryKeySelective" parameterType="cn.qdgxy.sss.po.Trx">
-        update trx
+    <update id="updateByPrimaryKeySelective" parameterType="cn.qdgxy.sss.po.User">
+        update user
         <set>
-            <if test="contentid != null">
-                contentId = #{contentid,jdbcType=INTEGER},
+            <if test="username != null">
+                userName = #{username,jdbcType=VARCHAR},
             </if>
-            <if test="personid != null">
-                personId = #{personid,jdbcType=INTEGER},
+            <if test="password != null">
+                password = #{password,jdbcType=VARCHAR},
             </if>
-            <if test="price != null">
-                price = #{price,jdbcType=INTEGER},
+            <if test="nickname != null">
+                nickName = #{nickname,jdbcType=VARCHAR},
             </if>
-            <if test="time != null">
-                time = #{time,jdbcType=BIGINT},
+            <if test="usertype != null">
+                userType = #{usertype,jdbcType=TINYINT},
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="cn.qdgxy.sss.po.Trx">
-    update trx
-    set contentId = #{contentid,jdbcType=INTEGER},
-      personId = #{personid,jdbcType=INTEGER},
-      price = #{price,jdbcType=INTEGER},
-      time = #{time,jdbcType=BIGINT}
+    <update id="updateByPrimaryKey" parameterType="cn.qdgxy.sss.po.User">
+    update user
+    set userName = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      nickName = #{nickname,jdbcType=VARCHAR},
+      userType = #{usertype,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -7,6 +7,6 @@ package cn.qdgxy.sss.service;
  * @author 李欣
  * @version 1.0
  */
-public interface TrxService {
+public interface OrderService {
 
 }

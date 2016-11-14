@@ -1,6 +1,6 @@
 package cn.qdgxy.sss.service;
 
-import cn.qdgxy.sss.po.PersonCustom;
+import cn.qdgxy.sss.po.UserCustom;
 
 /**
  * 用户Service接口
@@ -9,7 +9,7 @@ import cn.qdgxy.sss.po.PersonCustom;
  * @author 李欣
  * @version 1.0
  */
-public interface PersonService {
+public interface UserService {
 
     /**
      * 登录
@@ -19,6 +19,6 @@ public interface PersonService {
      * @return 用户
      * @throws Exception 异常
      */
-    PersonCustom login(String userName, String password) throws Exception;
+    UserCustom login(String userName, String password) throws Exception;
 
 }

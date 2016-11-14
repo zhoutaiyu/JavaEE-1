@@ -1,6 +1,6 @@
 package cn.qdgxy.sss.dao;
 
-import cn.qdgxy.sss.po.PersonCustom;
+import cn.qdgxy.sss.po.UserCustom;
 
 /**
  * 用户Dao接口
@@ -9,7 +9,7 @@ import cn.qdgxy.sss.po.PersonCustom;
  * @author 李欣
  * @version 1.0
  */
-public interface PersonDao {
+public interface UserDao {
 
     /**
      * 按用户名查找用户
@@ -17,6 +17,6 @@ public interface PersonDao {
      * @param userName 用户名
      * @return 用户
      */
-    PersonCustom findByUsername(String userName) throws Exception;
+    UserCustom findByUsername(String userName) throws Exception;
 
 }

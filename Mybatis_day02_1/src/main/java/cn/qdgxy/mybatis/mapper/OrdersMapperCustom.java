@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface OrdersMapperCustom {
 
-    // 一对一查询，查询订单关联查询用户，使用resultType
+    // 一对一查查询订单关联查询用户，使用resultType
     public List<OrderCustom> findOrderUserList() throws Exception;
 
     // 一对一查询，使用resultMap

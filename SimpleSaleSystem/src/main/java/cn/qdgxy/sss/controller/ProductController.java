@@ -1,6 +1,5 @@
 package cn.qdgxy.sss.controller;
 
-import cn.qdgxy.sss.po.User;
 import cn.qdgxy.sss.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,25 +23,15 @@ public class ProductController {
     private ProductService productService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String findAllProduct(Model model, HttpSession session, Integer type) throws Exception {
-        User user = (User) session.getAttribute("user");
-
+    public String findProduct(Model model, HttpSession session, Integer type) throws Exception {
         //type：0，全部商品；1，未购买商品
         if (type == null) { // type为null页面有错误
             type = 0;
         }
 
-        if (type == 0) { // 查询所有商品
-            // 用户
-
-
-            // 管理员
-
-        } else if (type == 1) {// 查询用户未购买商品
-
-        }
-
         model.addAttribute("type", type);
+        model.addAttribute("productList", productService.findAllProduct());
+
         return "index";
     }
 

@@ -9,4 +9,31 @@ package cn.qdgxy.sss.po;
  */
 public class ProductCustom extends Product {
 
+    private Integer oid;
+
+    /**
+     * 是否购买
+     *
+     * @return 是否购买
+     */
+    public boolean getIsBuy() {
+        return oid != null;
+    }
+
+    /**
+     * 是否已经卖出
+     *
+     * @return 是否已经卖出
+     */
+    public boolean getIsSell() {
+        return oid != null;
+    }
+
+    public Integer getOid() {
+        return oid;
+    }
+
+    public void setOid(Integer oid) {
+        this.oid = oid;
+    }
 }

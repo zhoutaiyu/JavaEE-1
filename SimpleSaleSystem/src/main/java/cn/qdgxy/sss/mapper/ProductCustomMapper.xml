@@ -8,7 +8,7 @@
         from product p left join `order` o on p.id=o.pid;
     </select>
 
-    <select id="findProductById" resultType="ProductCustom" parameterType="Integer">
+    <select id="findProductAndOrderById" resultType="ProductCustom" parameterType="Integer">
         select p.*, o.id oid, buy_price buyPrice, buy_time buyTime
         from product p left join `order` o on p.id=o.pid
         where p.id=#{id};

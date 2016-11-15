@@ -1,5 +1,6 @@
 package cn.qdgxy.sss.service;
 
+import cn.qdgxy.sss.po.Product;
 import cn.qdgxy.sss.po.ProductCustom;
 
 import java.util.List;
@@ -21,11 +22,43 @@ public interface ProductService {
     List<ProductCustom> findAllProduct() throws Exception;
 
     /**
-     * 按id查找商品
+     * 按商品ID查找商品和购买信息
      *
-     * @param id id
+     * @param pid 商品ID
+     * @return 商品和购买信息
+     */
+    ProductCustom findProductAndOrderById(Integer pid) throws Exception;
+
+    /**
+     * 按照商品ID查找商品
+     *
+     * @param pid 商品ID
      * @return 商品
      */
-    ProductCustom findProductById(Integer id) throws Exception;
+    Product findProductById(Integer pid) throws Exception;
+
+    /**
+     * 添加商品
+     *
+     * @param product 商品
+     * @return 操作行数
+     */
+    Integer addProduct(Product product) throws Exception;
+
+    /**
+     * 修改商品
+     *
+     * @param product 商品
+     * @return 是否成功
+     */
+    boolean updateById(Product product) throws Exception;
+
+    /**
+     * 按ID删除商品
+     *
+     * @param pid 商品ID
+     * @return 是否成功
+     */
+    boolean deleteById(Integer pid) throws Exception;
 
 }

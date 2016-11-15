@@ -30,7 +30,7 @@ public class OrderServiceImpl implements OrderService {
      * @return 订单
      */
     @Override
-    public List<OrderCustom> findOrderByUid(Integer uid) {
+    public List<OrderCustom> findOrderByUid(Integer uid) throws Exception {
         return orderCustomMapper.findOrderByUid(uid);
     }
 

@@ -21,11 +21,11 @@ public interface ProductCustomMapper {
     List<ProductCustom> findAllProduct();
 
     /**
-     * 按id查找商品
+     * 按商品ID查找商品和购买信息
      *
-     * @param id id
+     * @param pid 商品ID
      * @return 商品
      */
-    ProductCustom findProductById(Integer id);
+    ProductCustom findProductAndOrderById(Integer pid);
 
 }

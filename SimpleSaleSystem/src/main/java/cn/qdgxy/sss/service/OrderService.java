@@ -19,6 +19,6 @@ public interface OrderService {
      * @param uid 用户ID
      * @return 订单
      */
-    List<OrderCustom> findOrderByUid(Integer uid);
+    List<OrderCustom> findOrderByUid(Integer uid) throws Exception;
 
 }

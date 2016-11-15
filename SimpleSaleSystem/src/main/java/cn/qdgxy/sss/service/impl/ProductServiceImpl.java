@@ -1,6 +1,8 @@
 package cn.qdgxy.sss.service.impl;
 
 import cn.qdgxy.sss.mapper.ProductCustomMapper;
+import cn.qdgxy.sss.mapper.ProductMapper;
+import cn.qdgxy.sss.po.Product;
 import cn.qdgxy.sss.po.ProductCustom;
 import cn.qdgxy.sss.service.ProductService;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,9 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     @Resource
+    private ProductMapper productMapper;
+
+    @Resource
     private ProductCustomMapper productCustomMapper;
 
     /**
@@ -35,14 +40,70 @@ public class ProductServiceImpl implements ProductService {
     }
 
     /**
-     * 按id查找商品
+     * 按商品ID查找商品和购买信息
      *
-     * @param id id
+     * @param pid 商品ID
+     * @return 商品和购买信息
+     */
+    @Override
+    public ProductCustom findProductAndOrderById(Integer pid) throws Exception {
+        return productCustomMapper.findProductAndOrderById(pid);
+    }
+
+    /**
+     * 按照商品ID查找商品
+     *
+     * @param pid 商品ID
      * @return 商品
      */
     @Override
-    public ProductCustom findProductById(Integer id) throws Exception {
-        return productCustomMapper.findProductById(id);
+    public Product findProductById(Integer pid) throws Exception {
+        return productMapper.selectByPrimaryKey(pid);
+    }
+
+    /**
+     * 添加商品
+     *
+     * @param product 商品
+     * @return 操作行数
+     */
+    @Override
+    public Integer addProduct(Product product) throws Exception {
+        return productMapper.insert(product);
+    }
+
+    /**
+     * 修改商品
+     *
+     * @param product 商品
+     * @return 是否成功
+     */
+    @Override
+    public boolean updateById(Product product) throws Exception {
+        try {
+            int result = productMapper.updateByPrimaryKey(product);
+
+            return result == 1;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * 按ID删除商品
+     *
+     * @param pid 商品ID
+     * @return 是否成功
+     */
+    @Override
+    public boolean deleteById(Integer pid) throws Exception {
+        try {
+            int result = productMapper.deleteByPrimaryKey(pid);
+
+            return result == 1;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 }

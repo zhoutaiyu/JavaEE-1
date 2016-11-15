@@ -3,7 +3,6 @@ package cn.qdgxy.sss.mapper;
 import cn.qdgxy.sss.po.Order;
 
 public interface OrderMapper {
-
     int deleteByPrimaryKey(Integer id);
 
     int insert(Order record);

@@ -35,8 +35,8 @@ public class ProductCustomMapperTest {
     }
 
     @Test
-    public void findProductById() throws Exception {
-        ProductCustom productCustom = productCustomMapper.findProductById(2);
+    public void findProductAndOrderById() throws Exception {
+        ProductCustom productCustom = productCustomMapper.findProductAndOrderById(2);
         System.out.println(productCustom);
     }
 

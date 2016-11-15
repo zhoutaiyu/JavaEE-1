@@ -1,19 +1,17 @@
 package cn.qdgxy.sss.po;
 
 import java.io.Serializable;
-import java.io.UnsupportedEncodingException;
 
 public class Product implements Serializable {
-
     private static final long serialVersionUID = 1L;
     private Integer id;
     private Double price;
     private String title;
     private String image;
     private String summary;
-    private byte[] detail;
+    private String detail;
 
-    public Product(Integer id, Double price, String title, String image, String summary, byte[] detail) {
+    public Product(Integer id, Double price, String title, String image, String summary, String detail) {
         this.id = id;
         this.price = price;
         this.title = title;
@@ -66,17 +64,11 @@ public class Product implements Serializable {
         this.summary = summary == null ? null : summary.trim();
     }
 
-    /**
-     * 方便页面显示
-     *
-     * @return String
-     * @throws UnsupportedEncodingException 转换异常
-     */
-    public String getDetail() throws UnsupportedEncodingException {
-        return new String(detail, "UTF-8");
+    public String getDetail() {
+        return detail;
     }
 
-    public void setDetail(byte[] detail) {
-        this.detail = detail;
+    public void setDetail(String detail) {
+        this.detail = detail == null ? null : detail.trim();
     }
 }

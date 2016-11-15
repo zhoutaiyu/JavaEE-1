@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<#include "/include/head.ftl">
+<#include "include/head.ftl">
 <body>
-<#include "/include/support.ftl">
-<#include "/include/header.ftl">
+<#include "include/support.ftl">
+<#include "include/header.ftl">
 <div class="g-doc">
     <div class="m-tab m-tab-fw m-tab-simple f-cb">
         <h2>内容编辑</h2>
     </div>
-<#if !product>
+<#if !product??>
     <div class="n-result">
         <h3>内容不存在！</h3>
     </div>
@@ -57,7 +57,7 @@
     </div>
 </#if>
 </div>
-<#include "/include/footer.ftl">
+<#include "include/footer.ftl">
 <script type="text/javascript" src="/js/global.js"></script>
 <script type="text/javascript" src="/js/public.js"></script>
 </body>

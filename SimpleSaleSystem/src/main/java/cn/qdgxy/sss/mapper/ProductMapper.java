@@ -3,6 +3,7 @@ package cn.qdgxy.sss.mapper;
 import cn.qdgxy.sss.po.Product;
 
 public interface ProductMapper {
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(Product record);
@@ -12,8 +13,6 @@ public interface ProductMapper {
     Product selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Product record);
-
-    int updateByPrimaryKeyWithBLOBs(Product record);
 
     int updateByPrimaryKey(Product record);
 }

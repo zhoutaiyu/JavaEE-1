@@ -23,6 +23,7 @@
                     layer.hide();
                     loading.show();
                     ajax({
+                        type: 'POST',
                         url: '/api/delete',
                         data: {id: id},
                         success: function (json) {

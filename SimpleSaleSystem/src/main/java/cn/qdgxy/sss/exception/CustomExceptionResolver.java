@@ -51,7 +51,7 @@ public class CustomExceptionResolver implements HandlerExceptionResolver {
 
         try {
             //转向到错误页面
-            request.getRequestDispatcher("/WEB-INF/jsps/error.jsp").forward(request, response);
+            request.getRequestDispatcher("/jsps/errors.jsp").forward(request, response);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }

@@ -5,8 +5,14 @@
 
     <select id="findOrderByUid" resultType="OrderCustom" parameterType="Integer">
         select p.id, p.title, p.image, o.buy_price buyPrice, o.buy_time buyTime
-        from `order` o, product p
+        from orders o, product p
         where o.pid=p.id and o.uid=#{uid};
+    </select>
+
+    <select id="findOrderByUidAndPid" resultType="Order">
+        select *
+        from orders
+        where pid=#{pid} and uid=#{uid}
     </select>
 
 </mapper>

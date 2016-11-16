@@ -97,7 +97,7 @@
         </table>
 
 
-        <table tableName="Order" domainObjectName="Order"
+        <table tableName="Orders" domainObjectName="Order"
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->

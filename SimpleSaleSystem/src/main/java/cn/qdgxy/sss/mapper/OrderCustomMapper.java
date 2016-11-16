@@ -1,6 +1,8 @@
 package cn.qdgxy.sss.mapper;
 
+import cn.qdgxy.sss.po.Order;
 import cn.qdgxy.sss.po.OrderCustom;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -20,5 +22,14 @@ public interface OrderCustomMapper {
      * @return 订单
      */
     List<OrderCustom> findOrderByUid(Integer uid);
+
+    /**
+     * 按用户ID和产品ID查找订单
+     *
+     * @param uid 用户ID
+     * @param pid 产品ID
+     * @return 订单
+     */
+    Order findOrderByUidAndPid(@Param("uid") Integer uid, @Param("pid") Integer pid);
 
 }

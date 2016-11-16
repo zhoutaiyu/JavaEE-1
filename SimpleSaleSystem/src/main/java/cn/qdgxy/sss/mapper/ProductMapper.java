@@ -3,7 +3,6 @@ package cn.qdgxy.sss.mapper;
 import cn.qdgxy.sss.po.Product;
 
 public interface ProductMapper {
-
     int deleteByPrimaryKey(Integer id);
 
     int insert(Product record);

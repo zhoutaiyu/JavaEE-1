@@ -21,4 +21,12 @@ public interface OrderService {
      */
     List<OrderCustom> findOrderByUid(Integer uid) throws Exception;
 
+    /**
+     * 购买商品
+     *
+     * @param uid 用户ID
+     * @param pid 商品ID
+     */
+    void buyProduct(Integer uid, Integer pid) throws Exception;
+
 }

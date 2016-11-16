@@ -17,11 +17,12 @@
                             layer.hide();
                             loading.show();
                             ajax({
+                                type: 'POST',
                                 data: {id: buy},
                                 url: '/api/buy',
                                 success: function (result) {
                                     loading.result('购买成功', function () {
-                                        location.href = './account.html';
+                                        location.href = '/account';
                                     });
                                 },
                                 error: function (message) {

@@ -5,12 +5,12 @@
 
     <select id="findAllProduct" resultType="ProductCustom">
         select p.*, o.id oid
-        from product p left join `order` o on p.id=o.pid;
+        from product p left join orders o on p.id=o.pid;
     </select>
 
     <select id="findProductAndOrderById" resultType="ProductCustom" parameterType="Integer">
         select p.*, o.id oid, buy_price buyPrice, buy_time buyTime
-        from product p left join `order` o on p.id=o.pid
+        from product p left join orders o on p.id=o.pid
         where p.id=#{id};
     </select>
 

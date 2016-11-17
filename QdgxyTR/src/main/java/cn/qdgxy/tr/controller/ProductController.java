@@ -1,7 +1,6 @@
-package cn.qdgxy.ssm.controller;
+package cn.qdgxy.tr.controller;
 
-import cn.qdgxy.ssm.po.ProductCustom;
-import cn.qdgxy.ssm.service.ProductService;
+import cn.qdgxy.tr.po.ProductCustom;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;

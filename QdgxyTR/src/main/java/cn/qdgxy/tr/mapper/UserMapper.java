@@ -1,15 +1,15 @@
-package cn.qdgxy.sss.mapper;
+package cn.qdgxy.tr.mapper;
 
-import cn.qdgxy.sss.po.User;
+import cn.qdgxy.tr.po.User;
 
 public interface UserMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Integer uid);
 
     int insert(User record);
 
     int insertSelective(User record);
 
-    User selectByPrimaryKey(Integer id);
+    User selectByPrimaryKey(Integer uid);
 
     int updateByPrimaryKeySelective(User record);
 

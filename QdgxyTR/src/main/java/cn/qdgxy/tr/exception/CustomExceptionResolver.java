@@ -1,4 +1,4 @@
-package cn.qdgxy.ssm.exception;
+package cn.qdgxy.tr.exception;
 
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;

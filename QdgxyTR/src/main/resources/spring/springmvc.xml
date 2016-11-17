@@ -16,7 +16,7 @@
 
     <!-- 【配置Handler】 -->
     <!-- 使用spring组件扫描 -->
-    <context:component-scan base-package="cn.qdgxy.ssm.controller"/>
+    <context:component-scan base-package="cn.qdgxy.tr.controller"/>
 
 
     <!-- 通过annotation-driven可以替代下边的处理器映射器和适配器 -->
@@ -70,7 +70,7 @@
 
 
     <!-- 定义统一异常处理器 -->
-    <bean class="cn.qdgxy.ssm.exception.CustomExceptionResolver"/>
+    <bean class="cn.qdgxy.tr.exception.CustomExceptionResolver"/>
 
 
     <!-- 自定义webBinder -->
@@ -87,8 +87,8 @@
         <!-- 转换器 -->
         <property name="converters">
             <set>
-                <bean class="cn.qdgxy.ssm.controller.converter.CustomDateConverter"/>
-                <bean class="cn.qdgxy.ssm.controller.converter.StringTrimConverter"/>
+                <bean class="cn.qdgxy.tr.controller.converter.CustomDateConverter"/>
+                <bean class="cn.qdgxy.tr.controller.converter.StringTrimConverter"/>
             </set>
         </property>
     </bean>

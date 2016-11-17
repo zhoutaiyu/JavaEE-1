@@ -1,4 +1,4 @@
-package cn.qdgxy.ssm.controller.converter;
+package cn.qdgxy.tr.controller.converter;
 
 import org.springframework.core.convert.converter.Converter;
 

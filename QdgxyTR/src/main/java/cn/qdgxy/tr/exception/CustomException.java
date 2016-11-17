@@ -1,4 +1,4 @@
-package cn.qdgxy.ssm.exception;
+package cn.qdgxy.tr.exception;
 
 /**
  * 系统自定义的异常类型，实际开发中可能要定义多种异常类型

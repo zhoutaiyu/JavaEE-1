@@ -49,7 +49,7 @@
 
 
         <!-- 2. targetProject：生成PO类的位置 -->
-        <javaModelGenerator targetPackage="cn.qdgxy.sss.po" targetProject="src\main\java">
+        <javaModelGenerator targetPackage="cn.qdgxy.tr.po" targetProject="src\main\java">
             <!-- 是否对model添加 构造函数 -->
             <property name="constructorBased" value="true"/>
             <!-- enableSubPackages：是否让schema作为包的后缀 -->
@@ -60,7 +60,7 @@
 
 
         <!-- 3.1 targetProject：mapper映射文件生成的位置 -->
-        <sqlMapGenerator targetPackage="cn.qdgxy.sss.mapper" targetProject="src\main\java">
+        <sqlMapGenerator targetPackage="cn.qdgxy.tr.mapper" targetProject="src\main\java">
             <!-- enableSubPackages：是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
@@ -72,7 +72,7 @@
                 type="XMLMAPPER",       生成SQLMap XML文件 和 独立的Mapper接口
         -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="cn.qdgxy.sss.mapper"
+                             targetPackage="cn.qdgxy.tr.mapper"
                              targetProject="src\main\java">
             <!-- enableSubPackages：是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false"/>
@@ -81,27 +81,59 @@
 
         <!-- 4. 要根据哪张表生成，要在这里配置 -->
 
-        <table tableName="Product" domainObjectName="Product"
+        <table tableName="admin"
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <generatedKey column="aid" sqlStatement="MySql" identity="true"/>
         </table>
 
 
-        <table tableName="User" domainObjectName="User"
+        <table tableName="chapter"
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <generatedKey column="cid" sqlStatement="MySql" identity="true"/>
         </table>
 
 
-        <table tableName="Orders" domainObjectName="Order"
+        <table tableName="question"
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <generatedKey column="qid" sqlStatement="MySql" identity="true"/>
+        </table>
+
+
+        <table tableName="record"
+               enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false">
+            <!-- 插入后返回ID -->
+            <generatedKey column="rid" sqlStatement="MySql" identity="true"/>
+        </table>
+
+
+        <table tableName="record_item"
+               enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false">
+            <!-- 插入后返回ID -->
+            <generatedKey column="riid" sqlStatement="MySql" identity="true"/>
+        </table>
+
+
+        <table tableName="subject"
+               enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false">
+            <!-- 插入后返回ID -->
+            <generatedKey column="sid" sqlStatement="MySql" identity="true"/>
+        </table>
+        
+
+        <table tableName="users" domainObjectName="User"
+               enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false">
+            <!-- 插入后返回ID -->
+            <generatedKey column="uid" sqlStatement="MySql" identity="true"/>
         </table>
 
 

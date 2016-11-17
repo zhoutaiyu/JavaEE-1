@@ -5,8 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.qdgxy</groupId>
-    <artifactId>SSM</artifactId>
+    <artifactId>QdgxyTR</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
     <properties>
         <!-- 使用Jdk8 -->

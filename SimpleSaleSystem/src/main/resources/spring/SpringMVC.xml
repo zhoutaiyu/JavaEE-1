@@ -1,6 +1,6 @@
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 		http://www.springframework.org/schema/context
@@ -85,6 +85,30 @@
 
     <!-- 定义统一异常处理器 -->
     <bean class="cn.qdgxy.sss.exception.CustomExceptionResolver"/>
+
+
+    <!--拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/account"/>
+            <mvc:mapping path="/api/buy"/>
+            <mvc:mapping path="/logout"/>
+
+            <bean class="cn.qdgxy.sss.controller.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+
+        <mvc:interceptor>
+            <mvc:mapping path="/public"/>
+            <mvc:mapping path="/publicSubmit"/>
+            <mvc:mapping path="/edit"/>
+            <mvc:mapping path="/editSubmit"/>
+            <mvc:mapping path="/api/delete"/>
+            <mvc:mapping path="/editSubmit"/>
+            <mvc:mapping path="/editSubmit"/>
+
+            <bean class="cn.qdgxy.sss.controller.interceptor.AdminInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 
     <!-- 自定义webBinder -->

@@ -3,6 +3,7 @@ package cn.qdgxy.sss.po;
 import java.io.Serializable;
 
 public class Product implements Serializable {
+
     private Integer id;
 
     private Double price;

@@ -13,16 +13,16 @@
             <arg column="right_option" javaType="java.lang.String" jdbcType="CHAR"/>
             <arg column="analysis" javaType="java.lang.String" jdbcType="VARCHAR"/>
             <arg column="teach_link" javaType="java.lang.String" jdbcType="VARCHAR"/>
-            <arg column="grade" javaType="java.lang.Boolean" jdbcType="BIT"/>
+            <arg column="grade" javaType="java.lang.Integer" jdbcType="INTEGER"/>
             <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
             <arg column="is_del" javaType="java.lang.Boolean" jdbcType="BIT"/>
             <arg column="cid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-        qid, problem, image, option_a, option_b, option_c, option_d, right_option, analysis,
-        teach_link, grade, create_time, is_del, cid
-    </sql>
+    qid, problem, image, option_a, option_b, option_c, option_d, right_option, analysis, 
+    teach_link, grade, create_time, is_del, cid
+  </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
@@ -30,9 +30,9 @@
         where qid = #{qid,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-        delete from question
-        where qid = #{qid,jdbcType=INTEGER}
-    </delete>
+    delete from question
+    where qid = #{qid,jdbcType=INTEGER}
+  </delete>
     <insert id="insert" parameterType="cn.qdgxy.tr.po.Question">
         <selectKey keyProperty="qid" order="AFTER" resultType="java.lang.Integer">
             SELECT LAST_INSERT_ID()
@@ -45,7 +45,7 @@
         values (#{problem,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, #{optionA,jdbcType=VARCHAR},
         #{optionB,jdbcType=VARCHAR}, #{optionC,jdbcType=VARCHAR}, #{optionD,jdbcType=VARCHAR},
         #{rightOption,jdbcType=CHAR}, #{analysis,jdbcType=VARCHAR}, #{teachLink,jdbcType=VARCHAR},
-        #{grade,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, #{isDel,jdbcType=BIT},
+        #{grade,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{isDel,jdbcType=BIT},
         #{cid,jdbcType=INTEGER})
     </insert>
     <insert id="insertSelective" parameterType="cn.qdgxy.tr.po.Question">
@@ -123,7 +123,7 @@
                 #{teachLink,jdbcType=VARCHAR},
             </if>
             <if test="grade != null">
-                #{grade,jdbcType=BIT},
+                #{grade,jdbcType=INTEGER},
             </if>
             <if test="createTime != null">
                 #{createTime,jdbcType=TIMESTAMP},
@@ -167,7 +167,7 @@
                 teach_link = #{teachLink,jdbcType=VARCHAR},
             </if>
             <if test="grade != null">
-                grade = #{grade,jdbcType=BIT},
+                grade = #{grade,jdbcType=INTEGER},
             </if>
             <if test="createTime != null">
                 create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -182,20 +182,20 @@
         where qid = #{qid,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="cn.qdgxy.tr.po.Question">
-        update question
-        set problem = #{problem,jdbcType=VARCHAR},
-        image = #{image,jdbcType=VARCHAR},
-        option_a = #{optionA,jdbcType=VARCHAR},
-        option_b = #{optionB,jdbcType=VARCHAR},
-        option_c = #{optionC,jdbcType=VARCHAR},
-        option_d = #{optionD,jdbcType=VARCHAR},
-        right_option = #{rightOption,jdbcType=CHAR},
-        analysis = #{analysis,jdbcType=VARCHAR},
-        teach_link = #{teachLink,jdbcType=VARCHAR},
-        grade = #{grade,jdbcType=BIT},
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-        is_del = #{isDel,jdbcType=BIT},
-        cid = #{cid,jdbcType=INTEGER}
-        where qid = #{qid,jdbcType=INTEGER}
-    </update>
+    update question
+    set problem = #{problem,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR},
+      option_a = #{optionA,jdbcType=VARCHAR},
+      option_b = #{optionB,jdbcType=VARCHAR},
+      option_c = #{optionC,jdbcType=VARCHAR},
+      option_d = #{optionD,jdbcType=VARCHAR},
+      right_option = #{rightOption,jdbcType=CHAR},
+      analysis = #{analysis,jdbcType=VARCHAR},
+      teach_link = #{teachLink,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      is_del = #{isDel,jdbcType=BIT},
+      cid = #{cid,jdbcType=INTEGER}
+    where qid = #{qid,jdbcType=INTEGER}
+  </update>
 </mapper>

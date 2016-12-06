@@ -3,7 +3,6 @@ package cn.qdgxy.tr.mapper;
 import cn.qdgxy.tr.po.Admin;
 
 public interface AdminMapper {
-
     int deleteByPrimaryKey(Integer aid);
 
     int insert(Admin record);

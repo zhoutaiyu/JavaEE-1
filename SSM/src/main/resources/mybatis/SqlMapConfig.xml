@@ -4,6 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+    <settings>
+        <!-- 开启数据库字段自动映射驼峰命名规则java属性   -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
     <!-- 定义别名 -->
     <typeAliases>
         <!-- 【批量别名定义】

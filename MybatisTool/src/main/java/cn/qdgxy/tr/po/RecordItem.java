@@ -3,7 +3,6 @@ package cn.qdgxy.tr.po;
 import java.io.Serializable;
 
 public class RecordItem implements Serializable {
-
     private Integer riid;
 
     private Integer qid;

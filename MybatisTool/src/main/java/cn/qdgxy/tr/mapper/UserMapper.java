@@ -3,7 +3,6 @@ package cn.qdgxy.tr.mapper;
 import cn.qdgxy.tr.po.User;
 
 public interface UserMapper {
-
     int deleteByPrimaryKey(Integer uid);
 
     int insert(User record);

@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Question implements Serializable {
-
     private Integer qid;
 
     private String problem;
@@ -25,7 +24,7 @@ public class Question implements Serializable {
 
     private String teachLink;
 
-    private Boolean grade;
+    private Integer grade;
 
     private Date createTime;
 
@@ -35,7 +34,7 @@ public class Question implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Question(Integer qid, String problem, String image, String optionA, String optionB, String optionC, String optionD, String rightOption, String analysis, String teachLink, Boolean grade, Date createTime, Boolean isDel, Integer cid) {
+    public Question(Integer qid, String problem, String image, String optionA, String optionB, String optionC, String optionD, String rightOption, String analysis, String teachLink, Integer grade, Date createTime, Boolean isDel, Integer cid) {
         this.qid = qid;
         this.problem = problem;
         this.image = image;
@@ -136,11 +135,11 @@ public class Question implements Serializable {
         this.teachLink = teachLink == null ? null : teachLink.trim();
     }
 
-    public Boolean getGrade() {
+    public Integer getGrade() {
         return grade;
     }
 
-    public void setGrade(Boolean grade) {
+    public void setGrade(Integer grade) {
         this.grade = grade;
     }
 

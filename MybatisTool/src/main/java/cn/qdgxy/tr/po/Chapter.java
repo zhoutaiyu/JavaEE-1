@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Chapter implements Serializable {
-
     private Integer cid;
 
     private String cname;

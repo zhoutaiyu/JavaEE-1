@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Subject implements Serializable {
-
     private Integer sid;
 
     private String sname;

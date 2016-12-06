@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Record implements Serializable {
-
     private Integer rid;
 
     private Boolean status;
@@ -15,19 +14,19 @@ public class Record implements Serializable {
 
     private Date createTime;
 
-    private Boolean idDel;
+    private Boolean isDel;
 
     private Integer uid;
 
     private static final long serialVersionUID = 1L;
 
-    public Record(Integer rid, Boolean status, Integer answerNumber, Integer rightNumber, Date createTime, Boolean idDel, Integer uid) {
+    public Record(Integer rid, Boolean status, Integer answerNumber, Integer rightNumber, Date createTime, Boolean isDel, Integer uid) {
         this.rid = rid;
         this.status = status;
         this.answerNumber = answerNumber;
         this.rightNumber = rightNumber;
         this.createTime = createTime;
-        this.idDel = idDel;
+        this.isDel = isDel;
         this.uid = uid;
     }
 
@@ -75,12 +74,12 @@ public class Record implements Serializable {
         this.createTime = createTime;
     }
 
-    public Boolean getIdDel() {
-        return idDel;
+    public Boolean getIsDel() {
+        return isDel;
     }
 
-    public void setIdDel(Boolean idDel) {
-        this.idDel = idDel;
+    public void setIsDel(Boolean isDel) {
+        this.isDel = isDel;
     }
 
     public Integer getUid() {

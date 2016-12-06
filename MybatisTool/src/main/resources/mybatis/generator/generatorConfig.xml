@@ -56,6 +56,8 @@
             <property name="enableSubPackages" value="false"/>
             <!-- 从数据库返回的值被清理前后的空格 -->
             <property name="trimStrings" value="true"/>
+            <!-- 如果设置为true，生成的model类会直接使用column本身的名字，而不会再使用驼峰命名方法，比如BORN_DATE，生成的属性名字就是BORN_DATE,而不会是bornDate -->
+            <property name="useActualColumnNames" value="false"/>
         </javaModelGenerator>
 
 
@@ -86,6 +88,9 @@
                enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
             <generatedKey column="aid" sqlStatement="MySql" identity="true"/>
+
+            <columnOverride column="create_time" property="createTime"/>
+            <columnOverride column="is_del" property="isDel"/>
         </table>
 
 
@@ -94,6 +99,10 @@
                enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
             <generatedKey column="cid" sqlStatement="MySql" identity="true"/>
+
+            <columnOverride column="teach_link" property="teachLink"/>
+            <columnOverride column="create_time" property="createTime"/>
+            <columnOverride column="is_del" property="isDel"/>
         </table>
 
 
@@ -102,6 +111,15 @@
                enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
             <generatedKey column="qid" sqlStatement="MySql" identity="true"/>
+
+            <columnOverride column="option_a" property="optionA"/>
+            <columnOverride column="option_b" property="optionB"/>
+            <columnOverride column="option_c" property="optionC"/>
+            <columnOverride column="option_d" property="optionD"/>
+            <columnOverride column="right_option" property="rightOption"/>
+            <columnOverride column="teach_link" property="teachLink"/>
+            <columnOverride column="create_time" property="createTime"/>
+            <columnOverride column="is_del" property="isDel"/>
         </table>
 
 
@@ -110,6 +128,11 @@
                enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
             <generatedKey column="rid" sqlStatement="MySql" identity="true"/>
+
+            <columnOverride column="answer_number" property="answerNumber"/>
+            <columnOverride column="right_number" property="rightNumber"/>
+            <columnOverride column="create_time" property="createTime"/>
+            <columnOverride column="is_del" property="isDel"/>
         </table>
 
 
@@ -118,6 +141,9 @@
                enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
             <generatedKey column="riid" sqlStatement="MySql" identity="true"/>
+
+            <columnOverride column="is_right" property="isRight"/>
+            <columnOverride column="is_del" property="isDel"/>
         </table>
 
 
@@ -126,14 +152,20 @@
                enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
             <generatedKey column="sid" sqlStatement="MySql" identity="true"/>
+
+            <columnOverride column="create_time" property="createTime"/>
+            <columnOverride column="is_del" property="isDel"/>
         </table>
-        
+
 
         <table tableName="users" domainObjectName="User"
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
             <generatedKey column="uid" sqlStatement="MySql" identity="true"/>
+
+            <columnOverride column="create_time" property="createTime"/>
+            <columnOverride column="is_del" property="isDel"/>
         </table>
 
 

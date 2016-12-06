@@ -3,7 +3,6 @@ package cn.qdgxy.tr.mapper;
 import cn.qdgxy.tr.po.RecordItem;
 
 public interface RecordItemMapper {
-
     int deleteByPrimaryKey(Integer riid);
 
     int insert(RecordItem record);

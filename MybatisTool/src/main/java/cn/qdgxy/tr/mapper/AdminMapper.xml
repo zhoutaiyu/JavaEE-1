@@ -1,142 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.qdgxy.tr.mapper.AdminMapper">
-  <resultMap id="BaseResultMap" type="cn.qdgxy.tr.po.Admin">
-    <constructor>
-      <idArg column="aid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-      <arg column="username" javaType="java.lang.String" jdbcType="VARCHAR"/>
-      <arg column="password" javaType="java.lang.String" jdbcType="VARCHAR"/>
-      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
-      <arg column="email" javaType="java.lang.String" jdbcType="VARCHAR"/>
-      <arg column="phone" javaType="java.lang.String" jdbcType="VARCHAR"/>
-      <arg column="sex" javaType="java.lang.String" jdbcType="CHAR"/>
-      <arg column="level" javaType="java.lang.Boolean" jdbcType="BIT"/>
-      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
-      <arg column="is_del" javaType="java.lang.Boolean" jdbcType="BIT"/>
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
+    <resultMap id="BaseResultMap" type="cn.qdgxy.tr.po.Admin">
+        <constructor>
+            <idArg column="aid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <arg column="username" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="password" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="email" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="phone" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="sex" javaType="java.lang.String" jdbcType="CHAR"/>
+            <arg column="level" javaType="java.lang.Boolean" jdbcType="BIT"/>
+            <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+            <arg column="is_del" javaType="java.lang.Boolean" jdbcType="BIT"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
     aid, username, password, name, email, phone, sex, level, create_time, is_del
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List"/>
-    from admin
-    where aid = #{aid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from admin
+        where aid = #{aid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from admin
     where aid = #{aid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.qdgxy.tr.po.Admin">
-    <selectKey keyProperty="aid" order="AFTER" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into admin (username, password, name,
-    email, phone, sex, level,
-    create_time, is_del)
-    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
-    #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, #{level,jdbcType=BIT},
-    #{createTime,jdbcType=TIMESTAMP}, #{isDel,jdbcType=BIT})
-  </insert>
-  <insert id="insertSelective" parameterType="cn.qdgxy.tr.po.Admin">
-    <selectKey keyProperty="aid" order="AFTER" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into admin
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="username != null">
-        username,
-      </if>
-      <if test="password != null">
-        password,
-      </if>
-      <if test="name != null">
-        name,
-      </if>
-      <if test="email != null">
-        email,
-      </if>
-      <if test="phone != null">
-        phone,
-      </if>
-      <if test="sex != null">
-        sex,
-      </if>
-      <if test="level != null">
-        level,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="isDel != null">
-        is_del,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="username != null">
-        #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null">
-        #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null">
-        #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="sex != null">
-        #{sex,jdbcType=CHAR},
-      </if>
-      <if test="level != null">
-        #{level,jdbcType=BIT},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="isDel != null">
-        #{isDel,jdbcType=BIT},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.qdgxy.tr.po.Admin">
-    update admin
-    <set>
-      <if test="username != null">
-        username = #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null">
-        password = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        email = #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null">
-        phone = #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="sex != null">
-        sex = #{sex,jdbcType=CHAR},
-      </if>
-      <if test="level != null">
-        level = #{level,jdbcType=BIT},
-      </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="isDel != null">
-        is_del = #{isDel,jdbcType=BIT},
-      </if>
-    </set>
-    where aid = #{aid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="cn.qdgxy.tr.po.Admin">
+    <insert id="insert" parameterType="cn.qdgxy.tr.po.Admin">
+        <selectKey keyProperty="aid" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into admin (username, password, name,
+        email, phone, sex, level,
+        create_time, is_del)
+        values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+        #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, #{level,jdbcType=BIT},
+        #{createTime,jdbcType=TIMESTAMP}, #{isDel,jdbcType=BIT})
+    </insert>
+    <insert id="insertSelective" parameterType="cn.qdgxy.tr.po.Admin">
+        <selectKey keyProperty="aid" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into admin
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username != null">
+                username,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+            <if test="level != null">
+                level,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="isDel != null">
+                is_del,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=CHAR},
+            </if>
+            <if test="level != null">
+                #{level,jdbcType=BIT},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null">
+                #{isDel,jdbcType=BIT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="cn.qdgxy.tr.po.Admin">
+        update admin
+        <set>
+            <if test="username != null">
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                sex = #{sex,jdbcType=CHAR},
+            </if>
+            <if test="level != null">
+                level = #{level,jdbcType=BIT},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null">
+                is_del = #{isDel,jdbcType=BIT},
+            </if>
+        </set>
+        where aid = #{aid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.qdgxy.tr.po.Admin">
     update admin
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

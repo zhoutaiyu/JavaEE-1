@@ -6,7 +6,7 @@ import java.util.Date;
 public class Record implements Serializable {
     private Integer rid;
 
-    private Boolean status;
+    private Short status;
 
     private Integer answerNumber;
 
@@ -20,7 +20,7 @@ public class Record implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Record(Integer rid, Boolean status, Integer answerNumber, Integer rightNumber, Date createTime, Boolean isDel, Integer uid) {
+    public Record(Integer rid, Short status, Integer answerNumber, Integer rightNumber, Date createTime, Boolean isDel, Integer uid) {
         this.rid = rid;
         this.status = status;
         this.answerNumber = answerNumber;
@@ -42,11 +42,11 @@ public class Record implements Serializable {
         this.rid = rid;
     }
 
-    public Boolean getStatus() {
+    public Short getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Short status) {
         this.status = status;
     }
 

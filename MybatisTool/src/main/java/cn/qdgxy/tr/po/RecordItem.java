@@ -9,7 +9,7 @@ public class RecordItem implements Serializable {
 
     private String answer;
 
-    private Boolean isRight;
+    private String rightOption;
 
     private Boolean isDel;
 
@@ -19,11 +19,11 @@ public class RecordItem implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public RecordItem(Integer riid, Integer qid, String answer, Boolean isRight, Boolean isDel, Integer cid, Integer rid) {
+    public RecordItem(Integer riid, Integer qid, String answer, String rightOption, Boolean isDel, Integer cid, Integer rid) {
         this.riid = riid;
         this.qid = qid;
         this.answer = answer;
-        this.isRight = isRight;
+        this.rightOption = rightOption;
         this.isDel = isDel;
         this.cid = cid;
         this.rid = rid;
@@ -57,12 +57,12 @@ public class RecordItem implements Serializable {
         this.answer = answer == null ? null : answer.trim();
     }
 
-    public Boolean getIsRight() {
-        return isRight;
+    public String getRightOption() {
+        return rightOption;
     }
 
-    public void setIsRight(Boolean isRight) {
-        this.isRight = isRight;
+    public void setRightOption(String rightOption) {
+        this.rightOption = rightOption == null ? null : rightOption.trim();
     }
 
     public Boolean getIsDel() {

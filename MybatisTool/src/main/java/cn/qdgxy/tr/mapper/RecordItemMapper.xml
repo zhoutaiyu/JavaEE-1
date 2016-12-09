@@ -6,14 +6,14 @@
       <idArg column="riid" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="qid" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="answer" javaType="java.lang.String" jdbcType="CHAR" />
-      <arg column="is_right" javaType="java.lang.Boolean" jdbcType="BIT" />
+        <arg column="right_option" javaType="java.lang.String" jdbcType="CHAR"/>
       <arg column="is_del" javaType="java.lang.Boolean" jdbcType="BIT" />
       <arg column="cid" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="rid" javaType="java.lang.Integer" jdbcType="INTEGER" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    riid, qid, answer, is_right, is_del, cid, rid
+      riid, qid, answer, right_option, is_del, cid, rid
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -29,9 +29,9 @@
     <selectKey keyProperty="riid" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into record_item (qid, answer, is_right, 
+      insert into record_item (qid, answer, right_option,
       is_del, cid, rid)
-    values (#{qid,jdbcType=INTEGER}, #{answer,jdbcType=CHAR}, #{isRight,jdbcType=BIT}, 
+      values (#{qid,jdbcType=INTEGER}, #{answer,jdbcType=CHAR}, #{rightOption,jdbcType=CHAR},
       #{isDel,jdbcType=BIT}, #{cid,jdbcType=INTEGER}, #{rid,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="cn.qdgxy.tr.po.RecordItem">
@@ -46,8 +46,8 @@
       <if test="answer != null">
         answer,
       </if>
-      <if test="isRight != null">
-        is_right,
+        <if test="rightOption != null">
+            right_option,
       </if>
       <if test="isDel != null">
         is_del,
@@ -66,8 +66,8 @@
       <if test="answer != null">
         #{answer,jdbcType=CHAR},
       </if>
-      <if test="isRight != null">
-        #{isRight,jdbcType=BIT},
+        <if test="rightOption != null">
+            #{rightOption,jdbcType=CHAR},
       </if>
       <if test="isDel != null">
         #{isDel,jdbcType=BIT},
@@ -89,8 +89,8 @@
       <if test="answer != null">
         answer = #{answer,jdbcType=CHAR},
       </if>
-      <if test="isRight != null">
-        is_right = #{isRight,jdbcType=BIT},
+        <if test="rightOption != null">
+            right_option = #{rightOption,jdbcType=CHAR},
       </if>
       <if test="isDel != null">
         is_del = #{isDel,jdbcType=BIT},
@@ -108,7 +108,7 @@
     update record_item
     set qid = #{qid,jdbcType=INTEGER},
       answer = #{answer,jdbcType=CHAR},
-      is_right = #{isRight,jdbcType=BIT},
+      right_option = #{rightOption,jdbcType=CHAR},
       is_del = #{isDel,jdbcType=BIT},
       cid = #{cid,jdbcType=INTEGER},
       rid = #{rid,jdbcType=INTEGER}

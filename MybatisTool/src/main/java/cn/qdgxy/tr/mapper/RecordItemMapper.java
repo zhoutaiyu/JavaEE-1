@@ -3,13 +3,14 @@ package cn.qdgxy.tr.mapper;
 import cn.qdgxy.tr.po.RecordItem;
 
 public interface RecordItemMapper {
-    int deleteByPrimaryKey(Integer riid);
+
+    int deleteByPrimaryKey(Long id);
 
     int insert(RecordItem record);
 
     int insertSelective(RecordItem record);
 
-    RecordItem selectByPrimaryKey(Integer riid);
+    RecordItem selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(RecordItem record);
 

@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Record implements Serializable {
-    private Integer rid;
+
+    private Long id;
 
     private Integer status;
 
@@ -14,18 +15,21 @@ public class Record implements Serializable {
 
     private Date createTime;
 
+    private Date modifiedTime;
+
     private Boolean isDel;
 
-    private Integer uid;
+    private Long uid;
 
     private static final long serialVersionUID = 1L;
 
-    public Record(Integer rid, Integer status, Integer answerNumber, Integer rightNumber, Date createTime, Boolean isDel, Integer uid) {
-        this.rid = rid;
+    public Record(Long id, Integer status, Integer answerNumber, Integer rightNumber, Date createTime, Date modifiedTime, Boolean isDel, Long uid) {
+        this.id = id;
         this.status = status;
         this.answerNumber = answerNumber;
         this.rightNumber = rightNumber;
         this.createTime = createTime;
+        this.modifiedTime = modifiedTime;
         this.isDel = isDel;
         this.uid = uid;
     }
@@ -34,12 +38,12 @@ public class Record implements Serializable {
         super();
     }
 
-    public Integer getRid() {
-        return rid;
+    public Long getId() {
+        return id;
     }
 
-    public void setRid(Integer rid) {
-        this.rid = rid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Integer getStatus() {
@@ -74,6 +78,14 @@ public class Record implements Serializable {
         this.createTime = createTime;
     }
 
+    public Date getModifiedTime() {
+        return modifiedTime;
+    }
+
+    public void setModifiedTime(Date modifiedTime) {
+        this.modifiedTime = modifiedTime;
+    }
+
     public Boolean getIsDel() {
         return isDel;
     }
@@ -82,11 +94,11 @@ public class Record implements Serializable {
         this.isDel = isDel;
     }
 
-    public Integer getUid() {
+    public Long getUid() {
         return uid;
     }
 
-    public void setUid(Integer uid) {
+    public void setUid(Long uid) {
         this.uid = uid;
     }
 }

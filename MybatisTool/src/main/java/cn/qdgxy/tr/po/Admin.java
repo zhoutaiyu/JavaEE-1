@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Admin implements Serializable {
-    private Integer aid;
+
+    private Long id;
 
     private String username;
 
@@ -18,16 +19,18 @@ public class Admin implements Serializable {
 
     private String sex;
 
-    private Boolean level;
+    private Integer level;
 
     private Date createTime;
+
+    private Date modifiedTime;
 
     private Boolean isDel;
 
     private static final long serialVersionUID = 1L;
 
-    public Admin(Integer aid, String username, String password, String name, String email, String phone, String sex, Boolean level, Date createTime, Boolean isDel) {
-        this.aid = aid;
+    public Admin(Long id, String username, String password, String name, String email, String phone, String sex, Integer level, Date createTime, Date modifiedTime, Boolean isDel) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.name = name;
@@ -36,6 +39,7 @@ public class Admin implements Serializable {
         this.sex = sex;
         this.level = level;
         this.createTime = createTime;
+        this.modifiedTime = modifiedTime;
         this.isDel = isDel;
     }
 
@@ -43,12 +47,12 @@ public class Admin implements Serializable {
         super();
     }
 
-    public Integer getAid() {
-        return aid;
+    public Long getId() {
+        return id;
     }
 
-    public void setAid(Integer aid) {
-        this.aid = aid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -99,11 +103,11 @@ public class Admin implements Serializable {
         this.sex = sex == null ? null : sex.trim();
     }
 
-    public Boolean getLevel() {
+    public Integer getLevel() {
         return level;
     }
 
-    public void setLevel(Boolean level) {
+    public void setLevel(Integer level) {
         this.level = level;
     }
 
@@ -113,6 +117,14 @@ public class Admin implements Serializable {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Date getModifiedTime() {
+        return modifiedTime;
+    }
+
+    public void setModifiedTime(Date modifiedTime) {
+        this.modifiedTime = modifiedTime;
     }
 
     public Boolean getIsDel() {

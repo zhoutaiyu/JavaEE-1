@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Subject implements Serializable {
-    private Integer sid;
+
+    private Long id;
 
     private String sname;
 
@@ -12,15 +13,18 @@ public class Subject implements Serializable {
 
     private Date createTime;
 
+    private Date modifiedTime;
+
     private Boolean isDel;
 
     private static final long serialVersionUID = 1L;
 
-    public Subject(Integer sid, String sname, String description, Date createTime, Boolean isDel) {
-        this.sid = sid;
+    public Subject(Long id, String sname, String description, Date createTime, Date modifiedTime, Boolean isDel) {
+        this.id = id;
         this.sname = sname;
         this.description = description;
         this.createTime = createTime;
+        this.modifiedTime = modifiedTime;
         this.isDel = isDel;
     }
 
@@ -28,12 +32,12 @@ public class Subject implements Serializable {
         super();
     }
 
-    public Integer getSid() {
-        return sid;
+    public Long getId() {
+        return id;
     }
 
-    public void setSid(Integer sid) {
-        this.sid = sid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getSname() {
@@ -58,6 +62,14 @@ public class Subject implements Serializable {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Date getModifiedTime() {
+        return modifiedTime;
+    }
+
+    public void setModifiedTime(Date modifiedTime) {
+        this.modifiedTime = modifiedTime;
     }
 
     public Boolean getIsDel() {

@@ -3,43 +3,44 @@
 <mapper namespace="cn.qdgxy.tr.mapper.RecordItemMapper">
   <resultMap id="BaseResultMap" type="cn.qdgxy.tr.po.RecordItem">
     <constructor>
-      <idArg column="riid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+        <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT"/>
       <arg column="qid" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="answer" javaType="java.lang.String" jdbcType="CHAR" />
         <arg column="right_option" javaType="java.lang.String" jdbcType="CHAR"/>
+        <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <arg column="modified_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
       <arg column="is_del" javaType="java.lang.Boolean" jdbcType="BIT" />
-      <arg column="cid" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="rid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+        <arg column="cid" javaType="java.lang.Long" jdbcType="BIGINT"/>
+        <arg column="rid" javaType="java.lang.Long" jdbcType="BIGINT"/>
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-      riid, qid, answer, right_option, is_del, cid, rid
+      id, qid, answer, right_option, create_time, modified_time, is_del, cid, rid
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from record_item
-    where riid = #{riid,jdbcType=INTEGER}
+        where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from record_item
-    where riid = #{riid,jdbcType=INTEGER}
+        where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="cn.qdgxy.tr.po.RecordItem">
-    <selectKey keyProperty="riid" order="AFTER" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-      insert into record_item (qid, answer, right_option,
+      insert into record_item (id, qid, answer,
+      right_option, create_time, modified_time, 
       is_del, cid, rid)
-      values (#{qid,jdbcType=INTEGER}, #{answer,jdbcType=CHAR}, #{rightOption,jdbcType=CHAR},
-      #{isDel,jdbcType=BIT}, #{cid,jdbcType=INTEGER}, #{rid,jdbcType=INTEGER})
+      values (#{id,jdbcType=BIGINT}, #{qid,jdbcType=INTEGER}, #{answer,jdbcType=CHAR},
+      #{rightOption,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifiedTime,jdbcType=TIMESTAMP},
+      #{isDel,jdbcType=BIT}, #{cid,jdbcType=BIGINT}, #{rid,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="cn.qdgxy.tr.po.RecordItem">
-    <selectKey keyProperty="riid" order="AFTER" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
     insert into record_item
     <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="id != null">
+            id,
+        </if>
       <if test="qid != null">
         qid,
       </if>
@@ -49,6 +50,12 @@
         <if test="rightOption != null">
             right_option,
       </if>
+        <if test="createTime != null">
+            create_time,
+        </if>
+        <if test="modifiedTime != null">
+            modified_time,
+        </if>
       <if test="isDel != null">
         is_del,
       </if>
@@ -60,6 +67,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="id != null">
+            #{id,jdbcType=BIGINT},
+        </if>
       <if test="qid != null">
         #{qid,jdbcType=INTEGER},
       </if>
@@ -69,14 +79,20 @@
         <if test="rightOption != null">
             #{rightOption,jdbcType=CHAR},
       </if>
+        <if test="createTime != null">
+            #{createTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="modifiedTime != null">
+            #{modifiedTime,jdbcType=TIMESTAMP},
+        </if>
       <if test="isDel != null">
         #{isDel,jdbcType=BIT},
       </if>
       <if test="cid != null">
-        #{cid,jdbcType=INTEGER},
+          #{cid,jdbcType=BIGINT},
       </if>
       <if test="rid != null">
-        #{rid,jdbcType=INTEGER},
+          #{rid,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -92,26 +108,34 @@
         <if test="rightOption != null">
             right_option = #{rightOption,jdbcType=CHAR},
       </if>
+        <if test="createTime != null">
+            create_time = #{createTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="modifiedTime != null">
+            modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+        </if>
       <if test="isDel != null">
         is_del = #{isDel,jdbcType=BIT},
       </if>
       <if test="cid != null">
-        cid = #{cid,jdbcType=INTEGER},
+          cid = #{cid,jdbcType=BIGINT},
       </if>
       <if test="rid != null">
-        rid = #{rid,jdbcType=INTEGER},
+          rid = #{rid,jdbcType=BIGINT},
       </if>
     </set>
-    where riid = #{riid,jdbcType=INTEGER}
+      where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.qdgxy.tr.po.RecordItem">
     update record_item
     set qid = #{qid,jdbcType=INTEGER},
       answer = #{answer,jdbcType=CHAR},
       right_option = #{rightOption,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
       is_del = #{isDel,jdbcType=BIT},
-      cid = #{cid,jdbcType=INTEGER},
-      rid = #{rid,jdbcType=INTEGER}
-    where riid = #{riid,jdbcType=INTEGER}
+      cid = #{cid,jdbcType=BIGINT},
+      rid = #{rid,jdbcType=BIGINT}
+      where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

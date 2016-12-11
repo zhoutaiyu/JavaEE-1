@@ -1,9 +1,11 @@
 package cn.qdgxy.tr.po;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class RecordItem implements Serializable {
-    private Integer riid;
+
+    private Long id;
 
     private Integer qid;
 
@@ -11,19 +13,25 @@ public class RecordItem implements Serializable {
 
     private String rightOption;
 
+    private Date createTime;
+
+    private Date modifiedTime;
+
     private Boolean isDel;
 
-    private Integer cid;
+    private Long cid;
 
-    private Integer rid;
+    private Long rid;
 
     private static final long serialVersionUID = 1L;
 
-    public RecordItem(Integer riid, Integer qid, String answer, String rightOption, Boolean isDel, Integer cid, Integer rid) {
-        this.riid = riid;
+    public RecordItem(Long id, Integer qid, String answer, String rightOption, Date createTime, Date modifiedTime, Boolean isDel, Long cid, Long rid) {
+        this.id = id;
         this.qid = qid;
         this.answer = answer;
         this.rightOption = rightOption;
+        this.createTime = createTime;
+        this.modifiedTime = modifiedTime;
         this.isDel = isDel;
         this.cid = cid;
         this.rid = rid;
@@ -33,12 +41,12 @@ public class RecordItem implements Serializable {
         super();
     }
 
-    public Integer getRiid() {
-        return riid;
+    public Long getId() {
+        return id;
     }
 
-    public void setRiid(Integer riid) {
-        this.riid = riid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Integer getQid() {
@@ -65,6 +73,22 @@ public class RecordItem implements Serializable {
         this.rightOption = rightOption == null ? null : rightOption.trim();
     }
 
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getModifiedTime() {
+        return modifiedTime;
+    }
+
+    public void setModifiedTime(Date modifiedTime) {
+        this.modifiedTime = modifiedTime;
+    }
+
     public Boolean getIsDel() {
         return isDel;
     }
@@ -73,19 +97,19 @@ public class RecordItem implements Serializable {
         this.isDel = isDel;
     }
 
-    public Integer getCid() {
+    public Long getCid() {
         return cid;
     }
 
-    public void setCid(Integer cid) {
+    public void setCid(Long cid) {
         this.cid = cid;
     }
 
-    public Integer getRid() {
+    public Long getRid() {
         return rid;
     }
 
-    public void setRid(Integer rid) {
+    public void setRid(Long rid) {
         this.rid = rid;
     }
 }

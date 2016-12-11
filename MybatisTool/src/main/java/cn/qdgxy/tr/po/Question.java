@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Question implements Serializable {
-    private Integer qid;
+
+    private Long id;
 
     private String problem;
 
@@ -28,14 +29,16 @@ public class Question implements Serializable {
 
     private Date createTime;
 
+    private Date modifiedTime;
+
     private Boolean isDel;
 
-    private Integer cid;
+    private Long cid;
 
     private static final long serialVersionUID = 1L;
 
-    public Question(Integer qid, String problem, String image, String optionA, String optionB, String optionC, String optionD, String rightOption, String analysis, String teachLink, Integer grade, Date createTime, Boolean isDel, Integer cid) {
-        this.qid = qid;
+    public Question(Long id, String problem, String image, String optionA, String optionB, String optionC, String optionD, String rightOption, String analysis, String teachLink, Integer grade, Date createTime, Date modifiedTime, Boolean isDel, Long cid) {
+        this.id = id;
         this.problem = problem;
         this.image = image;
         this.optionA = optionA;
@@ -47,6 +50,7 @@ public class Question implements Serializable {
         this.teachLink = teachLink;
         this.grade = grade;
         this.createTime = createTime;
+        this.modifiedTime = modifiedTime;
         this.isDel = isDel;
         this.cid = cid;
     }
@@ -55,12 +59,12 @@ public class Question implements Serializable {
         super();
     }
 
-    public Integer getQid() {
-        return qid;
+    public Long getId() {
+        return id;
     }
 
-    public void setQid(Integer qid) {
-        this.qid = qid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getProblem() {
@@ -151,6 +155,14 @@ public class Question implements Serializable {
         this.createTime = createTime;
     }
 
+    public Date getModifiedTime() {
+        return modifiedTime;
+    }
+
+    public void setModifiedTime(Date modifiedTime) {
+        this.modifiedTime = modifiedTime;
+    }
+
     public Boolean getIsDel() {
         return isDel;
     }
@@ -159,11 +171,11 @@ public class Question implements Serializable {
         this.isDel = isDel;
     }
 
-    public Integer getCid() {
+    public Long getCid() {
         return cid;
     }
 
-    public void setCid(Integer cid) {
+    public void setCid(Long cid) {
         this.cid = cid;
     }
 }

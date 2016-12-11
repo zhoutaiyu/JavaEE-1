@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Chapter implements Serializable {
-    private Integer cid;
+
+    private Long id;
 
     private String cname;
 
@@ -14,18 +15,21 @@ public class Chapter implements Serializable {
 
     private Date createTime;
 
+    private Date modifiedTime;
+
     private Boolean isDel;
 
-    private Integer sid;
+    private Long sid;
 
     private static final long serialVersionUID = 1L;
 
-    public Chapter(Integer cid, String cname, String description, String teachLink, Date createTime, Boolean isDel, Integer sid) {
-        this.cid = cid;
+    public Chapter(Long id, String cname, String description, String teachLink, Date createTime, Date modifiedTime, Boolean isDel, Long sid) {
+        this.id = id;
         this.cname = cname;
         this.description = description;
         this.teachLink = teachLink;
         this.createTime = createTime;
+        this.modifiedTime = modifiedTime;
         this.isDel = isDel;
         this.sid = sid;
     }
@@ -34,12 +38,12 @@ public class Chapter implements Serializable {
         super();
     }
 
-    public Integer getCid() {
-        return cid;
+    public Long getId() {
+        return id;
     }
 
-    public void setCid(Integer cid) {
-        this.cid = cid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCname() {
@@ -74,6 +78,14 @@ public class Chapter implements Serializable {
         this.createTime = createTime;
     }
 
+    public Date getModifiedTime() {
+        return modifiedTime;
+    }
+
+    public void setModifiedTime(Date modifiedTime) {
+        this.modifiedTime = modifiedTime;
+    }
+
     public Boolean getIsDel() {
         return isDel;
     }
@@ -82,11 +94,11 @@ public class Chapter implements Serializable {
         this.isDel = isDel;
     }
 
-    public Integer getSid() {
+    public Long getSid() {
         return sid;
     }
 
-    public void setSid(Integer sid) {
+    public void setSid(Long sid) {
         this.sid = sid;
     }
 }

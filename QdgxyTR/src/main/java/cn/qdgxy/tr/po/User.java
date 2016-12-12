@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class User implements Serializable {
-    private Integer uid;
+
+    private Long id;
 
     private String username;
 
@@ -24,12 +25,14 @@ public class User implements Serializable {
 
     private Date createTime;
 
+    private Date modifiedTime;
+
     private Boolean isDel;
 
     private static final long serialVersionUID = 1L;
 
-    public User(Integer uid, String username, String password, String name, String email, String phone, String sex, Boolean state, String code, Date createTime, Boolean isDel) {
-        this.uid = uid;
+    public User(Long id, String username, String password, String name, String email, String phone, String sex, Boolean state, String code, Date createTime, Date modifiedTime, Boolean isDel) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.name = name;
@@ -39,6 +42,7 @@ public class User implements Serializable {
         this.state = state;
         this.code = code;
         this.createTime = createTime;
+        this.modifiedTime = modifiedTime;
         this.isDel = isDel;
     }
 
@@ -46,12 +50,12 @@ public class User implements Serializable {
         super();
     }
 
-    public Integer getUid() {
-        return uid;
+    public Long getId() {
+        return id;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -124,6 +128,14 @@ public class User implements Serializable {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Date getModifiedTime() {
+        return modifiedTime;
+    }
+
+    public void setModifiedTime(Date modifiedTime) {
+        this.modifiedTime = modifiedTime;
     }
 
     public Boolean getIsDel() {

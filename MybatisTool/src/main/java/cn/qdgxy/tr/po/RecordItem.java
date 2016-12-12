@@ -5,25 +5,16 @@ import java.util.Date;
 
 public class RecordItem implements Serializable {
 
-    private Long id;
-
-    private Integer qid;
-
-    private String answer;
-
-    private String rightOption;
-
-    private Date createTime;
-
-    private Date modifiedTime;
-
-    private Boolean isDel;
-
-    private Long cid;
-
-    private Long rid;
-
     private static final long serialVersionUID = 1L;
+    private Long id;
+    private Integer qid;
+    private String answer;
+    private String rightOption;
+    private Date createTime;
+    private Date modifiedTime;
+    private Boolean isDel;
+    private Long cid;
+    private Long rid;
 
     public RecordItem(Long id, Integer qid, String answer, String rightOption, Date createTime, Date modifiedTime, Boolean isDel, Long cid, Long rid) {
         this.id = id;

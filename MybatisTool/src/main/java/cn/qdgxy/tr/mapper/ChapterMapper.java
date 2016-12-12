@@ -3,7 +3,6 @@ package cn.qdgxy.tr.mapper;
 import cn.qdgxy.tr.po.Chapter;
 
 public interface ChapterMapper {
-
     int deleteByPrimaryKey(Long id);
 
     int insert(Chapter record);

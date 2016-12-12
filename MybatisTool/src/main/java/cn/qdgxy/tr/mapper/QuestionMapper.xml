@@ -35,25 +35,26 @@
         where id = #{id,jdbcType=BIGINT}
   </delete>
     <insert id="insert" parameterType="cn.qdgxy.tr.po.Question">
-    insert into question (id, problem, image, 
-      option_a, option_b, option_c, 
-      option_d, right_option, analysis, 
-      teach_link, grade, create_time, 
-      modified_time, is_del, cid
-      )
-    values (#{id,jdbcType=BIGINT}, #{problem,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
-      #{optionA,jdbcType=VARCHAR}, #{optionB,jdbcType=VARCHAR}, #{optionC,jdbcType=VARCHAR}, 
-      #{optionD,jdbcType=VARCHAR}, #{rightOption,jdbcType=CHAR}, #{analysis,jdbcType=VARCHAR}, 
-      #{teachLink,jdbcType=VARCHAR}, #{grade,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{modifiedTime,jdbcType=TIMESTAMP}, #{isDel,jdbcType=BIT}, #{cid,jdbcType=BIGINT}
-      )
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into question (problem, image, option_a,
+        option_b, option_c, option_d,
+        right_option, analysis, teach_link,
+        grade, create_time, modified_time,
+        is_del, cid)
+        values (#{problem,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, #{optionA,jdbcType=VARCHAR},
+        #{optionB,jdbcType=VARCHAR}, #{optionC,jdbcType=VARCHAR}, #{optionD,jdbcType=VARCHAR},
+        #{rightOption,jdbcType=CHAR}, #{analysis,jdbcType=VARCHAR}, #{teachLink,jdbcType=VARCHAR},
+        #{grade,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{modifiedTime,jdbcType=TIMESTAMP},
+        #{isDel,jdbcType=BIT}, #{cid,jdbcType=BIGINT})
   </insert>
     <insert id="insertSelective" parameterType="cn.qdgxy.tr.po.Question">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
         insert into question
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                id,
-            </if>
             <if test="problem != null">
                 problem,
             </if>
@@ -98,9 +99,6 @@
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                #{id,jdbcType=BIGINT},
-            </if>
             <if test="problem != null">
                 #{problem,jdbcType=VARCHAR},
             </if>

@@ -5,22 +5,32 @@ import java.util.Date;
 
 public class Record implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    private Integer rid;
-    private Boolean status;
-    private Integer answerNumber;
-    private Integer rightNumber;
-    private Date createTime;
-    private Boolean idDel;
-    private Integer uid;
+    private Long id;
 
-    public Record(Integer rid, Boolean status, Integer answerNumber, Integer rightNumber, Date createTime, Boolean idDel, Integer uid) {
-        this.rid = rid;
+    private Integer status;
+
+    private Integer answerNumber;
+
+    private Integer rightNumber;
+
+    private Date createTime;
+
+    private Date modifiedTime;
+
+    private Boolean isDel;
+
+    private Long uid;
+
+    private static final long serialVersionUID = 1L;
+
+    public Record(Long id, Integer status, Integer answerNumber, Integer rightNumber, Date createTime, Date modifiedTime, Boolean isDel, Long uid) {
+        this.id = id;
         this.status = status;
         this.answerNumber = answerNumber;
         this.rightNumber = rightNumber;
         this.createTime = createTime;
-        this.idDel = idDel;
+        this.modifiedTime = modifiedTime;
+        this.isDel = isDel;
         this.uid = uid;
     }
 
@@ -28,19 +38,19 @@ public class Record implements Serializable {
         super();
     }
 
-    public Integer getRid() {
-        return rid;
+    public Long getId() {
+        return id;
     }
 
-    public void setRid(Integer rid) {
-        this.rid = rid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Boolean getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -68,19 +78,27 @@ public class Record implements Serializable {
         this.createTime = createTime;
     }
 
-    public Boolean getIdDel() {
-        return idDel;
+    public Date getModifiedTime() {
+        return modifiedTime;
     }
 
-    public void setIdDel(Boolean idDel) {
-        this.idDel = idDel;
+    public void setModifiedTime(Date modifiedTime) {
+        this.modifiedTime = modifiedTime;
     }
 
-    public Integer getUid() {
+    public Boolean getIsDel() {
+        return isDel;
+    }
+
+    public void setIsDel(Boolean isDel) {
+        this.isDel = isDel;
+    }
+
+    public Long getUid() {
         return uid;
     }
 
-    public void setUid(Integer uid) {
+    public void setUid(Long uid) {
         this.uid = uid;
     }
 }

@@ -5,19 +5,13 @@ import java.util.Date;
 
 public class Subject implements Serializable {
 
-    private Long id;
-
-    private String sname;
-
-    private String description;
-
-    private Date createTime;
-
-    private Date modifiedTime;
-
-    private Boolean isDel;
-
     private static final long serialVersionUID = 1L;
+    private Long id;
+    private String sname;
+    private String description;
+    private Date createTime;
+    private Date modifiedTime;
+    private Boolean isDel;
 
     public Subject(Long id, String sname, String description, Date createTime, Date modifiedTime, Boolean isDel) {
         this.id = id;

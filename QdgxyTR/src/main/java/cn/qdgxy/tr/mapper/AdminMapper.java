@@ -4,13 +4,13 @@ import cn.qdgxy.tr.po.Admin;
 
 public interface AdminMapper {
 
-    int deleteByPrimaryKey(Integer aid);
+    int deleteByPrimaryKey(Long id);
 
     int insert(Admin record);
 
     int insertSelective(Admin record);
 
-    Admin selectByPrimaryKey(Integer aid);
+    Admin selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(Admin record);
 

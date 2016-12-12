@@ -5,29 +5,18 @@ import java.util.Date;
 
 public class Admin implements Serializable {
 
-    private Long id;
-
-    private String username;
-
-    private String password;
-
-    private String name;
-
-    private String email;
-
-    private String phone;
-
-    private String sex;
-
-    private Integer level;
-
-    private Date createTime;
-
-    private Date modifiedTime;
-
-    private Boolean isDel;
-
     private static final long serialVersionUID = 1L;
+    private Long id;
+    private String username;
+    private String password;
+    private String name;
+    private String email;
+    private String phone;
+    private String sex;
+    private Integer level;
+    private Date createTime;
+    private Date modifiedTime;
+    private Boolean isDel;
 
     public Admin(Long id, String username, String password, String name, String email, String phone, String sex, Integer level, Date createTime, Date modifiedTime, Boolean isDel) {
         this.id = id;

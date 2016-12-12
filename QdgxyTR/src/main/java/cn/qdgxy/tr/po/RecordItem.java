@@ -1,23 +1,39 @@
 package cn.qdgxy.tr.po;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class RecordItem implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    private Integer riid;
-    private Integer qid;
-    private String answer;
-    private Boolean isRight;
-    private Boolean isDel;
-    private Integer rid;
+    private Long id;
 
-    public RecordItem(Integer riid, Integer qid, String answer, Boolean isRight, Boolean isDel, Integer rid) {
-        this.riid = riid;
+    private Integer qid;
+
+    private String answer;
+
+    private String rightOption;
+
+    private Date createTime;
+
+    private Date modifiedTime;
+
+    private Boolean isDel;
+
+    private Long cid;
+
+    private Long rid;
+
+    private static final long serialVersionUID = 1L;
+
+    public RecordItem(Long id, Integer qid, String answer, String rightOption, Date createTime, Date modifiedTime, Boolean isDel, Long cid, Long rid) {
+        this.id = id;
         this.qid = qid;
         this.answer = answer;
-        this.isRight = isRight;
+        this.rightOption = rightOption;
+        this.createTime = createTime;
+        this.modifiedTime = modifiedTime;
         this.isDel = isDel;
+        this.cid = cid;
         this.rid = rid;
     }
 
@@ -25,12 +41,12 @@ public class RecordItem implements Serializable {
         super();
     }
 
-    public Integer getRiid() {
-        return riid;
+    public Long getId() {
+        return id;
     }
 
-    public void setRiid(Integer riid) {
-        this.riid = riid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Integer getQid() {
@@ -49,12 +65,28 @@ public class RecordItem implements Serializable {
         this.answer = answer == null ? null : answer.trim();
     }
 
-    public Boolean getIsRight() {
-        return isRight;
+    public String getRightOption() {
+        return rightOption;
     }
 
-    public void setIsRight(Boolean isRight) {
-        this.isRight = isRight;
+    public void setRightOption(String rightOption) {
+        this.rightOption = rightOption == null ? null : rightOption.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getModifiedTime() {
+        return modifiedTime;
+    }
+
+    public void setModifiedTime(Date modifiedTime) {
+        this.modifiedTime = modifiedTime;
     }
 
     public Boolean getIsDel() {
@@ -65,11 +97,19 @@ public class RecordItem implements Serializable {
         this.isDel = isDel;
     }
 
-    public Integer getRid() {
+    public Long getCid() {
+        return cid;
+    }
+
+    public void setCid(Long cid) {
+        this.cid = cid;
+    }
+
+    public Long getRid() {
         return rid;
     }
 
-    public void setRid(Integer rid) {
+    public void setRid(Long rid) {
         this.rid = rid;
     }
 }

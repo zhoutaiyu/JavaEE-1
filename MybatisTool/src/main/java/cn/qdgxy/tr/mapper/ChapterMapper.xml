@@ -27,19 +27,22 @@
         where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="cn.qdgxy.tr.po.Chapter">
-      insert into chapter (id, cname, description,
-      teach_link, create_time, modified_time,
-      is_del, sid)
-      values (#{id,jdbcType=BIGINT}, #{cname,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR},
-      #{teachLink,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifiedTime,jdbcType=TIMESTAMP},
-      #{isDel,jdbcType=BIT}, #{sid,jdbcType=BIGINT})
+      <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+          SELECT LAST_INSERT_ID()
+      </selectKey>
+      insert into chapter (cname, description, teach_link,
+      create_time, modified_time, is_del,
+      sid)
+      values (#{cname,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{teachLink,jdbcType=VARCHAR},
+      #{createTime,jdbcType=TIMESTAMP}, #{modifiedTime,jdbcType=TIMESTAMP}, #{isDel,jdbcType=BIT},
+      #{sid,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="cn.qdgxy.tr.po.Chapter">
+      <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+          SELECT LAST_INSERT_ID()
+      </selectKey>
     insert into chapter
     <trim prefix="(" suffix=")" suffixOverrides=",">
-        <if test="id != null">
-            id,
-        </if>
       <if test="cname != null">
         cname,
       </if>
@@ -63,9 +66,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-        <if test="id != null">
-            #{id,jdbcType=BIGINT},
-        </if>
       <if test="cname != null">
         #{cname,jdbcType=VARCHAR},
       </if>

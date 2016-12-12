@@ -4,13 +4,13 @@ import cn.qdgxy.tr.po.Record;
 
 public interface RecordMapper {
 
-    int deleteByPrimaryKey(Integer rid);
+    int deleteByPrimaryKey(Long id);
 
     int insert(Record record);
 
     int insertSelective(Record record);
 
-    Record selectByPrimaryKey(Integer rid);
+    Record selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(Record record);
 

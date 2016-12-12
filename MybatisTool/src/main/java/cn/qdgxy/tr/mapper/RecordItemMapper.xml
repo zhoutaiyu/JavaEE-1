@@ -28,19 +28,22 @@
         where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="cn.qdgxy.tr.po.RecordItem">
-      insert into record_item (id, qid, answer,
-      right_option, create_time, modified_time, 
-      is_del, cid, rid)
-      values (#{id,jdbcType=BIGINT}, #{qid,jdbcType=INTEGER}, #{answer,jdbcType=CHAR},
-      #{rightOption,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifiedTime,jdbcType=TIMESTAMP},
-      #{isDel,jdbcType=BIT}, #{cid,jdbcType=BIGINT}, #{rid,jdbcType=BIGINT})
+      <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+          SELECT LAST_INSERT_ID()
+      </selectKey>
+      insert into record_item (qid, answer, right_option,
+      create_time, modified_time, is_del,
+      cid, rid)
+      values (#{qid,jdbcType=INTEGER}, #{answer,jdbcType=CHAR}, #{rightOption,jdbcType=CHAR},
+      #{createTime,jdbcType=TIMESTAMP}, #{modifiedTime,jdbcType=TIMESTAMP}, #{isDel,jdbcType=BIT},
+      #{cid,jdbcType=BIGINT}, #{rid,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="cn.qdgxy.tr.po.RecordItem">
+      <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+          SELECT LAST_INSERT_ID()
+      </selectKey>
     insert into record_item
     <trim prefix="(" suffix=")" suffixOverrides=",">
-        <if test="id != null">
-            id,
-        </if>
       <if test="qid != null">
         qid,
       </if>
@@ -67,9 +70,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-        <if test="id != null">
-            #{id,jdbcType=BIGINT},
-        </if>
       <if test="qid != null">
         #{qid,jdbcType=INTEGER},
       </if>

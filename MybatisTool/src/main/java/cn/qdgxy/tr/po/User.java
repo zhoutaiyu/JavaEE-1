@@ -5,31 +5,19 @@ import java.util.Date;
 
 public class User implements Serializable {
 
-    private Long id;
-
-    private String username;
-
-    private String password;
-
-    private String name;
-
-    private String email;
-
-    private String phone;
-
-    private String sex;
-
-    private Boolean state;
-
-    private String code;
-
-    private Date createTime;
-
-    private Date modifiedTime;
-
-    private Boolean isDel;
-
     private static final long serialVersionUID = 1L;
+    private Long id;
+    private String username;
+    private String password;
+    private String name;
+    private String email;
+    private String phone;
+    private String sex;
+    private Boolean state;
+    private String code;
+    private Date createTime;
+    private Date modifiedTime;
+    private Boolean isDel;
 
     public User(Long id, String username, String password, String name, String email, String phone, String sex, Boolean state, String code, Date createTime, Date modifiedTime, Boolean isDel) {
         this.id = id;

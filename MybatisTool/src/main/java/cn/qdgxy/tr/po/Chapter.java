@@ -5,23 +5,15 @@ import java.util.Date;
 
 public class Chapter implements Serializable {
 
-    private Long id;
-
-    private String cname;
-
-    private String description;
-
-    private String teachLink;
-
-    private Date createTime;
-
-    private Date modifiedTime;
-
-    private Boolean isDel;
-
-    private Long sid;
-
     private static final long serialVersionUID = 1L;
+    private Long id;
+    private String cname;
+    private String description;
+    private String teachLink;
+    private Date createTime;
+    private Date modifiedTime;
+    private Boolean isDel;
+    private Long sid;
 
     public Chapter(Long id, String cname, String description, String teachLink, Date createTime, Date modifiedTime, Boolean isDel, Long sid) {
         this.id = id;

@@ -5,23 +5,15 @@ import java.util.Date;
 
 public class Record implements Serializable {
 
-    private Long id;
-
-    private Integer status;
-
-    private Integer answerNumber;
-
-    private Integer rightNumber;
-
-    private Date createTime;
-
-    private Date modifiedTime;
-
-    private Boolean isDel;
-
-    private Long uid;
-
     private static final long serialVersionUID = 1L;
+    private Long id;
+    private Integer status;
+    private Integer answerNumber;
+    private Integer rightNumber;
+    private Date createTime;
+    private Date modifiedTime;
+    private Boolean isDel;
+    private Long uid;
 
     public Record(Long id, Integer status, Integer answerNumber, Integer rightNumber, Date createTime, Date modifiedTime, Boolean isDel, Long uid) {
         this.id = id;

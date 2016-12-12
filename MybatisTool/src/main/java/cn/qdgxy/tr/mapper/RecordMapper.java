@@ -3,7 +3,6 @@ package cn.qdgxy.tr.mapper;
 import cn.qdgxy.tr.po.Record;
 
 public interface RecordMapper {
-
     int deleteByPrimaryKey(Long id);
 
     int insert(Record record);

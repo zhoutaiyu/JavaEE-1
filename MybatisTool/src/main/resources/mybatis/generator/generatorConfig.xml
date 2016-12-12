@@ -87,10 +87,7 @@
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
-            <generatedKey column="aid" sqlStatement="MySql" identity="true"/>
-
-            <columnOverride column="create_time" property="createTime"/>
-            <columnOverride column="is_del" property="isDel"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
 
@@ -98,11 +95,7 @@
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
-            <generatedKey column="cid" sqlStatement="MySql" identity="true"/>
-
-            <columnOverride column="teach_link" property="teachLink"/>
-            <columnOverride column="create_time" property="createTime"/>
-            <columnOverride column="is_del" property="isDel"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
 
@@ -110,7 +103,7 @@
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
-            <generatedKey column="qid" sqlStatement="MySql" identity="true"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
 
@@ -118,7 +111,7 @@
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
-            <generatedKey column="rid" sqlStatement="MySql" identity="true"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
 
@@ -126,7 +119,7 @@
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
-            <generatedKey column="riid" sqlStatement="MySql" identity="true"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
 
@@ -134,7 +127,7 @@
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
-            <generatedKey column="sid" sqlStatement="MySql" identity="true"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
 
@@ -142,7 +135,7 @@
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
             <!-- 插入后返回ID -->
-            <generatedKey column="uid" sqlStatement="MySql" identity="true"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
 

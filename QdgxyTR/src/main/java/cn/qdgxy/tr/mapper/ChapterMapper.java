@@ -4,13 +4,13 @@ import cn.qdgxy.tr.po.Chapter;
 
 public interface ChapterMapper {
 
-    int deleteByPrimaryKey(Integer cid);
+    int deleteByPrimaryKey(Long id);
 
     int insert(Chapter record);
 
     int insertSelective(Chapter record);
 
-    Chapter selectByPrimaryKey(Integer cid);
+    Chapter selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(Chapter record);
 

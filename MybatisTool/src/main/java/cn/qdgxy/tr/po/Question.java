@@ -5,37 +5,22 @@ import java.util.Date;
 
 public class Question implements Serializable {
 
-    private Long id;
-
-    private String problem;
-
-    private String image;
-
-    private String optionA;
-
-    private String optionB;
-
-    private String optionC;
-
-    private String optionD;
-
-    private String rightOption;
-
-    private String analysis;
-
-    private String teachLink;
-
-    private Integer grade;
-
-    private Date createTime;
-
-    private Date modifiedTime;
-
-    private Boolean isDel;
-
-    private Long cid;
-
     private static final long serialVersionUID = 1L;
+    private Long id;
+    private String problem;
+    private String image;
+    private String optionA;
+    private String optionB;
+    private String optionC;
+    private String optionD;
+    private String rightOption;
+    private String analysis;
+    private String teachLink;
+    private Integer grade;
+    private Date createTime;
+    private Date modifiedTime;
+    private Boolean isDel;
+    private Long cid;
 
     public Question(Long id, String problem, String image, String optionA, String optionB, String optionC, String optionD, String rightOption, String analysis, String teachLink, Integer grade, Date createTime, Date modifiedTime, Boolean isDel, Long cid) {
         this.id = id;

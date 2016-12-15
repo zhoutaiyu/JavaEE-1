@@ -21,12 +21,13 @@ import java.util.Map;
  */
 public class MpGeneratorCustom {
 
-    private static final String PACKAGE_PREFIX = "cn.qdgxy.tr";    // 包名
+    private static final String PARENT_NAME = "cn.qdgxy";    // 包名
+    private static final String MODULE_NAME = "tr";    // 包名
     private static final String SAVE_DIR = "D://";  //存放路径
     private static final String AUTHOR = "liXin";  //作者
 
     // 数据库
-    private static final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
+    private static final String DRIVER_NAME = "com.mysql.jdbc.Driver";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "1234";
     private static final String URL = "jdbc:mysql://10.10.39.123/qdgxytr" +
@@ -97,7 +98,8 @@ public class MpGeneratorCustom {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName(PACKAGE_PREFIX);
+        pc.setParent(PARENT_NAME);
+        pc.setModuleName(MODULE_NAME);
         pc.setEntity("po");
         pc.setXml("mapper");
         pc.setController("web.controller");

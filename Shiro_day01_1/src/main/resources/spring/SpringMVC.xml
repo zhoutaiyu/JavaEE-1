@@ -10,9 +10,9 @@
 		http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!-- 静态资源 解析 -->
-    <mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
-    <mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
-    <mvc:resources location="/WEB-INF/img/" mapping="/img/**"/>
+    <mvc:resources location="/js/" mapping="/js/**"/>
+    <mvc:resources location="/css/" mapping="/css/**"/>
+    <mvc:resources location="/images/" mapping="/images/**"/>
 
     <!-- 【配置Handler】 -->
     <!-- 使用spring组件扫描 -->
@@ -49,6 +49,22 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+
+    <!--拦截器 -->
+    <mvc:interceptors>
+
+        <mvc:interceptor>
+            <!-- 用户认证拦截 -->
+            <mvc:mapping path="/**"/>
+            <bean class="cn.qdgxy.shiro.web.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+
+        <!--<mvc:interceptor>-->
+        <!--&lt;!&ndash; 授权拦截 &ndash;&gt;-->
+        <!--<mvc:mapping path="/**"/>-->
+        <!--<bean class="cn.itcast.ssm.controller.interceptor.PermissionInterceptor"/>-->
+        <!--</mvc:interceptor>-->
+    </mvc:interceptors>
 
     <!-- 文件上传 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

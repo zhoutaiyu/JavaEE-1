@@ -1,23 +1,64 @@
 package cn.qdgxy.shiro.po;
 
-public class SysPermission {
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableName;
+
+import java.io.Serializable;
+
+/**
+ * <p>
+ * <p>
+ * </p>
+ *
+ * @author liXin
+ * @since 2016-12-21
+ */
+@TableName("sys_permission")
+public class SysPermission extends Model<SysPermission> {
+
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * 主键
+     */
     private Long id;
-
+    /**
+     * 资源名称
+     */
     private String name;
-
+    /**
+     * 资源类型：menu,button,
+     */
     private String type;
-
+    /**
+     * 访问url地址
+     */
     private String url;
-
+    /**
+     * 权限代码字符串
+     */
     private String percode;
-
-    private Long parentid;
-
-    private String parentids;
-
-    private String sortstring;
-
+    /**
+     * 父结点id
+     */
+    @TableField(value = "parent_id")
+    private Long parentId;
+    /**
+     * 父结点id列表串
+     */
+    @TableField(value = "parent_ids")
+    private String parentIds;
+    /**
+     * 排序号
+     */
+    @TableField(value = "sort_string")
+    private String sortString;
+    /**
+     * 是否可用,1：可用，0不可用
+     */
     private String available;
+
 
     public Long getId() {
         return id;
@@ -32,7 +73,7 @@ public class SysPermission {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getType() {
@@ -40,7 +81,7 @@ public class SysPermission {
     }
 
     public void setType(String type) {
-        this.type = type == null ? null : type.trim();
+        this.type = type;
     }
 
     public String getUrl() {
@@ -48,7 +89,7 @@ public class SysPermission {
     }
 
     public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
+        this.url = url;
     }
 
     public String getPercode() {
@@ -56,31 +97,31 @@ public class SysPermission {
     }
 
     public void setPercode(String percode) {
-        this.percode = percode == null ? null : percode.trim();
+        this.percode = percode;
     }
 
-    public Long getParentid() {
-        return parentid;
+    public Long getParentId() {
+        return parentId;
     }
 
-    public void setParentid(Long parentid) {
-        this.parentid = parentid;
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
     }
 
-    public String getParentids() {
-        return parentids;
+    public String getParentIds() {
+        return parentIds;
     }
 
-    public void setParentids(String parentids) {
-        this.parentids = parentids == null ? null : parentids.trim();
+    public void setParentIds(String parentIds) {
+        this.parentIds = parentIds;
     }
 
-    public String getSortstring() {
-        return sortstring;
+    public String getSortString() {
+        return sortString;
     }
 
-    public void setSortstring(String sortstring) {
-        this.sortstring = sortstring == null ? null : sortstring.trim();
+    public void setSortString(String sortString) {
+        this.sortString = sortString;
     }
 
     public String getAvailable() {
@@ -88,6 +129,12 @@ public class SysPermission {
     }
 
     public void setAvailable(String available) {
-        this.available = available == null ? null : available.trim();
+        this.available = available;
     }
+
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
+    }
+
 }

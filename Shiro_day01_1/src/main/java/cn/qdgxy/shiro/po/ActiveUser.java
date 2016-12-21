@@ -4,13 +4,11 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 用户身份信息，存入session 由于tomcat将session会序列化在本地硬盘上，所以使用Serializable接口
- *
- * @author Thinkpad
+ * 户身份信息，存入session 由于tomcat将session会序列化在本地硬盘上，所以使用Serializable接口
  */
 public class ActiveUser implements Serializable {
 
-    private String userId;//用户id
+    private Long userId;//用户id
     private String userCode;// 用户账号
     private String username;// 用户名称
 
@@ -20,11 +18,11 @@ public class ActiveUser implements Serializable {
     public ActiveUser() {
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

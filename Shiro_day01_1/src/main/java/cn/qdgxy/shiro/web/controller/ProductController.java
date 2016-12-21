@@ -18,12 +18,13 @@ import java.util.List;
  * @version 1.0
  */
 @Controller
+@RequestMapping("/product")
 public class ProductController {
 
     @Resource
     private ProductService productService;
 
-    @RequestMapping("/findAllProduct")
+    @RequestMapping("/all")
     public ModelAndView findAllProduct(HttpServletRequest request) throws Exception {
         //调用service查询商品列表
         List<ProductCustom> productList = productService.findProductList(null);
@@ -31,7 +32,7 @@ public class ProductController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("productList", productList);
         // 指定逻辑视图名
-        modelAndView.setViewName("productList");
+        modelAndView.setViewName("product/productList");
 
         return modelAndView;
     }

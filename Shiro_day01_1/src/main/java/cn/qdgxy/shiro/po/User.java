@@ -1,28 +1,43 @@
 package cn.qdgxy.shiro.po;
 
+import com.baomidou.mybatisplus.activerecord.Model;
+
 import java.io.Serializable;
 import java.util.Date;
 
-public class User implements Serializable {
+/**
+ * <p>
+ * <p>
+ * </p>
+ *
+ * @author liXin
+ * @since 2016-12-21
+ */
+public class User extends Model<User> {
 
     private static final long serialVersionUID = 1L;
+
+    /**
+     *
+     */
     private Integer id;
+    /**
+     * 用户名称
+     */
     private String username;
+    /**
+     * 生日
+     */
     private Date birthday;
+    /**
+     * 性别
+     */
     private String sex;
+    /**
+     * 地址
+     */
     private String address;
 
-    public User(Integer id, String username, Date birthday, String sex, String address) {
-        this.id = id;
-        this.username = username;
-        this.birthday = birthday;
-        this.sex = sex;
-        this.address = address;
-    }
-
-    public User() {
-        super();
-    }
 
     public Integer getId() {
         return id;
@@ -37,7 +52,7 @@ public class User implements Serializable {
     }
 
     public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+        this.username = username;
     }
 
     public Date getBirthday() {
@@ -53,7 +68,7 @@ public class User implements Serializable {
     }
 
     public void setSex(String sex) {
-        this.sex = sex == null ? null : sex.trim();
+        this.sex = sex;
     }
 
     public String getAddress() {
@@ -61,6 +76,12 @@ public class User implements Serializable {
     }
 
     public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
+        this.address = address;
     }
+
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
+	}
+
 }

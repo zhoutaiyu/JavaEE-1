@@ -1,6 +1,6 @@
 package cn.qdgxy.shiro.service.impl;
 
-import cn.qdgxy.shiro.mapper.ProductMapperCustom;
+import cn.qdgxy.shiro.mapper.ProductMapper;
 import cn.qdgxy.shiro.po.ProductCustom;
 import cn.qdgxy.shiro.po.ProductQueryVo;
 import cn.qdgxy.shiro.service.ProductService;
@@ -22,7 +22,7 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     @Resource
-    private ProductMapperCustom productMapperCustom;
+    private ProductMapper productMapper;
 
     /**
      * 商品查询
@@ -32,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
      */
     @Override
     public List<ProductCustom> findProductList(ProductQueryVo productQueryVo) throws Exception {
-        return productMapperCustom.findProductList(productQueryVo);
+        return productMapper.findProductList(productQueryVo);
     }
 
 }

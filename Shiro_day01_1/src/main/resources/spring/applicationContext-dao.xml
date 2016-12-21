@@ -31,7 +31,7 @@
     </bean>
 
     <!-- sqlSessionFactory 整合Mybatis -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean">
         <!-- 数据源 -->
         <property name="dataSource" ref="dataSource"/>
         <!-- mybatis配置文件 -->

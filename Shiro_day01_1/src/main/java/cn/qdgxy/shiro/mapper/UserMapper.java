@@ -1,32 +1,16 @@
 package cn.qdgxy.shiro.mapper;
 
 import cn.qdgxy.shiro.po.User;
-import cn.qdgxy.shiro.po.UserExample;
-import org.apache.ibatis.annotations.Param;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 
-import java.util.List;
+/**
+ * <p>
+ * Mapper接口
+ * </p>
+ *
+ * @author liXin
+ * @since 2016-12-21
+ */
+public interface UserMapper extends BaseMapper<User> {
 
-public interface UserMapper {
-
-    long countByExample(UserExample example);
-
-    int deleteByExample(UserExample example);
-
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(User record);
-
-    int insertSelective(User record);
-
-    List<User> selectByExample(UserExample example);
-
-    User selectByPrimaryKey(Integer id);
-
-    int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
-
-    int updateByExample(@Param("record") User record, @Param("example") UserExample example);
-
-    int updateByPrimaryKeySelective(User record);
-
-    int updateByPrimaryKey(User record);
 }

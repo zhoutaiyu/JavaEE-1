@@ -1,32 +1,16 @@
 package cn.qdgxy.shiro.mapper;
 
 import cn.qdgxy.shiro.po.OrderDetail;
-import cn.qdgxy.shiro.po.OrderDetailExample;
-import org.apache.ibatis.annotations.Param;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 
-import java.util.List;
+/**
+ * <p>
+ * Mapper接口
+ * </p>
+ *
+ * @author liXin
+ * @since 2016-12-21
+ */
+public interface OrderDetailMapper extends BaseMapper<OrderDetail> {
 
-public interface OrderDetailMapper {
-
-    long countByExample(OrderDetailExample example);
-
-    int deleteByExample(OrderDetailExample example);
-
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(OrderDetail record);
-
-    int insertSelective(OrderDetail record);
-
-    List<OrderDetail> selectByExample(OrderDetailExample example);
-
-    OrderDetail selectByPrimaryKey(Integer id);
-
-    int updateByExampleSelective(@Param("record") OrderDetail record, @Param("example") OrderDetailExample example);
-
-    int updateByExample(@Param("record") OrderDetail record, @Param("example") OrderDetailExample example);
-
-    int updateByPrimaryKeySelective(OrderDetail record);
-
-    int updateByPrimaryKey(OrderDetail record);
 }

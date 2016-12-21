@@ -1,6 +1,6 @@
 package cn.qdgxy.shiro.mapper;
 
-import cn.qdgxy.shiro.po.Product;
+import cn.qdgxy.shiro.po.SysUserRole;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * @author liXin
  * @since 2016-12-21
  */
-public interface ProductMapper extends BaseMapper<Product> {
+public interface SysUserRoleMapper extends BaseMapper<SysUserRole> {
 
 }

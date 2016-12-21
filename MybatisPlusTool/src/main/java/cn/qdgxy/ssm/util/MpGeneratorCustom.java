@@ -22,7 +22,7 @@ import java.util.Map;
 public class MpGeneratorCustom {
 
     private static final String PARENT_NAME = "cn.qdgxy";    // 包名
-    private static final String MODULE_NAME = "tr";    // 包名
+    private static final String MODULE_NAME = "shiro";    // 包名
     private static final String SAVE_DIR = "D://";  //存放路径
     private static final String AUTHOR = "liXin";  //作者
 
@@ -30,7 +30,7 @@ public class MpGeneratorCustom {
     private static final String DRIVER_NAME = "com.mysql.jdbc.Driver";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "1234";
-    private static final String URL = "jdbc:mysql://10.10.39.123/qdgxytr" +
+    private static final String URL = "jdbc:mysql://127.0.0.1/shiro" +
             "?useUnicode=true&characterEncoding=UTF8&serverTimezone=UTC&useSSL=false";
 
     /**

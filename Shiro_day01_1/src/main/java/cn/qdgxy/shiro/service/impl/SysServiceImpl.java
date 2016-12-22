@@ -64,7 +64,6 @@ public class SysServiceImpl implements SysService {
         Long userid = sysUser.getId();
         //根据用户id查询菜单
         List<SysPermission> menus = this.findMenuListByUserId(userid);
-
         //根据用户id查询权限url
         List<SysPermission> permissions = this.findPermissionListByUserId(userid);
 
@@ -97,6 +96,8 @@ public class SysServiceImpl implements SysService {
     }
 
     /**
+     * 根据用户id查询菜单
+     *
      * @param userId ID
      * @return List<SysPermission>
      * @throws Exception Exception

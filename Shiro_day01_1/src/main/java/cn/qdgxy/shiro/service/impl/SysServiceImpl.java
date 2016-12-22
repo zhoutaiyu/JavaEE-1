@@ -1,6 +1,6 @@
 package cn.qdgxy.shiro.service.impl;
 
-import cn.qdgxy.shiro.exception.MyException;
+import cn.qdgxy.shiro.exception.CustomException;
 import cn.qdgxy.shiro.mapper.SysUserMapper;
 import cn.qdgxy.shiro.po.ActiveUser;
 import cn.qdgxy.shiro.po.SysPermission;
@@ -46,7 +46,7 @@ public class SysServiceImpl implements SysService {
 
         if (sysUser == null) {
             //抛出异常
-            throw new MyException("用户账号不存在");
+            throw new CustomException("用户账号不存在!");
         }
 
         //数据库密码 (md5密码 )
@@ -57,7 +57,7 @@ public class SysServiceImpl implements SysService {
         String password_input_md5 = new MD5().getMD5ofStr(password);
         if (!password_input_md5.equalsIgnoreCase(password_db)) {
             //抛出异常
-            throw new MyException("用户名或密码错误");
+            throw new CustomException("密码错误!");
         }
 
         //得到用户id

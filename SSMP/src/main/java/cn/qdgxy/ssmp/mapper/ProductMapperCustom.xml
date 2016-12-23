@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.qdgxy.ssmp.mapper.ProductMapperCustom">
+
+    <!-- 商品查询的sql片段
+        建议是以单表为单位定义查询条件
+        建议将常用的查询条件都写出来  -->
+    <sql id="query_product_where">
+        <if test="productCustom!=null">
+            <if test="productCustom.name!=null and productCustom.name!=''">
+                and name like '%${productCustom.name}%'
+            </if>
+            <if test="productCustom.id!=null">
+                and id = #{productCustom.id}
+            </if>
+        </if>
+    </sql>
+
+    <!-- 商品查询
+        parameterType：输入 查询条件 -->
+    <select id="findProductList" parameterType="cn.qdgxy.ssmp.po.ProductQueryVo"
+            resultType="cn.qdgxy.ssmp.po.ProductCustom">
+        SELECT * FROM product
+        <where>
+            <include refid="query_product_where"/>
+        </where>
+    </select>
+
+</mapper>

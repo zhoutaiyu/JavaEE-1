@@ -37,7 +37,6 @@ public class LoginInterceptor implements HandlerInterceptor {
             }
         }
 
-
         //判断用户身份在session中是否存在
         HttpSession session = request.getSession();
         ActiveUser activeUser = (ActiveUser) session.getAttribute("activeUser");

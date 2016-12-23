@@ -63,7 +63,7 @@ public class UserController {
         //如果service校验通过，将用户身份记录到session
         session.setAttribute("activeUser", activeUser);
         //重定向到商品查询页面
-        return "redirect:/product/all";
+        return "redirect:/first";
     }
 
     //用户退出
@@ -73,7 +73,7 @@ public class UserController {
         //session失效
         session.invalidate();
         //重定向到商品查询页面
-        return "redirect:/first.action";
+        return "redirect:/first";
     }
 
 }

@@ -1,6 +1,7 @@
 package cn.qdgxy.shiro.service.impl;
 
 import cn.qdgxy.shiro.exception.CustomException;
+import cn.qdgxy.shiro.mapper.SysPermissionMapper;
 import cn.qdgxy.shiro.mapper.SysUserMapper;
 import cn.qdgxy.shiro.po.ActiveUser;
 import cn.qdgxy.shiro.po.SysPermission;
@@ -26,6 +27,9 @@ public class SysServiceImpl implements SysService {
 
     @Resource
     private SysUserMapper sysUserMapper;
+
+    @Resource
+    private SysPermissionMapper sysPermissionMapper;
 
     /**
      * 根据用户的身份和密码 进行认证，如果认证通过，返回用户身份信息
@@ -104,7 +108,7 @@ public class SysServiceImpl implements SysService {
      */
     @Override
     public List<SysPermission> findMenuListByUserId(Long userId) throws Exception {
-        return null;
+        return sysPermissionMapper.findMenuListByUserId(userId);
     }
 
     /**
@@ -116,7 +120,7 @@ public class SysServiceImpl implements SysService {
      */
     @Override
     public List<SysPermission> findPermissionListByUserId(Long userId) throws Exception {
-        return null;
+        return sysPermissionMapper.findPermissionListByUserId(userId);
     }
 
 }

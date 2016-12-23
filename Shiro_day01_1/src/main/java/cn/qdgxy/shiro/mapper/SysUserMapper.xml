@@ -5,7 +5,7 @@
 	<!-- 通用查询映射结果 -->
 	<resultMap id="BaseResultMap" type="cn.qdgxy.shiro.po.SysUser">
 		<id column="id" property="id" />
-		<result column="usercode" property="usercode" />
+        <result column="usercode" property="userCode"/>
 		<result column="username" property="username" />
 		<result column="password" property="password" />
 		<result column="salt" property="salt" />

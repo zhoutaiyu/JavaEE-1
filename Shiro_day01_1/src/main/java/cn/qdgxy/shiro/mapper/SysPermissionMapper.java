@@ -22,7 +22,7 @@ public interface SysPermissionMapper extends BaseMapper<SysPermission> {
      * @return List<SysPermission>
      * @throws Exception Exception
      */
-    List<SysPermission> findMenuListByUserId(String userId) throws Exception;
+    List<SysPermission> findMenuListByUserId(Long userId) throws Exception;
 
     /**
      * 根据用户id查询权限url
@@ -31,6 +31,6 @@ public interface SysPermissionMapper extends BaseMapper<SysPermission> {
      * @return List<SysPermission>
      * @throws Exception Exception
      */
-    List<SysPermission> findPermissionListByUserId(String userId) throws Exception;
+    List<SysPermission> findPermissionListByUserId(Long userId) throws Exception;
 
 }

@@ -7,10 +7,10 @@ import java.util.Date;
 
 /**
  * 自定义日期转换器
- * create:2016-11-05 22:06
  *
  * @author 李欣
  * @version 1.0
+ * @since 2016-12-23 10:53
  */
 public class CustomDateConverter implements Converter<String, Date> {
 

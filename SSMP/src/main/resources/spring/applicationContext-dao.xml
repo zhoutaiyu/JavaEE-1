@@ -31,11 +31,20 @@
     </bean>
 
     <!-- sqlSessionFactory 整合Mybatis -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean">
         <!-- 数据源 -->
         <property name="dataSource" ref="dataSource"/>
         <!-- mybatis配置文件 -->
         <property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"/>
+        <!-- 插件配置项  -->
+        <property name="plugins">
+            <array>
+                <!-- 分页插件配置 -->
+                <bean id="paginationInterceptor" class="com.baomidou.mybatisplus.plugins.PaginationInterceptor">
+                    <property name="dialectType" value="mysql"/>
+                </bean>
+            </array>
+        </property>
     </bean>
 
     <!-- 配置DAO层的sqlSessionTemplate -->

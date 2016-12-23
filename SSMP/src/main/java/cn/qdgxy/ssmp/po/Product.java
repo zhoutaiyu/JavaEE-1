@@ -1,76 +1,100 @@
 package cn.qdgxy.ssmp.po;
 
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableField;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Product implements Serializable {
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author liXin
+ * @since 2016-12-23
+ */
+public class Product extends Model<Product> {
 
     private static final long serialVersionUID = 1L;
-    private Integer id;
-    private String name;
-    private Float price;
-    private String pic;
-    private Date createtime;
-    private String detail;
 
-    public Product(Integer id, String name, Float price, String pic, Date createtime, String detail) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.pic = pic;
-        this.createtime = createtime;
-        this.detail = detail;
-    }
+	/**
+	 * 
+	 */
+	private Integer id;
+	/**
+	 * 商品名称
+	 */
+	private String name;
+	/**
+	 * 商品定价
+	 */
+	private Float price;
+	/**
+	 * 商品描述
+	 */
+	private String detail;
+	/**
+	 * 商品图片
+	 */
+	private String pic;
+	/**
+	 * 生产日期
+	 */
+	private Date createtime;
 
-    public Product() {
-        super();
-    }
 
-    public Integer getId() {
-        return id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public Float getPrice() {
-        return price;
-    }
+	public Float getPrice() {
+		return price;
+	}
 
-    public void setPrice(Float price) {
-        this.price = price;
-    }
+	public void setPrice(Float price) {
+		this.price = price;
+	}
 
-    public String getPic() {
-        return pic;
-    }
+	public String getDetail() {
+		return detail;
+	}
 
-    public void setPic(String pic) {
-        this.pic = pic == null ? null : pic.trim();
-    }
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
 
-    public Date getCreatetime() {
-        return createtime;
-    }
+	public String getPic() {
+		return pic;
+	}
 
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
-    }
+	public void setPic(String pic) {
+		this.pic = pic;
+	}
 
-    public String getDetail() {
-        return detail;
-    }
+	public Date getCreatetime() {
+		return createtime;
+	}
 
-    public void setDetail(String detail) {
-        this.detail = detail == null ? null : detail.trim();
-    }
+	public void setCreatetime(Date createtime) {
+		this.createtime = createtime;
+	}
+
+	@Override
+	protected Serializable pkVal() {
+		return this.id;
+	}
+
 }

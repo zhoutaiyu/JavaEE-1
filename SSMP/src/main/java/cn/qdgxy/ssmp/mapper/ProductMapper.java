@@ -1,38 +1,28 @@
 package cn.qdgxy.ssmp.mapper;
 
 import cn.qdgxy.ssmp.po.Product;
-import cn.qdgxy.ssmp.po.ProductExample;
-import org.apache.ibatis.annotations.Param;
+import cn.qdgxy.ssmp.po.ProductCustom;
+import cn.qdgxy.ssmp.po.ProductQueryVo;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 import java.util.List;
 
-public interface ProductMapper {
+/**
+ * <p>
+ * Mapper接口
+ * </p>
+ *
+ * @author liXin
+ * @since 2016-12-23
+ */
+public interface ProductMapper extends BaseMapper<Product> {
 
-    long countByExample(ProductExample example);
+    /**
+     * 商品查询
+     *
+     * @param productQueryVo 查询条件
+     * @return 商品包装类
+     */
+    List<ProductCustom> findProductList(ProductQueryVo productQueryVo);
 
-    int deleteByExample(ProductExample example);
-
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(Product record);
-
-    int insertSelective(Product record);
-
-    List<Product> selectByExampleWithBLOBs(ProductExample example);
-
-    List<Product> selectByExample(ProductExample example);
-
-    Product selectByPrimaryKey(Integer id);
-
-    int updateByExampleSelective(@Param("record") Product record, @Param("example") ProductExample example);
-
-    int updateByExampleWithBLOBs(@Param("record") Product record, @Param("example") ProductExample example);
-
-    int updateByExample(@Param("record") Product record, @Param("example") ProductExample example);
-
-    int updateByPrimaryKeySelective(Product record);
-
-    int updateByPrimaryKeyWithBLOBs(Product record);
-
-    int updateByPrimaryKey(Product record);
 }

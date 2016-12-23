@@ -1,6 +1,6 @@
 package cn.qdgxy.ssmp.mapper;
 
-import cn.qdgxy.ssmp.po.OrderDetail;
+import cn.qdgxy.ssmp.po.OrderRecord;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * @author liXin
  * @since 2016-12-23
  */
-public interface OrderDetailMapper extends BaseMapper<OrderDetail> {
+public interface OrderRecordMapper extends BaseMapper<OrderRecord> {
 
 }

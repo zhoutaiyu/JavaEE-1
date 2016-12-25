@@ -15,7 +15,7 @@ import java.io.Serializable;
  * @since 2016-12-21
  */
 @TableName("sys_permission")
-public class SysPermission extends Model<SysPermission> {
+public class SysPermission extends Model<SysPermission> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

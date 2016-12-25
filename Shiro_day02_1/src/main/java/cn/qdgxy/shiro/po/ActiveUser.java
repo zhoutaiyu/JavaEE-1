@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 户身份信息，存入session 由于tomcat将session会序列化在本地硬盘上，所以使用Serializable接口
+ * 用户身份信息，存入session 由于tomcat将session会序列化在本地硬盘上，所以使用Serializable接口
  */
 public class ActiveUser implements Serializable {
 

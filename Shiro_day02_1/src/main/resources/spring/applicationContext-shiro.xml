@@ -12,7 +12,7 @@
         <!-- 认证成功统一跳转到first.action，建议不配置，shiro认证成功自动到上一个请求路径 -->
         <property name="successUrl" value="/first"/>
         <!-- 通过unauthorizedUrl指定没有权限操作时跳转页面-->
-        <property name="unauthorizedUrl" value="refuse"/>
+        <property name="unauthorizedUrl" value="/refuse.jsp"/>
         <!-- 自定义filter配置 -->
         <!--<property name="filters">-->
         <!--<map>-->
@@ -35,13 +35,14 @@
                 <!-- 请求 logout.action地址，shiro去清除session-->
                 /user/logout = logout
 
-                <!--&lt;!&ndash;商品查询需要商品查询权限 ，取消url拦截配置，使用注解授权方式 &ndash;&gt;-->
-                <!--&lt;!&ndash; /items/queryItems.action = perms[item:query]-->
-                <!--/items/editItems.action = perms[item:edit] &ndash;&gt;-->
-                <!--&lt;!&ndash; 配置记住我或认证通过可以访问的地址 &ndash;&gt;-->
-                <!--/index.jsp = user-->
-                <!--/first.action = user-->
-                <!--/welcome.jsp = user-->
+                <!--商品查询需要商品查询权限 ，取消url拦截配置，使用注解授权方式 -->
+                /product/query = perms[product:query]
+
+                <!--  /items/editItems.action = perms[item:edit] -->
+                <!-- 配置记住我或认证通过可以访问的地址 -->
+                /index.jsp = user
+                /first.action = user
+                /welcome.jsp = user
 
                 <!-- /** = authc 所有url都必须认证通过才可以访问-->
                 /** = authc
@@ -66,15 +67,16 @@
     <!-- shiro -->
     <bean id="customRealm" class="cn.qdgxy.shiro.shiro.CustomRealm">
         <!-- 将凭证匹配器设置到realm中，realm按照凭证匹配器的要求进行散列 -->
-        <!--<property name="credentialsMatcher" ref="credentialsMatcher"/>-->
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
     </bean>
 
     <!-- 凭证匹配器 -->
-    <!--<bean id="credentialsMatcher"-->
-    <!--class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">-->
-    <!--<property name="hashAlgorithmName" value="md5"/>-->
-    <!--<property name="hashIterations" value="1"/>-->
-    <!--</bean>-->
+    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        <!--散列算法-->
+        <property name="hashAlgorithmName" value="md5"/>
+        <!--散列次数-->
+        <property name="hashIterations" value="2"/>
+    </bean>
 
     <!-- 缓存管理器 -->
     <!--<bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">-->

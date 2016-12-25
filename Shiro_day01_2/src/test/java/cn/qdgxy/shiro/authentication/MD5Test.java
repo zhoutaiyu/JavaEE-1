@@ -10,13 +10,13 @@ public class MD5Test {
 
     public static void main(String[] args) {
         //原始 密码
-        String source = "111111";
+        String source = "123456";
         //盐
-        String salt = "qwerty";
+        String salt = "mv5j58ogCN#Ubj*YSm@kcBBGiID#pOjF";
         //散列次数
         int hashIterations = 2;
-        //上边散列1次：f3694f162729b7d0254c6e40260bf15c
-        //上边散列2次：36f2dfa24d0a9fa97276abbe13e596fc
+        //上边散列1次：325d1f6301df321d1dff457edd6b8f01
+        //上边散列2次：2ca8b5cc5d81fcc7ec0e291fd6180d41
 
 
         //构造方法中：

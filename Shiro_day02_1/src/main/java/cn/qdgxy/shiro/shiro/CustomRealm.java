@@ -2,6 +2,7 @@ package cn.qdgxy.shiro.shiro;
 
 import cn.qdgxy.shiro.po.ActiveUser;
 import cn.qdgxy.shiro.po.SysPermission;
+import cn.qdgxy.shiro.po.SysUser;
 import cn.qdgxy.shiro.service.SysService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -11,6 +12,7 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.util.ByteSource;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -40,44 +42,50 @@ public class CustomRealm extends AuthorizingRealm {
         // 第一步从token中取出身份信息 账号
         String userCode = (String) token.getPrincipal();
 
-        // 第二步：根据用户输入的userCode从数据库查询
-        // ....
-
+        /// 第二步：根据用户输入的userCode从数据库查询
+        SysUser sysUser = null;
+        try {
+            sysUser = sysService.findSysUserByUserCode(userCode);
+        } catch (Exception ignored) {
+        }
 
         // 如果查询不到返回null
-        //数据库中用户账号是zhangsansan
-        /*if(!userCode.equals("zhangsansan")){//
+        if (sysUser == null) {
             return null;
-		}*/
+        }
 
+        // 从数据库查询到密码
+        String password = sysUser.getPassword();
 
-        // 模拟从数据库查询到密码
-        String password = "111111";
+        //盐
+        String salt = sysUser.getSalt();
+
 
         // 如果查询到返回认证信息AuthenticationInfo
 
         //activeUser就是用户身份信息
         ActiveUser activeUser = new ActiveUser();
 
-        activeUser.setUserId(1L);
-        activeUser.setUserCode("zhangsan");
-        activeUser.setUsername("张三");
+        activeUser.setUserId(sysUser.getId());
+        activeUser.setUserCode(sysUser.getUserCode());
+        activeUser.setUsername(sysUser.getUsername());
         //..
 
         //根据用户id取出菜单
-        //通过service取出菜单
         List<SysPermission> menus = null;
         try {
-            menus = sysService.findMenuListByUserId(1L);
+            //通过service取出菜单
+            menus = sysService.findMenuListByUserId(sysUser.getId());
         } catch (Exception e) {
             e.printStackTrace();
         }
         //将用户菜单 设置到activeUser
         activeUser.setMenus(menus);
 
+
         //将activeUser设置simpleAuthenticationInfo
         SimpleAuthenticationInfo simpleAuthenticationInfo = new SimpleAuthenticationInfo(
-                activeUser, password, this.getName());
+                activeUser, password, ByteSource.Util.bytes(salt), this.getName());
 
         return simpleAuthenticationInfo;
     }
@@ -88,7 +96,7 @@ public class CustomRealm extends AuthorizingRealm {
             PrincipalCollection principals) {
         //从 principals获取主身份信息
         //将getPrimaryPrincipal方法返回值转为真实身份类型（在上边的doGetAuthenticationInfo认证通过填充到SimpleAuthenticationInfo中身份类型），
-        String userCode = (String) principals.getPrimaryPrincipal();
+        ActiveUser activeUser = (ActiveUser) principals.getPrimaryPrincipal();
 
         //根据身份信息获取权限信息
         //连接数据库...
@@ -96,6 +104,7 @@ public class CustomRealm extends AuthorizingRealm {
         List<String> permissions = new ArrayList<>();
         permissions.add("user:create");//用户的创建
         permissions.add("items:add");//商品添加权限
+        permissions.add("product:query");//商品添加权限
         //....
 
         //查到权限数据，返回授权信息(要包括上边的permissions)

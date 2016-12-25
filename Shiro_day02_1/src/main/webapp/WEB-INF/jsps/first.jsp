@@ -64,7 +64,7 @@
         function logout() {
             _confirm('您确定要退出本系统吗?', null,
                 function () {
-                    location.href = '${baseurl}user/logout';
+                    location.href = '${baseurl}/user/logout';
                 }
             )
         }
@@ -113,15 +113,16 @@
 
     <DIV id="nav" class="easyui-accordion" border="false" fit="true">
 
-        <c:if test="${activeUser.menus!=null }">
+        <c:if test="${activeUser.menus!=null}">
             <ul>
-                <c:forEach items="${activeUser.menus }" var="menu">
+                <c:forEach items="${activeUser.menus}" var="menu">
                     <li>
                         <div>
-                            <a title="${menu.name }" ref="1_1" href="#"
-                               rel="${baseurl }/${menu.url }" icon="icon-log"><span
-                                    class="icon icon-log">&nbsp;</span><span class="nav"><a
-                                    href=javascript:addTab('${menu.name }','${baseurl }/${menu.url }')>${menu.name }</a></span></a>
+                            <a title="${menu.name}" ref="1_1" href="#" rel="${baseurl}/${menu.url}" icon="icon-log">
+                                <span class="icon icon-log">&nbsp;</span><span class="nav">
+                                    <a href=javascript:addTab('${menu.name}','${baseurl}${menu.url}')>${menu.name}</a>
+                                </span>
+                            </a>
                         </div>
                     </li>
                 </c:forEach>

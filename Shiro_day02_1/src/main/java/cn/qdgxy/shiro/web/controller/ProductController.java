@@ -2,6 +2,7 @@ package cn.qdgxy.shiro.web.controller;
 
 import cn.qdgxy.shiro.po.ProductCustom;
 import cn.qdgxy.shiro.service.ProductService;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,6 +26,7 @@ public class ProductController {
     private ProductService productService;
 
     @RequestMapping("/all")
+    @RequiresPermissions("product:queryAll")//执行queryItems需要"product:queryAll"权限
     public ModelAndView findAllProduct(HttpServletRequest request) throws Exception {
         //调用service查询商品列表
         List<ProductCustom> productList = productService.findProductList(null);

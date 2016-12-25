@@ -36,7 +36,7 @@
                 /user/logout = logout
 
                 <!--商品查询需要商品查询权限 ，取消url拦截配置，使用注解授权方式 -->
-                /product/query = perms[product:query]
+                <!--/product/all = perms[product:queryAll]-->
 
                 <!--  /items/editItems.action = perms[item:edit] -->
                 <!-- 配置记住我或认证通过可以访问的地址 -->

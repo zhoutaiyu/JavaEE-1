@@ -82,6 +82,16 @@ public class CustomRealm extends AuthorizingRealm {
         //将用户菜单 设置到activeUser
         activeUser.setMenus(menus);
 
+        //根据用户id取出子菜单
+        List<SysPermission> permissions = null;
+        try {
+            //通过service取出子菜单
+            permissions = sysService.findPermissionListByUserId(sysUser.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //将用户子菜单 设置到activeUser
+        activeUser.setPermissions(permissions);
 
         //将activeUser设置simpleAuthenticationInfo
         SimpleAuthenticationInfo simpleAuthenticationInfo = new SimpleAuthenticationInfo(
@@ -94,18 +104,28 @@ public class CustomRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(
             PrincipalCollection principals) {
+
         //从 principals获取主身份信息
         //将getPrimaryPrincipal方法返回值转为真实身份类型（在上边的doGetAuthenticationInfo认证通过填充到SimpleAuthenticationInfo中身份类型），
         ActiveUser activeUser = (ActiveUser) principals.getPrimaryPrincipal();
 
         //根据身份信息获取权限信息
-        //连接数据库...
-        //模拟从数据库获取到数据
+        //从数据库获取到权限数据
+        List<SysPermission> permissionList = null;
+        try {
+            permissionList = sysService.findPermissionListByUserId(activeUser.getUserId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //单独定一个集合对象
         List<String> permissions = new ArrayList<>();
-        permissions.add("user:create");//用户的创建
-        permissions.add("items:add");//商品添加权限
-        permissions.add("product:query");//商品添加权限
-        //....
+        if (permissionList != null) {
+            for (SysPermission sysPermission : permissionList) {
+                //将数据库中的权限标签 符放入集合
+                permissions.add(sysPermission.getPercode());
+            }
+        }
+
 
         //查到权限数据，返回授权信息(要包括上边的permissions)
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();

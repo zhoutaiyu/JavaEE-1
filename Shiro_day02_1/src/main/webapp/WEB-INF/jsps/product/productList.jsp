@@ -3,6 +3,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -33,7 +34,12 @@
                 <td>${product.price}</td>
                 <td><%--<fmt:formatDate value="${product.createTime}" pattern="yyyy-MM-dd HH-mm-ss"/>--%></td>
                 <td>${product.detail}</td>
-                <td><a href="${pageContext.request.contextPath }/product/editItem.action?id=${product.id}">修改</a></td>
+                <!-- 有product:update权限才显示修改链接，没有该 权限不显示，相当 于if(hasPermission(product:update)) -->
+                <shiro:hasPermission name="product:update">
+                    <td>
+                        <a href="${pageContext.request.contextPath }/product/editItem.action?id=${product.id}">修改</a>
+                    </td>
+                </shiro:hasPermission>
             </tr>
         </c:forEach>
 

@@ -1,0 +1,65 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 【配置Handler】 -->
+    <!-- 使用spring组件扫描 -->
+    <context:component-scan base-package="cn.qdgxy.ssm.controller"/>
+
+    <!-- 通过annotation-driven可以替代下边的处理器映射器和适配器 -->
+    <!--<mvc:annotation-driven conversion-service="conversionService"/>-->
+
+    <!-- 【注解处理器映射器】 -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+
+    <!-- 【注解适配器】 -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <!-- 在webBindingInitializer中注入自定义属性编辑器、自定义转换器 -->
+        <!--<property name="webBindingInitializer" ref="customBinder"></property>-->
+    </bean>
+
+
+    <!-- 【视图解析器】 要求将jstl的包加到classpath -->
+    <!-- ViewResolver -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 这里的配置我的理解是自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址 -->
+        <!-- 前缀 -->
+        <property name="prefix" value="/WEB-INF/jsps/product/"/>
+        <!-- 后缀 -->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+
+    <!-- 自定义webBinder -->
+    <!--<bean id="customBinder"-->
+    <!--class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">-->
+    <!--&lt;!&ndash; 使用converter进行参数转 &ndash;&gt;-->
+    <!--<property name="conversionService" ref="conversionService"/>-->
+
+    <!--&lt;!&ndash; propertyEditorRegistrars用于属性编辑器 &ndash;&gt;-->
+    <!--&lt;!&ndash; <property name="propertyEditorRegistrars">-->
+    <!--<list>-->
+    <!--<ref bean="customPropertyEditor" />-->
+    <!--</list>-->
+    <!--</property> &ndash;&gt;-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; 注册属性编辑器 &ndash;&gt;-->
+    <!--<bean id="customPropertyEditor" class="cn.itcast.ssm.controller.propertyeditor.CustomPropertyEditor"></bean>-->
+
+
+    <!--&lt;!&ndash; 转换器 &ndash;&gt;-->
+    <!--<bean id="conversionService"-->
+    <!--class="org.springframework.format.support.FormattingConversionServiceFactoryBean">-->
+    <!--<property name="converters">-->
+    <!--<list>-->
+    <!--<bean class="cn.itcast.ssm.controller.converter.CustomDateConverter"/>-->
+    <!--<bean class="cn.itcast.ssm.controller.converter.StringTrimConverter"/>-->
+    <!--</list>-->
+    <!--</property>-->
+    <!--</bean>-->
+
+</beans>

@@ -1,4 +1,4 @@
-package cn.qdgxy.ssm.util;
+package cn.qdgxy.util;
 
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;

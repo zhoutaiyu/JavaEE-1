@@ -26,7 +26,7 @@ public class MpGenerator {
     private static final String DRIVER_NAME = "com.mysql.jdbc.Driver";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "1234";
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/qdgxytr" +
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/taotao" +
             "?useUnicode=true&characterEncoding=UTF8&serverTimezone=UTC&useSSL=false";
 
     /**
@@ -50,7 +50,7 @@ public class MpGenerator {
         // 自定义文件命名，注意 %s 会自动填充表实体属性！
         gc.setMapperName("%sMapper");
         gc.setXmlName("%sMapper");
-        gc.setServiceName("MP%sService");
+        gc.setServiceName("%sService");
         gc.setServiceImplName("%sServiceImpl");
         gc.setControllerName("%sController");
         mpg.setGlobalConfig(gc);
